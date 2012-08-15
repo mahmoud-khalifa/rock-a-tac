@@ -60,8 +60,6 @@ NSString * const PiecesAnimationNamesString[] = {
     self=[super init];
     if (self) {
 
-        
-        
         //Game Center:
         gkHelper = [GameKitHelper sharedGameKitHelper];
         gkHelper.delegate = self;

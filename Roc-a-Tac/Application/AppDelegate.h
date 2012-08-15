@@ -11,6 +11,9 @@
 
 #import "FourmnowSDK.h"
 #import "FBConnect.h"
+#import "MPAdView.h"
+#import "RevMobAds.h"
+
 @class Controller;
 @class RootViewController;
 @protocol AppDelegateProtocol
@@ -22,7 +25,9 @@
 
 @interface AppDelegate : NSObject <UIApplicationDelegate,FBRequestDelegate,
 FBDialogDelegate,
-FBSessionDelegate> {
+FBSessionDelegate, 
+MPAdViewDelegate,
+RevMobAdsDelegate> {
 	UIWindow			*window;
 	RootViewController	*viewController;
 
@@ -42,9 +47,11 @@ FBSessionDelegate> {
     
     NSDictionary* nagDict;
     
-     Facebook *facebook;
+    Facebook *facebook;
+    
 }
 
+@property (nonatomic, retain) MPAdView *adView;
 @property (nonatomic, retain) UIWindow *window;
 @property int MultiplayerTimeout;
 
@@ -61,6 +68,8 @@ FBSessionDelegate> {
 #pragma mark facebook Methods
 - (void)connectToFacebook:(NSString *)msg; 
 - (void)postFacebookMessage;
+
++(MPAdView*) getMpAdView;
 
 
 @end

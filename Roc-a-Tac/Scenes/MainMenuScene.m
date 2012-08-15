@@ -176,8 +176,6 @@
            
             selectedButton.visible=YES;
             selectedButton.position=kSINGLE_PLAYER_BTN_POS;
-            
-            
            
         }else if (CGRectContainsPoint(kMULTI_PLAYER_BTN_RECT, location) ) {
            
@@ -189,12 +187,10 @@
             selectedButton.visible=YES;
             selectedButton.position=kOPTIONS_BTN_POS;
            
-            
         }else if (CGRectContainsPoint(kSTATS_BTN_RECT, location) ) {
          
             selectedButton.visible=YES;
             selectedButton.position=kSTATS_BTN_POS;
-            
             
         }else if (CGRectContainsPoint(kMORE_GAMES_BTN_RECT, location) ) {
            
@@ -211,8 +207,14 @@
     
 }
 
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void) disableSelectedButton{
     selectedButton.visible=NO;
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+    
+    [self performSelector:@selector(disableSelectedButton) withObject:Nil afterDelay:5];
+    
     [btnSelector removeFromParentAndCleanup:YES];
     CGPoint location = [touch locationInView:[touch view]]; 
     
@@ -244,7 +246,7 @@
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             
         }else if (CGRectContainsPoint(easyRect, location)) {
-             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+//             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             easyLevel.visible=YES;
             mediumLevel.visible=NO;
             hardLevel.visible=NO;
@@ -253,7 +255,7 @@
             [self performSelector:@selector(startSinglePlayerGameWithDifficulty:) withObject:[NSNumber numberWithInt:GameDifficultyEasy] afterDelay:0.15];
 //            [self startSinglePlayerGameWithDifficulty:GameDifficultyEasy];
         }else if(CGRectContainsPoint(mediumRect, location)){
-             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+//             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             easyLevel.visible=NO;
             mediumLevel.visible=YES;
             hardLevel.visible=NO;
@@ -263,7 +265,7 @@
 //            [self startSinglePlayerGameWithDifficulty:GameDifficultyMedium];
             
         }else if(CGRectContainsPoint(hardRect, location)){
-             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+//             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             easyLevel.visible=NO;
             mediumLevel.visible=NO;
             hardLevel.visible=YES;

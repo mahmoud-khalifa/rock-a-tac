@@ -16,6 +16,7 @@
 #import "RootViewController.h"
 #import "GameConfig.h"
 #import "Controller.h"
+#import "AppDelegate.h"
 
 @implementation RootViewController
 
@@ -115,6 +116,9 @@ static RootViewController *instanceOfRootViewController;
     adFrame=CGRectMake(0, -adHeight, screenSize.width, adHeight);
 //    imageView.frame=adFrame;
     theAdView.frame=adFrame;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate adView].frame = adFrame ;
 }
 #pragma mark Tapjoy Display Ads Delegate Methods
 

@@ -61,6 +61,7 @@
         CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuOptions_A.jpg"]];
         
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
+//        bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.45);
         
         [self addChild:bgSprite];
         
@@ -176,33 +177,27 @@
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
 
     CGPoint location = [touch locationInView:[touch view]]; 
-    
     location = [[CCDirector sharedDirector] convertToGL:location];
-    
     
     CGRect newsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(44*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
     
-  
+
 //#ifdef LITE_VERSION 
    
     if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ]&&
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {    
      CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
-    if (CGRectContainsPoint (removeAdsRect, location)) {
-        buttonSelector.position=removeAds.position;
-        buttonSelector.visible=YES;
-        
-        //remove ads
-        
+        if (CGRectContainsPoint (removeAdsRect, location)) {
+            buttonSelector.position=removeAds.position;
+            buttonSelector.visible=YES;
+            //remove ads
+        }
     }
-}
 //#endif  
     if(CGRectContainsPoint (newsRect, location)){
         buttonSelector.position=news.position;
         buttonSelector.visible=YES;
-        
         //news
-
     }
     return YES;
 }
@@ -399,6 +394,8 @@ self.isTouchEnabled=YES;
                 pieceTheme=goldenTeamSprite.tag-BackgroundThemeMAX;
             }
         }else if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
+            
+            //return to main menu
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
         
             CCSprite* okBtnSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Button_OK_Selector.png"]];
@@ -421,6 +418,19 @@ self.isTouchEnabled=YES;
     
     [[CCDirector sharedDirector]popScene];
     
+    float adHeight;
+    if (IS_IPAD()) {
+        adHeight = 90;
+        
+    }else{
+        adHeight = 50;
+    }
+    
+    CGRect adFrame = CGRectMake(0, adHeight, screenSize.width, adHeight);
+    adFrame.origin.y = 0;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate adView].frame = adFrame ;
 }
 
 - (NSString*) storageFilePath

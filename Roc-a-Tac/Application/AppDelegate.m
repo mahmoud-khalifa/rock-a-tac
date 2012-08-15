@@ -34,6 +34,8 @@
 @synthesize window;
 @synthesize MultiplayerTimeout,delegate;
 @synthesize facebook;
+@synthesize adView;
+
 - (void) removeStartupFlicker
 {
 	//
@@ -266,6 +268,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (void)dealloc {
 	[[CCDirector sharedDirector] end];
+     [adView release];
 	[window release];
     [nagDict release];
 	[super dealloc];
@@ -304,6 +307,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 -(void)getTapJoySetting{
     [self prepareAdsStats ];
 
+    NSLog(@"%@", TAPJOY_PLIST_URL);
     NSURL *url= [NSURL URLWithString:TAPJOY_PLIST_URL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];    
     [NSURLConnection connectionWithRequest:request delegate:self];
@@ -324,11 +328,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     if ([(id)plist isKindOfClass:[NSDictionary class]])
 	{
 		dictServer = [(NSDictionary *)plist autorelease];
-
 	}
 	else
-	{
-		// clean up ref
+	{// clean up ref
         if (plist) {
             CFRelease(plist);
         }
@@ -340,72 +342,110 @@ void uncaughtExceptionHandler(NSException *exception) {
         bool tapjoyMoreScreenEnabled=[[tapjoyDict objectForKey:@"TapJoy_Marketplace_Enabled"] boolValue];
         [[NSUserDefaults standardUserDefaults]setBool:tapjoyMoreScreenEnabled forKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY];
         CCLOG(@"tapjoy dic: %@",tapjoyDict);
-        MultiplayerTimeout=[[dictServer objectForKey:@"MultiplayerTimeout"] intValue];
         
-//        int tapjoyDisabled =[[dict objectForKey:@"TapJoy_Disabled"] intValue] ;
+        NSDictionary* moPubDict=[dictServer objectForKey:@"mopub"];
         
+        NSDictionary* customDict=[dictServer objectForKey:@"Custom_Settings"];
+        MultiplayerTimeout=[[customDict objectForKey:@"MultiplayerTimeout"] intValue];
+        
+//        int tapjoyDisabled =[[dict objectForKey:@"TapJoy_Disabled"] intValue];
 //        if (!tapjoyDisabled) {
             
         if (![gameController isFeaturePurchased:kREMOVE_ADS_ID]) {
-               
-
 //#ifdef LITE_VERSION
-                bool bannerAdEnabled=[[tapjoyDict objectForKey:@"TapJoy_Banners_Enabled"] boolValue];
+            bool bannerAdEnabled=[[tapjoyDict objectForKey:@"TapJoy_Banners_Enabled"] boolValue];
+            bool moPubBannerEnabled=[[moPubDict objectForKey:@"Mopub_Banners_Enabled"] boolValue];
             
              [[NSUserDefaults standardUserDefaults]setBool:bannerAdEnabled forKey:kBANNER_AD_ENABLED_KEY];
-            if (bannerAdEnabled) {
-                    // Get Tapjoy Display Ads Call
+            [[NSUserDefaults standardUserDefaults]setBool:moPubBannerEnabled forKey:kBANNER_AD_ENABLED_KEY];
+            if (bannerAdEnabled) {// Get Tapjoy Display Ads Call
                     [TapjoyConnect getDisplayAdWithDelegate:viewController];
                     [viewController.view addSubview:[TapjoyConnect getDisplayAdView]];
                 }
-//#endif	
-                bool featuredAppEnabled=[[tapjoyDict objectForKey:@"TapJoy_Featuredapp_Enabled"] boolValue];
-                NSDictionary* customSetting=[tapjoyDict objectForKey:@"TapJoy_Custom_Settings"];
-                int maxFeaturePerDay=[[customSetting objectForKey:@"max_feature_per_day"] intValue];
-                int maxFeaturePerHour=[[customSetting objectForKey:@"max_feature_per_hour"] intValue];
+            else if(moPubBannerEnabled){
+                // Instantiate the MPAdView with your ad unit ID.
+                if(IS_IPAD()){
+                    adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPAD];
+                }
+                else {
+                    adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPHONE];
+                }
+//                adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE];
                 
-                featuredAdDisplayCount=[[customSetting objectForKey:@"featured_app_display_count"] intValue];
+                // Register your view controller as the MPAdView's delegate.
+                adView.delegate = self;
+                
+                // Set the ad view's frame (in our case, to occupy the bottom of the screen).
+                CGRect frame = adView.frame;
+                frame.origin.y = 0;
+                adView.frame = frame;
+                
+                // Add the ad view to your controller's view hierarchy. 
+                [viewController.view addSubview:adView];
+                
+                // Call for an ad.
+                [adView loadAd];
+            }
+//#endif	
+            bool featuredAppEnabled=[[tapjoyDict objectForKey:@"TapJoy_Featuredapp_Enabled"] boolValue];
+            
+            NSDictionary* bcfAdsDict=[dictServer objectForKey:@"BCFads"];
+            bool revmobEnabled=[[bcfAdsDict objectForKey:@"BCFads_Nag_Enabled"] boolValue];
+            
+            NSDictionary* customSetting=[tapjoyDict objectForKey:@"TapJoy_Custom_Settings"];
+            int maxFeaturePerDay=[[customSetting objectForKey:@"max_feature_per_day"] intValue];
+            int maxFeaturePerHour=[[customSetting objectForKey:@"max_feature_per_hour"] intValue];
+            featuredAdDisplayCount=[[customSetting objectForKey:@"featured_app_display_count"] intValue];
 
-                if(featuredAppEnabled){
- 
-                                       
-                    [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:YES andCerebroNagScreenEnabled:NO];
+            if(featuredAppEnabled){
+
+            [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:YES andCerebroNagScreenEnabled:NO];
                     
-                }else {
-                    if (nagDict!=nil) {
-                        [nagDict release];
-                        nagDict=nil;
-                    } 
-                    NSArray* nagArray=[[dictServer objectForKey:@"4mnow"] objectForKey:@"Nagscreen"];
-                    if (nagArray!=nil &&[nagArray count]!=0) {
-                        nagDict= [[NSDictionary alloc] initWithDictionary:[nagArray objectAtIndex:0]];
-                         
-                        bool  nagScreenEnabled=[[nagDict objectForKey:@"nagscreen_enable"] boolValue];
-                        if (nagScreenEnabled) {
-                           
-                            
-                            [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:YES];
-                        }
-                    }else {
-//                        [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:NO];
+//                }else {
+//                    if (nagDict!=nil) {
+//                        [nagDict release];
+//                        nagDict=nil;
+//                    } 
+//                    NSArray* nagArray=[[dictServer objectForKey:@"4mnow"] objectForKey:@"Nagscreen"];
+//                    if (nagArray!=nil &&[nagArray count]!=0) {
+//                        nagDict= [[NSDictionary alloc] initWithDictionary:[nagArray objectAtIndex:0]];
+//                         
+//                        bool  nagScreenEnabled=[[nagDict objectForKey:@"nagscreen_enable"] boolValue];
+//                        if (nagScreenEnabled) {
+//                           
+//                            
+//                            [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:YES];
+//                        }
+            } else if (revmobEnabled){
+                [RevMobAds showPopupWithAppID:kREVMOB_ID withDelegate:self];
+//                [RevMobAds startSessionWithAppID:@"4fd138459398a2000c000078"];
                         
-                        //chartboost
-                        //            // Configure ChartBoost
-                        ChartBoost *cb = [ChartBoost sharedChartBoost];
-                        //            cb.appId = @"4ecc3db6cb60150a36000002";
-                        //            cb.appSignature = @"83d79f18f57660a19716e83b7616b56d8e8dd128";
-                        //            
-                        //            // Notify an install
-                        //            [cb install];
+                self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+                // Override point for customization after application launch.
+//                self.viewController = [[[SampleAppViewController alloc] init] autorelease];
+                self.window.rootViewController = viewController;
+                [self.window makeKeyAndVisible];
                         
-                        // Load interstitial
-                        [cb showInterstitial];
-
-                    }
+//                    }else {
+////                        [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:NO];
+//                        
+//                        //chartboost
+//                        //            // Configure ChartBoost
+//                        ChartBoost *cb = [ChartBoost sharedChartBoost];
+//                        //            cb.appId = @"4ecc3db6cb60150a36000002";
+//                        //            cb.appSignature = @"83d79f18f57660a19716e83b7616b56d8e8dd128";
+//                        //            
+//                        //            // Notify an install
+//                        //            [cb install];
+//                        
+//                        // Load interstitial
+//                        [cb showInterstitial];
+//
+//                    }
 
                 }
 
-            }else {
+//            }else {
 //                if (nagDict!=nil) {
 //                    
 //                    [nagDict release];
@@ -446,7 +486,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 //                }
 //                
 //                [[NSUserDefaults standardUserDefaults]setBool:NO forKey:kBANNER_AD_ENABLED_KEY];
-            }
+//            }
         
 //        }else { //show nagscreen
 //            
@@ -467,6 +507,21 @@ void uncaughtExceptionHandler(NSException *exception) {
 //        }
        
     }
+}
+}
+
+- (void) increaseBannerSize{
+    CGRect frame = adView.frame;
+    frame.origin.y = 0;
+//    frame.size = MOPUB_BANNER_SIZE;
+    adView.frame = frame;
+}
+
+- (void) decreaseBannerSize{
+    CGRect frame = adView.frame;
+    frame.origin.y = 0;
+    frame.size = CGSizeMake(320, 35);
+    adView.frame = frame;
 }
 
 #pragma Mark FourmnowSDK Delegate
@@ -820,6 +875,13 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [viewController dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark MPAdViewDelegate Methods
+
+// Implement MPAdViewDelegate's required method, -viewControllerForPresentingModalView. 
+- (UIViewController *)viewControllerForPresentingModalView {
+    return viewController;
 }
 
 @end

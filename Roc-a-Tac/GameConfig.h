@@ -19,6 +19,7 @@
 #define kGameAutorotationCCDirector 1
 #define kGameAutorotationUIViewController 2
 
+#define MOPUB_BANNER_SIZE_SMALL	CGSizeMake(320, 50)
 //
 // Define here the type of autorotation that you want for your game
 //
@@ -43,51 +44,27 @@
 
 #endif // __GAME_CONFIG_H
 
+#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY2cbHEgw"
+//#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY3Yj6FAw"
 
-//#ifdef LITE_VERSION
-//#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY2cbHEgw"
-//#endif
-//
+#define kREVMOB_ID @"4fd138459398a2000c000078"
+
 //#define kPLAY_HAVEN_TOKEN @"99f5862a36044adbab543e4b31a48a0f"
 //#define kPLAY_HAVEN_SECRET @"1e787957034b49c5944ec50fe33791d6"
 
-#ifdef LITE_VERSION
 
 #define kTAPJOY_APP_ID @"21a0bcc9-58da-457b-a298-8e451a123fd6"
 #define kTAPJOY_APP_SECRET_KEY @"qmdo042RRQ8JGU0HOISV"
 
 //#define TAPJOY_PLIST_URL @"http://localhost:8888/rocatac_ServerList.plist"
 
-#define TAPJOY_PLIST_URL @"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
+#define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"//@"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
 
 #define K_ITUNES_RATE_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=508473418&onlyLatestVersion=false&type=Purple+Software"
 
 #define kFLURRY_APP_KEY @"6J96897HXRFFT7TPDCML"
 
 #define kSHORT_APP_URL @"http://bit.ly/rockatacTFsig"
-
-#else
-
-#define kTAPJOY_APP_ID @"eaa9988b-62bd-453a-aa90-01d953b4f035"
-#define kTAPJOY_APP_SECRET_KEY @"Q270my77lrPDH1CNi0Kg"
-#define TAPJOY_PLIST_URL @"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatac/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameController.plist"
-
-//#define kTAPJOY_APP_ID @"21a0bcc9-58da-457b-a298-8e451a123fd6"
-//#define kTAPJOY_APP_SECRET_KEY @"qmdo042RRQ8JGU0HOISV"
-//
-//
-//#define TAPJOY_PLIST_URL @"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
-
-
-
-#define kFLURRY_APP_KEY @"8VEJ3RALCX16STSE1MM8"
-
-#define K_ITUNES_RATE_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=500565230&onlyLatestVersion=false&type=Purple+Software"
-
-#define kSHORT_APP_URL @"http://itunes.apple.com/us/app/rock-a-tac/id500565230?ls=1&mt=8"
-
-#endif
-
 #define kCHARTBOOST_APP_ID @"4f79ee00f77659914b000091"
 #define kCHARTBOOST_APP_SIGNATURE @"07edd5c74516f10f5342287a60c6e98430edab58"
 

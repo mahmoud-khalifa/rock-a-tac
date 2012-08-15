@@ -88,8 +88,6 @@ typedef enum
     CCSprite* opp_selectedPiece;
 
     
-   
-    
     CCMenu * whoFisrtMenu;
     
     CCLabelBMFont* waitingTimerLabel;

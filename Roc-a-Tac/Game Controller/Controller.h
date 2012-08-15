@@ -143,8 +143,6 @@ typedef enum
 //#endif
 
 
-
-
 -(BOOL)connectedToWeb;
 
 @end

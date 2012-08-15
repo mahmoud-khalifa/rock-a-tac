@@ -227,13 +227,24 @@
 
     if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
         
-       
-       
         //self.isTouchEnabled=NO;
       
         [self backButtonTouched:nil];
 //        [self performSelector:@selector(backButtonTouched:) withObject:nil afterDelay:0.6 ];
         
+        float adHeight;
+        if (IS_IPAD()) {
+            adHeight = 90;
+            
+        }else{
+            adHeight = 50;
+        }
+        
+        CGRect adFrame = CGRectMake(0, adHeight, screenSize.width, adHeight);
+        adFrame.origin.y = 0;
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate adView].frame = adFrame;
         
     }
 
