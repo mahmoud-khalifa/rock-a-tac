@@ -654,8 +654,8 @@
 //		[alert show];
 //		[alert release];
         
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Faild" message:@"Sending Failed" andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"OK" block:nil];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Faild", @"Failed") message: NSLocalizedString(@"Sending Failed", @"Sending failed") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:nil];
         
         [alert show];
 
@@ -664,8 +664,8 @@
 //		[alert show];
 //		[alert release];
         
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Saved" message:@"message saved to draft" andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"OK" block:nil];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Saved", @"Saved") message:NSLocalizedString(@"message saved to draft", @"message saved to draft") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle:NSLocalizedString(@"OK", @"OK") block:nil];
         
         [alert show];
         
@@ -675,8 +675,8 @@
 //		[alert show];
 //		[alert release];
         
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Succeeded" message:@"message sent successfully" andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"OK" block:nil];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Succeeded", @"Succeeded") message: NSLocalizedString(@"message sent successfully", @"message sent successfully") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle:NSLocalizedString(@"OK", @"OK") block:nil];
         
         [alert show];
         

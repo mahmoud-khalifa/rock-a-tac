@@ -695,8 +695,8 @@ static GameKitHelper *instanceOfGameKitHelper;
 //	[alert show];
 //	[alert release];
     
-    BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Error" message:[error localizedDescription] andLoadingviewEnabled:NO];
-    [alert setCancelButtonWithTitle:@"OK" block:nil];
+    BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Error" ,@"Error")message:[error localizedDescription] andLoadingviewEnabled:NO];
+    [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:nil];
     
     [alert show];
 

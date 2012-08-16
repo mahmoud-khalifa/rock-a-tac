@@ -76,7 +76,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
     
-    
     //In-App Purchase
     [MKStoreManager sharedManager];
     
@@ -237,8 +236,8 @@ void uncaughtExceptionHandler(NSException *exception) {
     if (gameController.gkHelper.currentMatch) {
         [gameController multiPlayerSendDisconnected];
         
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Disconnection" message:@"You left your multiplayer game." andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"Close" block:nil];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Disconnection", @"") message: NSLocalizedString(@"You left your multiplayer game.", @"") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle:NSLocalizedString(@"Close", @"") block:nil];
         
         [alert show];
         

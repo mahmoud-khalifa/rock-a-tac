@@ -571,9 +571,10 @@
             
 //            whoStartAlert=[[UIAlertView alloc]initWithTitle:@"" message:@"You will start" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            whoStartAlert=[BlockAlertView alertWithTitle:nil message:@"You will start" andLoadingviewEnabled:NO];
+            whoStartAlert=[BlockAlertView alertWithTitle:nil message:NSLocalizedString(@"You will start" , @"Show you will start message") andLoadingviewEnabled:NO];
             
-            [whoStartAlert setCancelButtonWithTitle:@"OK" block:^{
+//            [whoStartAlert setCancelButtonWithTitle:@"OK" block:^{
+            [whoStartAlert setCancelButtonWithTitle:NSLocalizedString(@"OK", @"OK button message") block:^{
                 if (blackOverlaySprite!=nil) {
                     [self unschedule:@selector(decreaseWaitingTime:)];
                     [blackOverlaySprite removeFromParentAndCleanup:YES];
@@ -608,9 +609,10 @@
 //            self.isTouchEnabled=NO;
 //            whoStartAlert=[[UIAlertView alloc]initWithTitle:@"" message:@"Opponent will start" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            whoStartAlert=[BlockAlertView alertWithTitle:nil message:@"Opponent will start" andLoadingviewEnabled:NO];
+            whoStartAlert=[BlockAlertView alertWithTitle:nil message:NSLocalizedString(@"Opponent will start", @"Show opponent will start message") andLoadingviewEnabled:NO];
             
-            [whoStartAlert setCancelButtonWithTitle:@"OK" block:^{
+//            [whoStartAlert setCancelButtonWithTitle:@"OK" block:^{
+            [whoStartAlert setCancelButtonWithTitle:NSLocalizedString(@"OK", @"OK button message") block:^{
                 if (blackOverlaySprite!=nil) {
                     [self unschedule:@selector(decreaseWaitingTime:)];
                     [blackOverlaySprite removeFromParentAndCleanup:YES];
@@ -648,9 +650,11 @@
             [whoFisrtMenu setOpacity:255];
 //            whoStartAlert=[[UIAlertView alloc]initWithTitle:@"Tie" message:@"Choose your piece again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            whoStartAlert=[BlockAlertView alertWithTitle:@"Tie" message:@"Choose your piece again" andLoadingviewEnabled:NO];
+//            whoStartAlert=[BlockAlertView alertWithTitle:@"Tie" message:@"Choose your piece again" andLoadingviewEnabled:NO];
             
-            [whoStartAlert setCancelButtonWithTitle:@"OK" block:^{ whoStartAlert=nil;}];
+            whoStartAlert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Tie", @"Tie choice") message: NSLocalizedString(@"Choose your piece again", @"Choose your piece again") andLoadingviewEnabled:NO];
+            
+            [whoStartAlert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK button message") block:^{ whoStartAlert=nil;}];
 
             
             //restart the timer:
@@ -1033,13 +1037,13 @@
 //        [alert show];
 //        [alert release];
 //        
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:nil message:@"Leave game and go to the Main Menu?" andLoadingviewEnabled:NO];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle:nil message: NSLocalizedString(@"Leave game and go to the Main Menu?", @"Leave game and go to the Main Menu?") andLoadingviewEnabled:NO];
         
-        [alert setCancelButtonWithTitle:@"No" block:^{
+        [alert setCancelButtonWithTitle:NSLocalizedString(@"No", @"NO") block:^{
         
             
         }];
-        [alert addButtonWithTitle:@"Yes" block:^{
+        [alert addButtonWithTitle: NSLocalizedString(@"Yes",@"Yes") block:^{
             [self backButtonTouched:nil];
             
         }];

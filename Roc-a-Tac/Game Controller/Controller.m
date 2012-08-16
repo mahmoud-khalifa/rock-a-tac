@@ -368,9 +368,9 @@ NSString * const PiecesAnimationNamesString[] = {
 #pragma mark Loading Indicator
 -(void) showLoadingIndicator{
 
-    loadingView=[BlockAlertView alertWithTitle:nil message:@"Waiting for the opponent..." andLoadingviewEnabled:YES];
+    loadingView=[BlockAlertView alertWithTitle:nil message: NSLocalizedString(@"Waiting for the opponent...", @"Waiting for opponent") andLoadingviewEnabled:YES];
     
-    [loadingView setCancelButtonWithTitle:@"Cancel" block:^{
+    [loadingView setCancelButtonWithTitle: NSLocalizedString(@"Cancel", @"Cancel") block:^{
         [[CCDirector sharedDirector]popScene];
          loadingView=nil ;
         
@@ -545,8 +545,8 @@ NSString * const PiecesAnimationNamesString[] = {
 //		[alert show];
 //		[alert release];
         
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Disconnection" message:@"Your opponent has left the game." andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"OK" block:^{
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Disconnection", @"Disconnection message") message: NSLocalizedString(@"Your opponent has left the game.", @"Opponent lef the game message") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:^{
         
             NSLog(@"Disconected");
             [self hideLoadingIndicator];
@@ -733,8 +733,8 @@ NSString * const PiecesAnimationNamesString[] = {
              //         [alert release];
              
              
-             BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Success" message:@"Transaction was completed" andLoadingviewEnabled:NO];
-             [alert setCancelButtonWithTitle:@"OK" block:nil];
+             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Success", @"Success mesaage") message: NSLocalizedString(@"Transaction was completed", @"Transaction was completed message") andLoadingviewEnabled:NO];
+             [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:nil];
              
              [alert show];
              
@@ -754,8 +754,8 @@ NSString * const PiecesAnimationNamesString[] = {
              //         [alert show];
              //         [alert release];
              
-             BlockAlertView* alert=[BlockAlertView alertWithTitle:@"Operation Cancelled" message:@"" andLoadingviewEnabled:NO];
-             [alert setCancelButtonWithTitle:@"Close" block:nil];
+             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Operation Cancelled", @"Operation cancelled message") message:@"" andLoadingviewEnabled:NO];
+             [alert setCancelButtonWithTitle:NSLocalizedString(@"Close", @"Close") block:nil];
              
              [alert show];
              
@@ -784,7 +784,7 @@ NSString * const PiecesAnimationNamesString[] = {
         //	[loadingView2 show];
         //    
         
-        loadingView=[BlockAlertView alertWithTitle:nil message:@"Please wait..." andLoadingviewEnabled:YES];
+        loadingView=[BlockAlertView alertWithTitle:nil message: NSLocalizedString(@"Please wait...", @"Please wait") andLoadingviewEnabled:YES];
         
         //    [loadingView setCancelButtonWithTitle:@"Cancel" block:^{
         //        CCLOG(@"User Cancelled Transaction");
@@ -804,8 +804,8 @@ NSString * const PiecesAnimationNamesString[] = {
         [loadingView show];
 
     }else {
-        BlockAlertView* alert=[BlockAlertView alertWithTitle:@"No Internet Connection" message:@"Please Connect to the Internet then try again" andLoadingviewEnabled:NO];
-        [alert setCancelButtonWithTitle:@"OK" block:nil];
+        BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"No Internet Connection", @"No internet connection") message: NSLocalizedString(@"Please Connect to the Internet then try again", @"Please Connect to the Internet then try again") andLoadingviewEnabled:NO];
+        [alert setCancelButtonWithTitle:NSLocalizedString(@"OK", @"OK") block:nil];
         
         [alert show];
 
