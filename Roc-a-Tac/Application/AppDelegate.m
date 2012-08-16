@@ -338,9 +338,11 @@ void uncaughtExceptionHandler(NSException *exception) {
 	}
     if (dictServer) {
         NSLog(@"plist file: %@",dictServer);
+        
         NSDictionary* tapjoyDict=[dictServer objectForKey:@"TapJoy"];
         bool tapjoyMoreScreenEnabled=[[tapjoyDict objectForKey:@"TapJoy_Marketplace_Enabled"] boolValue];
-        [[NSUserDefaults standardUserDefaults]setBool:tapjoyMoreScreenEnabled forKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY];
+        
         CCLOG(@"tapjoy dic: %@",tapjoyDict);
         
         NSDictionary* moPubDict=[dictServer objectForKey:@"mopub"];
@@ -353,11 +355,15 @@ void uncaughtExceptionHandler(NSException *exception) {
             
         if (![gameController isFeaturePurchased:kREMOVE_ADS_ID]) {
 //#ifdef LITE_VERSION
+            
+            //BANNERS PART//
             bool bannerAdEnabled=[[tapjoyDict objectForKey:@"TapJoy_Banners_Enabled"] boolValue];
             bool moPubBannerEnabled=[[moPubDict objectForKey:@"Mopub_Banners_Enabled"] boolValue];
             
-             [[NSUserDefaults standardUserDefaults]setBool:bannerAdEnabled forKey:kBANNER_AD_ENABLED_KEY];
+            
+            [[NSUserDefaults standardUserDefaults]setBool:bannerAdEnabled forKey:kBANNER_AD_ENABLED_KEY];
             [[NSUserDefaults standardUserDefaults]setBool:moPubBannerEnabled forKey:kBANNER_AD_ENABLED_KEY];
+            
             if (bannerAdEnabled) {// Get Tapjoy Display Ads Call
                     [TapjoyConnect getDisplayAdWithDelegate:viewController];
                     [viewController.view addSubview:[TapjoyConnect getDisplayAdView]];
@@ -387,18 +393,25 @@ void uncaughtExceptionHandler(NSException *exception) {
                 [adView loadAd];
             }
 //#endif	
+            //END OF BANNERS PART//
+            
+            
+            //FEATURED APP PART//
+            
             bool featuredAppEnabled=[[tapjoyDict objectForKey:@"TapJoy_Featuredapp_Enabled"] boolValue];
-            
-            NSDictionary* bcfAdsDict=[dictServer objectForKey:@"BCFads"];
-            bool revmobEnabled=[[bcfAdsDict objectForKey:@"BCFads_Nag_Enabled"] boolValue];
-            
             NSDictionary* customSetting=[tapjoyDict objectForKey:@"TapJoy_Custom_Settings"];
             int maxFeaturePerDay=[[customSetting objectForKey:@"max_feature_per_day"] intValue];
             int maxFeaturePerHour=[[customSetting objectForKey:@"max_feature_per_hour"] intValue];
             featuredAdDisplayCount=[[customSetting objectForKey:@"featured_app_display_count"] intValue];
+            
+            NSDictionary* bcfAdsDict=[dictServer objectForKey:@"BCFads"];
+            bool revmobEnabled=[[bcfAdsDict objectForKey:@"BCFads_Nag_Enabled"] boolValue];
+            
+            NSDictionary* chartBoostDict=[dictServer objectForKey:@"Chartboost>"];
+            bool chartEnabled=[[chartBoostDict objectForKey:@"Chartboost_Featured_App"] boolValue];
 
             if(featuredAppEnabled){
-
+                
             [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:YES andCerebroNagScreenEnabled:NO];
                     
 //                }else {
@@ -425,6 +438,15 @@ void uncaughtExceptionHandler(NSException *exception) {
 //                self.viewController = [[[SampleAppViewController alloc] init] autorelease];
                 self.window.rootViewController = viewController;
                 [self.window makeKeyAndVisible];
+            } else if (chartEnabled){
+                ChartBoost *cb = [ChartBoost sharedChartBoost];
+                cb.appId = kCHARTBOOST_APP_ID;
+                cb.appSignature = kCHARTBOOST_APP_SIGNATURE;
+                [cb install];
+                [cb showInterstitial];
+            }
+            
+         //END OF FEATURED APP PART//
                         
 //                    }else {
 ////                        [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:NO];
@@ -442,8 +464,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 //                        [cb showInterstitial];
 //
 //                    }
-
-                }
 
 //            }else {
 //                if (nagDict!=nil) {
