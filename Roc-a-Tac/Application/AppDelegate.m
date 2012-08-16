@@ -341,7 +341,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         
         NSDictionary* tapjoyDict=[dictServer objectForKey:@"TapJoy"];
         bool tapjoyMoreScreenEnabled=[[tapjoyDict objectForKey:@"TapJoy_Marketplace_Enabled"] boolValue];
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY];
+        [[NSUserDefaults standardUserDefaults]setBool:tapjoyMoreScreenEnabled forKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY];
         
         CCLOG(@"tapjoy dic: %@",tapjoyDict);
         
