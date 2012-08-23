@@ -14,6 +14,8 @@
 
 #import "AppDelegate.h"
 
+#import "AboutScene.h"
+
 
 @interface OptionsScene(PrivateMethods)
 -(void)setSelectedThemes;
@@ -58,7 +60,7 @@
         self.scale=SCREEN_SCALE;
         self.isTouchEnabled=YES;
         
-        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuOptions_A.jpg"]];
+        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuOptions_A.png"]];
         
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
 //        bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.45);
@@ -90,26 +92,30 @@
         
         
         heroTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Hero_ON.png"]];
-        heroTeamSprite.position=ADJUST_XY(86, 155);
+//        heroTeamSprite.position=ADJUST_XY(86, 155);
+        heroTeamSprite.position=ADJUST_XY(50, 155);
         heroTeamSprite.visible=NO;
         heroTeamSprite.tag=PiecesThemeA+BackgroundThemeMAX;
         [self addChild:heroTeamSprite];
         
         villainTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Villain_ON.png"]];
-        villainTeamSprite.position=ADJUST_XY(233, 155);
+//        villainTeamSprite.position=ADJUST_XY(233, 155);
+        villainTeamSprite.position=ADJUST_XY(278, 155);
         villainTeamSprite.visible=NO;
         villainTeamSprite.tag=PiecesThemeB+BackgroundThemeMAX;
         [self addChild:villainTeamSprite];
         
         goldenTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Golden_ON.png"]];
-        goldenTeamSprite.position=ADJUST_XY(158, 52);
+//        goldenTeamSprite.position=ADJUST_XY(158, 52);
+        goldenTeamSprite.position=ADJUST_XY(163, 155);
         goldenTeamSprite.visible=NO;
         goldenTeamSprite.tag=PiecesThemeC+BackgroundThemeMAX;
         [self addChild:goldenTeamSprite];
         
         
         lockSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Lock_A.png"]];
-        lockSprite.position=ADJUST_XY(158, 52);
+//        lockSprite.position=ADJUST_XY(158, 52);
+        lockSprite.position=ADJUST_XY(163, 155);
         [self addChild:lockSprite];
         [self setSelectedThemes];
         
@@ -122,7 +128,6 @@
 
 -(void)setSelectedThemes{
 
-    
     NSFileManager* fileManager = [NSFileManager defaultManager];
 	NSString *settingFilePath;
 	if (![fileManager fileExistsAtPath: [self storageFilePath]])
@@ -131,7 +136,6 @@
         
 		[fileManager copyItemAtPath: settingFilePath toPath: [self storageFilePath] error: nil];
 	}
-
 
     settingDict=[[NSMutableDictionary alloc]initWithContentsOfFile:[self storageFilePath]];
     
@@ -145,6 +149,7 @@
     [self getChildByTag:pieceTheme+BackgroundThemeMAX].visible=YES;
     
 }
+
 -(void)addButtons{
 //
 //#ifdef LITE_VERSION
@@ -168,18 +173,22 @@
     buttonSelector.visible=NO;
     
 }
+
 #pragma Touches
 #pragma Tracking Touches
 -(void) registerWithTouchDispatcher{ 
     [[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:-1 swallowsTouches:YES];
     
 }
+
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
 
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     CGRect newsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(44*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
+    
+    CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
     
 
 //#ifdef LITE_VERSION 
@@ -197,15 +206,22 @@
     if(CGRectContainsPoint (newsRect, location)){
         buttonSelector.position=news.position;
         buttonSelector.visible=YES;
-        //news
+        buttonSelector.scale = 1;
+    }
+    
+    else if(CGRectContainsPoint (aboutRect, location)){
+        buttonSelector.position=ADJUST_XY(160, 18);
+        buttonSelector.visible=YES;
+        buttonSelector.scale = 1.3;
+        buttonSelector.scaleX = 1.5;
     }
     return YES;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
  
-    
 }
+
 -(void)alertBackBtntouched:(id)sender{
   [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
     self.isTouchEnabled=YES;
@@ -224,6 +240,7 @@ self.isTouchEnabled=YES;
     [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
 
 }
+
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     
      buttonSelector.visible=NO;
@@ -275,14 +292,16 @@ self.isTouchEnabled=YES;
         
         CGRect kingdomRect=CGRectMake(kingdomSprite.position.x-kingdomSprite.contentSize.width*0.5,kingdomSprite.position.y-kingdomSprite.contentSize.height*0.5 , kingdomSprite.contentSize.width, kingdomSprite.contentSize.height);
         
-        CGRect heroTeamRect=CGRectMake(heroTeamSprite.position.x-heroTeamSprite.contentSize.width*0.5,heroTeamSprite.position.y-heroTeamSprite.contentSize.height*0.5 , heroTeamSprite.contentSize.width, heroTeamSprite.contentSize.height);
+        CGRect heroTeamRect=CGRectMake(heroTeamSprite.position.x-heroTeamSprite.contentSize.width*0.5,heroTeamSprite.position.y-heroTeamSprite.contentSize.height*0.5 + 25, heroTeamSprite.contentSize.width, heroTeamSprite.contentSize.height);
         
-        CGRect villainTeamRect=CGRectMake(villainTeamSprite.position.x-villainTeamSprite.contentSize.width*0.5,villainTeamSprite.position.y-villainTeamSprite.contentSize.height*0.5 , villainTeamSprite.contentSize.width, villainTeamSprite.contentSize.height);
+        CGRect villainTeamRect=CGRectMake(villainTeamSprite.position.x-villainTeamSprite.contentSize.width*0.5,villainTeamSprite.position.y-villainTeamSprite.contentSize.height*0.5 + 25, villainTeamSprite.contentSize.width, villainTeamSprite.contentSize.height);
         
-        CGRect goldenTeamRect=CGRectMake(goldenTeamSprite.position.x-goldenTeamSprite.contentSize.width*0.5,goldenTeamSprite.position.y-goldenTeamSprite.contentSize.height*0.5 , goldenTeamSprite.contentSize.width, goldenTeamSprite.contentSize.height);
+        CGRect goldenTeamRect=CGRectMake(goldenTeamSprite.position.x-goldenTeamSprite.contentSize.width*0.5,goldenTeamSprite.position.y-goldenTeamSprite.contentSize.height*0.5 + 25, goldenTeamSprite.contentSize.width, goldenTeamSprite.contentSize.height);
         
         
         CGRect newsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(44*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
+        
+        CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
         
         
 //#ifdef LITE_VERSION 
@@ -322,10 +341,16 @@ self.isTouchEnabled=YES;
             newsScreen.view.frame = kAPP_DELEGATE.window.frame;
             [newsScreen.view layoutSubviews]; 
             [((UIViewController*)kAPP_DELEGATE.window.rootViewController) presentModalViewController:newsScreen animated:YES];
-
             
         }
-
+        
+        else if(CGRectContainsPoint (aboutRect, location)){
+            [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+            buttonSelector.visible=NO;
+            
+            [[CCDirector sharedDirector]pushScene:[AboutScene scene]];
+            
+        }
         
         if (CGRectContainsPoint(forestRect, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
@@ -401,6 +426,7 @@ self.isTouchEnabled=YES;
             CCSprite* okBtnSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Button_OK_Selector.png"]];
             okBtnSelector.anchorPoint=ccp(0, 1);
             okBtnSelector.position=ADJUST_XY(248, 56);
+            
             self.isTouchEnabled=NO;
             [self addChild:okBtnSelector];
             [self performSelector:@selector(exitSceneAndSave) withObject:nil afterDelay:0.6 ];
@@ -409,6 +435,7 @@ self.isTouchEnabled=YES;
         }
     }
 }
+
 -(void)exitSceneAndSave{
   
     [settingDict setObject:[NSNumber numberWithInt:bgTheme] forKey:kSETTING_BACKGROUND_THEME_KEY];
@@ -437,6 +464,7 @@ self.isTouchEnabled=YES;
 {
 	return [NSString stringWithFormat: @"%@/Documents/%@.plist", NSHomeDirectory(),kSETTING_PLIST_FILE_NAME];
 }
+
 -(void)onExit{
     [[CCTouchDispatcher sharedDispatcher]removeDelegate:self];
     [super onExit];
@@ -461,7 +489,6 @@ self.isTouchEnabled=YES;
     
         removeAds.visible=NO;
     }
-    
     
 }
 //#endif

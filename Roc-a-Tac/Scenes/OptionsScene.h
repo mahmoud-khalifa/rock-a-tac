@@ -26,10 +26,7 @@
     PiecesThemes pieceTheme;
     BackgroundThemes bgTheme;
     
-    
-    
     NSMutableDictionary * settingDict;
-    
     
     CCSprite* lockSprite;
     
