@@ -61,12 +61,18 @@
         
         CCLabelBMFont* multiplayerTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",mp_total] fntFile:@"stats_bitmapfont.fnt"];
         multiplayerTotal.anchorPoint=ccp(0, 0.5);
-        multiplayerTotal.position=ADJUST_XY(184, 373);
+//        multiplayerTotal.position=ADJUST_XY(184, 373);
         [self addChild:multiplayerTotal];
 
-        CCLabelBMFont* multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",mp_wins,mp_loses] fntFile:@"stats_bitmapfont.fnt"];
+        
+        #ifdef ARABIC_VERSION
+            CCLabelBMFont* multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_loses, mp_wins] fntFile:@"stats_bitmapfont.fnt"];
+        #else
+            CCLabelBMFont* multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_wins, mp_loses] fntFile:@"stats_bitmapfont.fnt"];
+        #endif
+        
         multiplayerWinLose.anchorPoint=ccp(0, 0.5);
-        multiplayerWinLose.position=ADJUST_XY(184, 355);
+//        multiplayerWinLose.position=ADJUST_XY(184, 355);
         [self addChild:multiplayerWinLose];
         
         
@@ -78,12 +84,17 @@
         
         CCLabelBMFont* easyTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",easy_total] fntFile:@"stats_bitmapfont.fnt"];
         easyTotal.anchorPoint=ccp(0, 0.5);
-        easyTotal.position=ADJUST_XY(184, 284);
+//        easyTotal.position=ADJUST_XY(184, 284);
         [self addChild:easyTotal];
         
-        CCLabelBMFont* easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",easy_wins,easy_loses] fntFile:@"stats_bitmapfont.fnt"];
+        #ifdef ARABIC_VERSION
+            CCLabelBMFont* easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", easy_loses, easy_wins] fntFile:@"stats_bitmapfont.fnt"];
+        #else
+            CCLabelBMFont* easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",easy_wins,easy_loses] fntFile:@"stats_bitmapfont.fnt"];
+        #endif
+        
         easyWinLose.anchorPoint=ccp(0, 0.5);
-        easyWinLose.position=ADJUST_XY(184, 266);
+//        easyWinLose.position=ADJUST_XY(184, 266);
         [self addChild:easyWinLose];
         
         //single Player Medium
@@ -94,12 +105,19 @@
         
         CCLabelBMFont* mediumTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",medium_total] fntFile:@"stats_bitmapfont.fnt"];
         mediumTotal.anchorPoint=ccp(0, 0.5);
-        mediumTotal.position=ADJUST_XY(184, 194);
+//        mediumTotal.position=ADJUST_XY(184, 194);
         [self addChild:mediumTotal];
         
-        CCLabelBMFont* mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",medium_wins,medium_loses] fntFile:@"stats_bitmapfont.fnt"];
+        
+        #ifdef ARABIC_VERSION
+            CCLabelBMFont* mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", medium_loses, medium_wins] fntFile:@"stats_bitmapfont.fnt"];
+        #else
+            CCLabelBMFont* mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",medium_wins,medium_loses] fntFile:@"stats_bitmapfont.fnt"];
+        #endif
+        
+        
         mediumWinLose.anchorPoint=ccp(0, 0.5);
-        mediumWinLose.position=ADJUST_XY(184, 176);
+//        mediumWinLose.position=ADJUST_XY(184, 176);
         [self addChild:mediumWinLose];
         
         //single Player Hard
@@ -110,13 +128,51 @@
         
         CCLabelBMFont* hardTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",hard_total] fntFile:@"stats_bitmapfont.fnt"];
         hardTotal.anchorPoint=ccp(0, 0.5);
-        hardTotal.position=ADJUST_XY(184, 103);
+//        hardTotal.position=ADJUST_XY(184, 103);
         [self addChild:hardTotal];
         
-        CCLabelBMFont* hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",hard_wins,hard_loses] fntFile:@"stats_bitmapfont.fnt"];
+        
+        #ifdef ARABIC_VERSION
+            CCLabelBMFont* hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", hard_loses, hard_wins] fntFile:@"stats_bitmapfont.fnt"];
+        #else
+            CCLabelBMFont* hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",hard_wins,hard_loses] fntFile:@"stats_bitmapfont.fnt"];
+        #endif
+        
         hardWinLose.anchorPoint=ccp(0, 0.5);
-        hardWinLose.position=ADJUST_XY(184, 85);
+//        hardWinLose.position=ADJUST_XY(184, 85);
         [self addChild:hardWinLose];
+        
+        
+        
+        #ifdef ARABIC_VERSION
+        
+            multiplayerTotal.position=ADJUST_XY(130, 373);
+            multiplayerWinLose.position=ADJUST_XY(118, 355);
+            
+            easyTotal.position=ADJUST_XY(130, 284);
+            easyWinLose.position=ADJUST_XY(118, 266);
+            
+            mediumTotal.position=ADJUST_XY(130, 194);
+            mediumWinLose.position=ADJUST_XY(118, 176);
+            
+            hardTotal.position=ADJUST_XY(130, 103);
+            hardWinLose.position=ADJUST_XY(118, 85);
+        
+        #else
+        
+            multiplayerTotal.position=ADJUST_XY(184, 373);
+            multiplayerWinLose.position=ADJUST_XY(184, 355);
+            
+            easyTotal.position=ADJUST_XY(184, 284);
+            easyWinLose.position=ADJUST_XY(184, 266);
+            
+            mediumTotal.position=ADJUST_XY(184, 194);
+            mediumWinLose.position=ADJUST_XY(184, 176);
+            
+            hardTotal.position=ADJUST_XY(184, 103);
+            hardWinLose.position=ADJUST_XY(184, 85);
+        
+        #endif
         
         CCSprite* gameCenter=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon.png"]];
         CCSprite* gameCenter_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon_selected.png"]];

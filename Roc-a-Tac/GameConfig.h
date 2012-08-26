@@ -44,33 +44,56 @@
 
 #endif // __GAME_CONFIG_H
 
+
+#ifdef ARABIC_VERSION
+
+#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUYgqX7FAw"
+
+#define kREVMOB_ID @"5032d4050be3830800000028"
+
+#define kTAPJOY_APP_ID @"7d3b5e03-764d-4895-8266-7eb2e24e2c47"
+#define kTAPJOY_APP_SECRET_KEY @"fN9I6fDx7Htav8fm6rct"
+
+#define kFLURRY_APP_KEY @"6QS2XZDY9BZNNSGTZWVZ"
+
+#define kCHARTBOOST_APP_ID @"5032c8e117ba47d85800003b"
+#define kCHARTBOOST_APP_SIGNATURE @"55267d7aa26990af7344ec60acc0545256402a2c"
+
+#define K_ITUNES_RATE_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=554834149&onlyLatestVersion=false&type=Purple+Software"
+#define kFULL_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-arabic/id554834149?ls=1&mt=8"
+#define kLITE_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-arabic/id554834149?ls=1&mt=8"
+
+#else
+
 #define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY2cbHEgw"
-//#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY3Yj6FAw"
 
 #define kREVMOB_ID @"4fd138459398a2000c000078"
 
-//#define kPLAY_HAVEN_TOKEN @"99f5862a36044adbab543e4b31a48a0f"
-//#define kPLAY_HAVEN_SECRET @"1e787957034b49c5944ec50fe33791d6"
-
-
 #define kTAPJOY_APP_ID @"21a0bcc9-58da-457b-a298-8e451a123fd6"
 #define kTAPJOY_APP_SECRET_KEY @"qmdo042RRQ8JGU0HOISV"
+
+#define kFLURRY_APP_KEY @"6J96897HXRFFT7TPDCML"
+
+#define kCHARTBOOST_APP_ID @"4f79ee00f77659914b000091"
+#define kCHARTBOOST_APP_SIGNATURE @"07edd5c74516f10f5342287a60c6e98430edab58"
+
+#define K_ITUNES_RATE_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=508473418&onlyLatestVersion=false&type=Purple+Software"
+#define kFULL_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac/id500565230?ls=1&mt=8"
+#define kLITE_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-free/id508473418?ls=1&mt=8"
+
+#endif
+
+
+//#define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY3Yj6FAw"
+
+//#define kPLAY_HAVEN_TOKEN @"99f5862a36044adbab543e4b31a48a0f"
+//#define kPLAY_HAVEN_SECRET @"1e787957034b49c5944ec50fe33791d6"
 
 //#define TAPJOY_PLIST_URL @"http://localhost:8888/rocatac_ServerList.plist"
 
 #define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"//@"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
 
-#define K_ITUNES_RATE_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=508473418&onlyLatestVersion=false&type=Purple+Software"
-
-#define kFLURRY_APP_KEY @"6J96897HXRFFT7TPDCML"
-
 #define kSHORT_APP_URL @"http://bit.ly/rockatacTFsig"
-#define kCHARTBOOST_APP_ID @"4f79ee00f77659914b000091"
-#define kCHARTBOOST_APP_SIGNATURE @"07edd5c74516f10f5342287a60c6e98430edab58"
-
-#define kFULL_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac/id500565230?ls=1&mt=8"
-#define kLITE_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-free/id508473418?ls=1&mt=8"
-
 
 /////////////////////////////////////////////////////////////////////
 
@@ -238,8 +261,6 @@ ccp(__x__, __y__))
 
 
 
-
-
 #define kOPTIONS_SCENE_OK_BUTTON_RECT CGRectMake(ADJUST_DOUBLE (292*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(82*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE))
 
 #define kALERT_BACK_BUTTON_RECT CGRectMake(ADJUST_DOUBLE (54*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING (228*SCREEN_SCALE), ADJUST_DOUBLE(129*SCREEN_SCALE),ADJUST_DOUBLE(43*SCREEN_SCALE))
@@ -275,24 +296,23 @@ ccp(__x__, __y__))
 
 
 //Leaderboards:
-#ifdef LITE_VERSION
+//#ifdef LITE_VERSION
+//
+//#define kLEADERBOARD_CATEGORY_EASY @"rockatac.easy"
+//#define kLEADERBOARD_CATEGORY_MEDIUM @"rockatac.medium"
+//#define kLEADERBOARD_CATEGORY_HARD @"rockatac.hard"
+//#define kLEADERBOARD_CATEGORY_MULTIPLAYER @"rockatac.multiplayer"
+//#define kLEADERBOARD_CATEGORY_COMBINED @"rockatac.highscore"
+//
+//#else
 
-#define kLEADERBOARD_CATEGORY_EASY @"rockatac.easy"
-#define kLEADERBOARD_CATEGORY_MEDIUM @"rockatac.medium"
-#define kLEADERBOARD_CATEGORY_HARD @"rockatac.hard"
-#define kLEADERBOARD_CATEGORY_MULTIPLAYER @"rockatac.multiplayer"
-#define kLEADERBOARD_CATEGORY_COMBINED @"rockatac.highscore"
-
-#else
-
-#define kLEADERBOARD_CATEGORY_EASY @"rockatac.easymode"
-#define kLEADERBOARD_CATEGORY_MEDIUM @"rockatac.mediummode"
-#define kLEADERBOARD_CATEGORY_HARD @"rockatac.hardmode"
-#define kLEADERBOARD_CATEGORY_MULTIPLAYER @"rockatac.multiplayermode"
+#define kLEADERBOARD_CATEGORY_EASY @"grp.rockatac.easymode"
+#define kLEADERBOARD_CATEGORY_MEDIUM @"grp.rockatac.mediummode"
+#define kLEADERBOARD_CATEGORY_HARD @"grp.rockatac.hardmode"
+#define kLEADERBOARD_CATEGORY_MULTIPLAYER @"grp.rockatac.multiplayermode"
 #define kLEADERBOARD_CATEGORY_COMBINED @"rockatac.highscoremode"
 
-
-#endif
+//#endif
 
 //facebook & twitter configuration
 

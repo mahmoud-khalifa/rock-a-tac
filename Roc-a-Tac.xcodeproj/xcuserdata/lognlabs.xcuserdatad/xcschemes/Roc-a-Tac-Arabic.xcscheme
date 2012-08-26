@@ -13,17 +13,17 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "348C7A8A14D7DEA80048F2A0"
-               BuildableName = "Roc-a-Tac.app"
-               BlueprintName = "Roc-a-Tac"
+               BlueprintIdentifier = "347B95AF15EA15AB00BED4F8"
+               BuildableName = "Roc-a-Tac-Arabic.app"
+               BlueprintName = "Roc-a-Tac-Arabic"
                ReferencedContainer = "container:Roc-a-Tac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
@@ -31,28 +31,28 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "348C7A8A14D7DEA80048F2A0"
-            BuildableName = "Roc-a-Tac.app"
-            BlueprintName = "Roc-a-Tac"
+            BlueprintIdentifier = "347B95AF15EA15AB00BED4F8"
+            BuildableName = "Roc-a-Tac-Arabic.app"
+            BlueprintName = "Roc-a-Tac-Arabic"
             ReferencedContainer = "container:Roc-a-Tac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "AdHoc"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "348C7A8A14D7DEA80048F2A0"
-            BuildableName = "Roc-a-Tac.app"
-            BlueprintName = "Roc-a-Tac"
+            BlueprintIdentifier = "347B95AF15EA15AB00BED4F8"
+            BuildableName = "Roc-a-Tac-Arabic.app"
+            BlueprintName = "Roc-a-Tac-Arabic"
             ReferencedContainer = "container:Roc-a-Tac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -68,9 +68,9 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "348C7A8A14D7DEA80048F2A0"
-            BuildableName = "Roc-a-Tac.app"
-            BlueprintName = "Roc-a-Tac"
+            BlueprintIdentifier = "347B95AF15EA15AB00BED4F8"
+            BuildableName = "Roc-a-Tac-Arabic.app"
+            BlueprintName = "Roc-a-Tac-Arabic"
             ReferencedContainer = "container:Roc-a-Tac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

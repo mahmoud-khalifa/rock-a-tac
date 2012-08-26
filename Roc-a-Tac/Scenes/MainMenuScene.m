@@ -128,9 +128,10 @@
     [[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:-1 swallowsTouches:YES];
     
 }
+
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
-    CGPoint location = [touch locationInView:[touch view]]; 
     
+    CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location]; 
     
     if ([self getChildByTag:MainMenuSceneTagDifficultySprite]) {
@@ -141,7 +142,6 @@
         
         CGRect rateRect=CGRectMake(ADJUST_DOUBLE(76*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(309*SCREEN_SCALE)  , ADJUST_DOUBLE(240*SCREEN_SCALE), ADJUST_DOUBLE(43*SCREEN_SCALE));
         
-        
         CGRect problemRect=CGRectMake(ADJUST_DOUBLE(76*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(259*SCREEN_SCALE)  , ADJUST_DOUBLE(240*SCREEN_SCALE), ADJUST_DOUBLE(43*SCREEN_SCALE));
         
         if(CGRectContainsPoint(doneRect, location)){
@@ -151,7 +151,6 @@
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"isAppRated"];
             
         }else if(CGRectContainsPoint(rateRect, location)){
-
             
             btnSelector=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_RateApp_A_Selector_Blue.png"]];
             btnSelector.anchorPoint=ccp(0, 0);
@@ -232,7 +231,6 @@
 //        CGRect hardRect=CGRectMake(hardLevel.position.x-hardLevel.contentSize.width*0.5,hardLevel.position.y , hardLevel.contentSize.width, hardLevel.contentSize.height);
         
         CGRect easyRect=CGRectMake(ADJUST_DOUBLE(50*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(230*SCREEN_SCALE) , ADJUST_DOUBLE(80*SCREEN_SCALE), ADJUST_DOUBLE(174*SCREEN_SCALE));
-        
         
         
         CGRect mediumRect=CGRectMake(ADJUST_DOUBLE(150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(230*SCREEN_SCALE)  , ADJUST_DOUBLE(80*SCREEN_SCALE), ADJUST_DOUBLE(174*SCREEN_SCALE));
@@ -343,39 +341,42 @@
 //            selectedButton.position=kSINGLE_PLAYER_BTN_POS;
 //            selectedButton.scale=1;
 //            
-//            [self performSelector:@selector(singlePlayerButtonTouched:) withObject:nil afterDelay:0.1];
-            [self singlePlayerButtonTouched:nil];
+            [self performSelector:@selector(singlePlayerButtonTouched:) withObject:nil afterDelay:0.1];
+//            [self singlePlayerButtonTouched:nil];
         }else if (CGRectContainsPoint(kMULTI_PLAYER_BTN_RECT, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
 //            selectedButton.visible=YES;
 //            selectedButton.position=kMULTI_PLAYER_BTN_POS;
 //            selectedButton.scale=1;
-//            [self performSelector:@selector(multiPlayerButtonTouched:) withObject:nil afterDelay:0.1];
-            [self multiPlayerButtonTouched:nil];
+            
+            [self performSelector:@selector(multiPlayerButtonTouched:) withObject:nil afterDelay:0.1];
+//            [self multiPlayerButtonTouched:nil];
             
         }else if (CGRectContainsPoint(kOPTIONS_BTN_RECT, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
-            selectedButton.visible=YES;
+//            selectedButton.visible=YES;
 //            selectedButton.position=kOPTIONS_BTN_POS;
 //            selectedButton.scale=1;
-//            [self performSelector:@selector(optionsButtonTouched:) withObject:nil afterDelay:0.1];
-            [self optionsButtonTouched:nil];
+            
+            [self performSelector:@selector(optionsButtonTouched:) withObject:nil afterDelay:0.1];
+//            [self optionsButtonTouched:nil];
             
         }else if (CGRectContainsPoint(kSTATS_BTN_RECT, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
-            selectedButton.visible=YES;
+//            selectedButton.visible=YES;
 //            selectedButton.position=kSTATS_BTN_POS;
 //            selectedButton.scale=1;
-//            [self performSelector:@selector(statsButtonTouched:) withObject:nil afterDelay:0.1];
-            [self statsButtonTouched:nil];
+            
+            [self performSelector:@selector(statsButtonTouched:) withObject:nil afterDelay:0.1];
+//            [self statsButtonTouched:nil];
             
         }else if (CGRectContainsPoint(kMORE_GAMES_BTN_RECT, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
 //            selectedButton.visible=YES;
 //            selectedButton.position=kMORE_GAMES_BTN_POS;
 //            
-//            [self performSelector:@selector(moreGamesButtonTouched:) withObject:nil afterDelay:0.1];
-            [self moreGamesButtonTouched:nil];
+            [self performSelector:@selector(moreGamesButtonTouched:) withObject:nil afterDelay:0.3];
+//            [self moreGamesButtonTouched:nil];
         }
     }
 }
@@ -405,7 +406,6 @@
 -(void)statsButtonTouched:(id)sender{
     [[CCDirector sharedDirector]pushScene:[StatisticsScene scene]];
     [self hideAd];
-    
     
 //    [self setAdPositionAtBottom:YES];
     

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Roc-a-Tac-Arabic.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Roc-a-Tac-Lite.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>347B95AF15EA15AB00BED4F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>348C7A8A14D7DEA80048F2A0</key>
 		<dict>
 			<key>primary</key>

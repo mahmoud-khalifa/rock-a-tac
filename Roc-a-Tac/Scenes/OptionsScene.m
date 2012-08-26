@@ -156,17 +156,17 @@
     
     if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ] &&
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
-        removeAds=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_NoAds.png"]];
-        removeAds.position=ADJUST_XY(21, 62);
-        
-        [self addChild:removeAds];
+//        removeAds=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_NoAds.png"]];
+//        removeAds.position=ADJUST_XY(21, 62);
+//        
+//        [self addChild:removeAds];
     }
     
 //#endif
     
-    news=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_News.png"]];
-    news.position=ADJUST_XY(21, 18);
-    [self addChild:news];
+//    news=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_News.png"]];
+//    news.position=ADJUST_XY(21, 18);
+//    [self addChild:news];
     
     buttonSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage: @"GUI_Menu_Options_Selector_Small.png"]];
     [self addChild:buttonSelector];
@@ -197,14 +197,14 @@
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {    
      CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
         if (CGRectContainsPoint (removeAdsRect, location)) {
-            buttonSelector.position=removeAds.position;
+            buttonSelector.position=ADJUST_XY(21, 62);
             buttonSelector.visible=YES;
             //remove ads
         }
     }
 //#endif  
     if(CGRectContainsPoint (newsRect, location)){
-        buttonSelector.position=news.position;
+        buttonSelector.position=ADJUST_XY(21, 18);
         buttonSelector.visible=YES;
         buttonSelector.scale = 1;
     }
