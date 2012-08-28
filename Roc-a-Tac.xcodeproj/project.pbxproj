@@ -176,7 +176,6 @@
 		34782966151A14AA00D152AB /* gamecenter_icon_selected-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 34782963151A14AA00D152AB /* gamecenter_icon_selected-hd.png */; };
 		34782967151A14AA00D152AB /* gamecenter_icon_selected-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 34782963151A14AA00D152AB /* gamecenter_icon_selected-hd.png */; };
 		34788DF215D923A3003C0890 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34788DF115D923A3003C0890 /* iAd.framework */; };
-		34788DFA15D92E2B003C0890 /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34788DF915D92E2B003C0890 /* RevMobAds.framework */; };
 		34793FC415E6263E00D1307C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34793FC515E6263E00D1307C /* Localizable.strings */; };
 		34793FC615E6266100D1307C /* GUI_Menu_Notification_A001-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 34793FC815E6266100D1307C /* GUI_Menu_Notification_A001-hd.png */; };
 		34793FC715E6266100D1307C /* GUI_Menu_Notification_A001-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 34793FC815E6266100D1307C /* GUI_Menu_Notification_A001-hd.png */; };
@@ -469,7 +468,6 @@
 		347B96A615EA15AB00BED4F8 /* libOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347828821519E47400D152AB /* libOAuth.a */; };
 		347B96A715EA15AB00BED4F8 /* libChartBoost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3486E1EC152CA41D0040B2F5 /* libChartBoost.a */; };
 		347B96A815EA15AB00BED4F8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 347829281519E55400D152AB /* libxml2.dylib */; };
-		347B96A915EA15AB00BED4F8 /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34788DF915D92E2B003C0890 /* RevMobAds.framework */; };
 		347B96AA15EA15AB00BED4F8 /* RevMobAds in Frameworks */ = {isa = PBXBuildFile; fileRef = 34778D1515DA50FC00856034 /* RevMobAds */; };
 		347B96AC15EA15AB00BED4F8 /* LICENSE_cocos2d.txt in Resources */ = {isa = PBXBuildFile; fileRef = 348AEF2114DA8A0A0087EFCB /* LICENSE_cocos2d.txt */; };
 		347B96AD15EA15AB00BED4F8 /* LICENSE_CocosDenshion.txt in Resources */ = {isa = PBXBuildFile; fileRef = 348AEF2214DA8A0A0087EFCB /* LICENSE_CocosDenshion.txt */; };
@@ -3339,7 +3337,6 @@
 				347B96A615EA15AB00BED4F8 /* libOAuth.a in Frameworks */,
 				347B96A715EA15AB00BED4F8 /* libChartBoost.a in Frameworks */,
 				347B96A815EA15AB00BED4F8 /* libxml2.dylib in Frameworks */,
-				347B96A915EA15AB00BED4F8 /* RevMobAds.framework in Frameworks */,
 				347B96AA15EA15AB00BED4F8 /* RevMobAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3375,7 +3372,6 @@
 				347828D81519E47400D152AB /* libOAuth.a in Frameworks */,
 				3486E205152CA41D0040B2F5 /* libChartBoost.a in Frameworks */,
 				34CBF88F152DBDF0002C8276 /* libxml2.dylib in Frameworks */,
-				34788DFA15D92E2B003C0890 /* RevMobAds.framework in Frameworks */,
 				34778D3615DA50FC00856034 /* RevMobAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7338,10 +7334,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
@@ -7356,7 +7349,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				OTHER_CFLAGS = "-DARABIC_VERSION";
@@ -7381,10 +7373,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowdy R Ratts";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rowdy R Ratts";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
@@ -7398,7 +7387,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				"OTHER_CFLAGS[arch=*]" = "-DARABIC_VERSION";
@@ -7424,10 +7412,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowdy R Ratts";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rowdy R Ratts";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
@@ -7441,7 +7426,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				"OTHER_CFLAGS[arch=*]" = "-DARABIC_VERSION";
@@ -7502,10 +7486,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
@@ -7520,7 +7501,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				OTHER_LDFLAGS = "-lz";
@@ -7544,10 +7524,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowdy R Ratts";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rowdy R Ratts";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
@@ -7561,7 +7538,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				OTHER_LDFLAGS = "-lz";
@@ -7602,10 +7578,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rowdy R Ratts";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rowdy R Ratts";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"/Users/lognlabs/Downloads/NinjaMyApp-v0.32\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Roc-a-Tac/Support Files/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
@@ -7619,7 +7592,6 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/TestFlightSDK\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Twitter+OAuth/Libraries & Headers\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/ChartBoost\"",
-					"\"$(SRCROOT)/Roc-a-Tac/libs/Current\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 				);
 				OTHER_LDFLAGS = "-lz";
