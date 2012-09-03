@@ -123,7 +123,7 @@ typedef enum
     
     bool isPieceSelected;
     
-    
+    bool isTutorialShown;
 }
 +(CCScene *) scene;
 -(id) initWithBackgroundTheme:(BackgroundThemes)selectedTheme andPieceModel:(PiecesModels)selectedPieceModel andIsMultiPlayer:(bool )multiplayer andDifficulty:(GameDifficulties)difficulty;

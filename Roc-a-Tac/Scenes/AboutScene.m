@@ -44,7 +44,7 @@
         self.scale=SCREEN_SCALE;
         self.isTouchEnabled=YES;
         
-        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuAbout_A.png"]];
+        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuAbout_A.jpg"]];
         
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
         //        bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.45);

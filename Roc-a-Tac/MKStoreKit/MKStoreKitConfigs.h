@@ -35,18 +35,27 @@
 
 // To avoid making mistakes map plist entries to macros on this page.
 // when you include MKStoreManager in your clss, these macros get defined there
-#ifdef LITE_VERSION
 
-#define kConsumableBaseFeatureId @"com.stariosgames.rockatacfree."
-#define kUNLOCK_GOLDEN_TEAM_ID @"com.stariosgames.rockatacfree.unlockgoldenteam"
+#ifdef ARABIC_VERSION
 
-#define kREMOVE_ADS_ID @"com.stariosgames.rockatacfree.removeads"
+//#define kConsumableBaseFeatureId @"com.stariosgames.rockatac."
+//#define kUNLOCK_GOLDEN_TEAM_ID @"com.stariosgames.rockatac.unlockgoldenteam1"
+//#define kREMOVE_ADS_ID @"com.stariosgames.rockatac.removeads1"
+
+#define kConsumableBaseFeatureId @"com.stariosgames.rockatacarabic."
+#define kUNLOCK_GOLDEN_TEAM_ID @"com.stariosgames.rockatacarabic.unlockgoldenteam1"
+#define kREMOVE_ADS_ID @"com.stariosgames.rockatacarabic.removeads1"
 
 #else
+
+//#define kConsumableBaseFeatureId @"com.stariosgames.rockatacfree."
+//#define kUNLOCK_GOLDEN_TEAM_ID @"com.stariosgames.rockatacfree.unlockgoldenteam"
+//#define kREMOVE_ADS_ID @"com.stariosgames.rockatacfree.removeads"
 
 #define kConsumableBaseFeatureId @"com.stariosgames.rockatac."
 #define kUNLOCK_GOLDEN_TEAM_ID @"com.stariosgames.rockatac.unlockgoldenteam1"
 #define kREMOVE_ADS_ID @"com.stariosgames.rockatac.removeads1"
+
 #endif
 
 

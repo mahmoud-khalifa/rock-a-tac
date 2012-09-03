@@ -20,10 +20,9 @@
 
 @implementation ShareClass
 
-
-
 +(void)tweet{
-    NSString *finalMsg=[NSString stringWithFormat: @"Definitely a unique twist on tic tac toe and rock paper scissors... I like it! : %@",kSHORT_APP_URL];
+    NSString *finalMsg=[NSLocalizedString(@"Definitely a unique twist on tic tac toe and rock paper scissors... I like it! :", @"Definitely a unique twist on tic tac toe and rock paper scissors... I like it! :")  stringByAppendingString:kSHORT_APP_URL];
+    
     NSLog(@"string size %d",[finalMsg length]);
            
     if (NSClassFromString(@"TWTweetComposeViewController")) {
@@ -48,7 +47,7 @@
                         break;
                         
                     case TWTweetComposeViewControllerResultDone:
-                        alert=[[UIAlertView alloc ]initWithTitle:@"Success" message:@"Your Tweet was sent successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                        alert=[[UIAlertView alloc ]initWithTitle:NSLocalizedString(@"Success", @"Success")  message:NSLocalizedString(@"Your Tweet was sent successfully", @"Your Tweet was sent successfully") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles: nil];
                         [alert show];
                         [alert release];
 //                        
@@ -64,17 +63,12 @@
             
         }else{
             
-
-            NSLog(@"problem in sending tweets using ios 5 twitter framework");
-
             TwitterRushViewController* twitterController=[[TwitterRushViewController alloc]initWithMessage:finalMsg];
             [kAPP_DELEGATE.window.rootViewController presentModalViewController:twitterController animated:YES];
             [twitterController release];
             
         }
     }else{
-
-        NSLog(@"can't see twitter class for ios5");
 
         TwitterRushViewController* twitterController=[[TwitterRushViewController alloc]initWithMessage:finalMsg];
         [kAPP_DELEGATE.window.rootViewController presentModalViewController:twitterController animated:YES];
@@ -84,9 +78,8 @@
 }
 +(void) shareOnFacebook //FaceBook
 {
- 
- 
-    NSString* msg=[NSString stringWithFormat: @"Definitely a unique twist on tic tac toe and rock paper scissors... I like it!: %@",kSHORT_APP_URL];
+    
+    NSString* msg=[NSLocalizedString(@"Definitely a unique twist on tic tac toe and rock paper scissors... I like it! :", @"Definitely a unique twist on tic tac toe and rock paper scissors... I like it! :")  stringByAppendingString:kSHORT_APP_URL];
        
     FBViewController* fbController=[[FBViewController alloc ]initWithMsg:msg];
     

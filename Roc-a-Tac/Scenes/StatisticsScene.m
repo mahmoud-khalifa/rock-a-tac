@@ -45,7 +45,7 @@
         self.scale=SCREEN_SCALE;
         self.isTouchEnabled=YES;
         
-        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuStatistics_A.jpg"]];
+        CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuStatistics_A.png"]];
         
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
         
@@ -174,37 +174,40 @@
         
         #endif
         
-        CCSprite* gameCenter=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon.png"]];
-        CCSprite* gameCenter_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon_selected.png"]];
-        gameCenter_selected.color=ccGRAY;
-        CCMenuItemSprite*gameCenterItem=[CCMenuItemSprite itemFromNormalSprite:gameCenter selectedSprite:gameCenter_selected target:self selector:@selector(gameCenterItemTouched:)];
+//        CCSprite* gameCenter=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon.png"]];
+//        CCSprite* gameCenter_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"gamecenter_icon_selected.png"]];
+//        gameCenter_selected.color=ccGRAY;
+//        CCMenuItemSprite*gameCenterItem=[CCMenuItemSprite itemFromNormalSprite:gameCenter selectedSprite:gameCenter_selected target:self selector:@selector(gameCenterItemTouched:)];
+//        
+//        gameCenterItem.position=ADJUST_XY(12,24 );
+//        gameCenterItem.scale=0.8;
         
-        gameCenterItem.position=ADJUST_XY(12,24 );
-        gameCenterItem.scale=0.8;
         //facebook button:
-        CCSprite* facebook=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_fb.png"]];
-        CCSprite* facebook_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_fb_selected.png"]];
-        CCMenuItemSprite*facebookItem=[CCMenuItemSprite itemFromNormalSprite:facebook selectedSprite:facebook_selected target:self selector:@selector(facebookItemTouched:)];
+//        CCSprite* facebook=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_fb.png"]];
+//        CCSprite* facebook_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_fb_selected.png"]];
+//        CCMenuItemSprite*facebookItem=[CCMenuItemSprite itemFromNormalSprite:facebook selectedSprite:facebook_selected target:self selector:@selector(facebookItemTouched:)];
+//        
+//        facebookItem.position=ADJUST_XY(90, 21);
+//        facebookItem.scaleX=0.85;
         
-        facebookItem.position=ADJUST_XY(90, 21);
-        facebookItem.scaleX=0.85;
 //        facebookItem.scaleY=0.95;
         
-        //facebook button:
-        CCSprite* twitter=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_twitter.png"]];
-        CCSprite* twitter_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_twitter_selected.png"]];
-        CCMenuItemSprite*twitterItem=[CCMenuItemSprite itemFromNormalSprite:twitter selectedSprite:twitter_selected target:self selector:@selector(twitterItemTouched:)];
+        //twitter button:
+//        CCSprite* twitter=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_twitter.png"]];
+//        CCSprite* twitter_selected=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"share_twitter_selected.png"]];
+//        CCMenuItemSprite*twitterItem=[CCMenuItemSprite itemFromNormalSprite:twitter selectedSprite:twitter_selected target:self selector:@selector(twitterItemTouched:)];
+//        
+//        twitterItem.position=ADJUST_XY((90+104), 20);
+//        twitterItem.scaleX=0.85;
         
-        twitterItem.position=ADJUST_XY((90+104), 20);
-        twitterItem.scaleX=0.85;
 //        twitterItem.scaleY=0.95;
         
-        CCMenu* menu=[CCMenu menuWithItems:gameCenterItem,facebookItem,twitterItem, nil];
+//        CCMenu* menu=[CCMenu menuWithItems:gameCenterItem,facebookItem,twitterItem, nil];
 //        menu.scale=0.85;
-        menu.position=ccp(0,0);
-        menu.anchorPoint=ccp(0,0);
-        
-        [self addChild:menu];
+//        menu.position=ccp(0,0);
+//        menu.anchorPoint=ccp(0,0);
+//        
+//        [self addChild:menu];
         
         NSArray *nums=[NSArray arrayWithObjects:[NSNumber numberWithInt:easy_wins],[NSNumber numberWithInt:medium_wins],[NSNumber numberWithInt:hard_wins],[NSNumber numberWithInt:mp_wins], nil];
         
@@ -223,8 +226,6 @@
         }else {
             leaderboardCategory=kLEADERBOARD_CATEGORY_EASY;
         }
-        
-        
         
         okBtnSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Button_OK_Selector.png"]];
         okBtnSelector.anchorPoint=ccp(0, 1);
@@ -261,8 +262,8 @@
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
     CGPoint location = [touch locationInView:[touch view]]; 
-    
     location = [[CCDirector sharedDirector] convertToGL:location];
+    
     if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
         
         okBtnSelector.visible=YES;
@@ -277,14 +278,16 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     okBtnSelector.visible=NO;
-    CGPoint location = [touch locationInView:[touch view]]; 
     
+    CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    CGRect faceBookRect=CGRectMake(ADJUST_DOUBLE (170*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(30*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE));
+    
+    CGRect twitterRect=CGRectMake(ADJUST_DOUBLE (200*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(30*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE));
 
     if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
-        
         //self.isTouchEnabled=NO;
-      
         [self backButtonTouched:nil];
 //        [self performSelector:@selector(backButtonTouched:) withObject:nil afterDelay:0.6 ];
         
@@ -301,11 +304,14 @@
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate adView].frame = adFrame;
-        
     }
-
+    else if(CGRectContainsPoint(faceBookRect, location)){
+        [ShareClass shareOnFacebook];
+    }
+    else if(CGRectContainsPoint(twitterRect, location)){
+        [ShareClass tweet];
+    }
 }
-
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc

@@ -5,7 +5,7 @@
 	<key>frames</key>
 	<dict>
 		
-		<key>GUI_Menu_Lose_A_Golden.png</key>
+		<key>GUI_Menu_Lose_A.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -22,29 +22,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{85, 360}, {359, 110}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>GUI_Menu_Lose_A_Good.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
 			<string>{{0, 0}, {359, 110}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{359, 110}</string>
-			<key>spriteSourceSize</key>
-			<string>{359, 110}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{111, 111}, {359, 110}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -66,7 +44,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{111, 0}, {359, 110}}</string>
+			<string>{{0, 333}, {359, 110}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -88,7 +66,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{111, 222}, {359, 110}}</string>
+			<string>{{0, 222}, {359, 110}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -110,9 +88,9 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 0}, {110, 359}}</string>
+			<string>{{0, 111}, {359, 110}}</string>
 			<key>textureRotated</key>
-			<true/>
+			<false/>
 		</dict>
 		
 		<key>main_menu_btn.png</key>
@@ -132,9 +110,9 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{42, 360}, {41, 127}}</string>
+			<string>{{360, 42}, {127, 41}}</string>
 			<key>textureRotated</key>
-			<true/>
+			<false/>
 		</dict>
 		
 		<key>play_again.png</key>
@@ -144,26 +122,26 @@
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {128, 41}}</string>
+			<string>{{0, 0}, {127, 41}}</string>
 			<key>spriteOffset</key>
 			<string>{0, -0}</string>
 			<key>spriteSize</key>
-			<string>{128, 41}</string>
+			<string>{127, 41}</string>
 			<key>spriteSourceSize</key>
-			<string>{128, 41}</string>
+			<string>{127, 41}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 360}, {41, 128}}</string>
+			<string>{{360, 0}, {127, 41}}</string>
 			<key>textureRotated</key>
-			<true/>
+			<false/>
 		</dict>
 		
 	</dict>
 	<key>metadata</key>
 	<dict>
 		<key>version</key>
-		<string>1.5.1</string>
+		<string>1.5.5</string>
 		<key>format</key>
 		<integer>3</integer>
 		<key>size</key>
@@ -177,11 +155,11 @@
 			<key>name</key>
 			<string>default</string>
 			<key>textureFileName</key>
-			<string>default</string>
+			<string>alerts1..pvrtc</string>
 			<key>textureFileExtension</key>
 			<string>.pvrtc.ccz</string>
 			<key>coordinatesFileName</key>
-			<string>default</string>
+			<string>alerts1.</string>
 			<key>coordinatesFileExtension</key>
 			<string>.plist</string>
 			<key>premultipliedAlpha</key>

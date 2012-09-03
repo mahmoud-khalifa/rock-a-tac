@@ -63,6 +63,8 @@
 #define kFULL_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-arabic/id554834149?ls=1&mt=8"
 #define kLITE_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-arabic/id554834149?ls=1&mt=8"
 
+#define kSHORT_APP_URL @"http://bit.ly/rockatacTFsig"
+
 #else
 
 #define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY2cbHEgw"
@@ -81,6 +83,8 @@
 #define kFULL_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac/id500565230?ls=1&mt=8"
 #define kLITE_APP_LINK @"http://itunes.apple.com/us/app/rock-a-tac-free/id508473418?ls=1&mt=8"
 
+#define kSHORT_APP_URL @"http://bit.ly/rockatacTFsig"
+
 #endif
 
 
@@ -93,7 +97,7 @@
 
 #define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"//@"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
 
-#define kSHORT_APP_URL @"http://bit.ly/rockatacTFsig"
+
 
 /////////////////////////////////////////////////////////////////////
 
@@ -296,7 +300,7 @@ ccp(__x__, __y__))
 
 
 //Leaderboards:
-//#ifdef LITE_VERSION
+//#ifdef ARABIC_VERSION
 //
 //#define kLEADERBOARD_CATEGORY_EASY @"rockatac.easy"
 //#define kLEADERBOARD_CATEGORY_MEDIUM @"rockatac.medium"

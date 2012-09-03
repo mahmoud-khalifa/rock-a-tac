@@ -65,8 +65,6 @@
 @implementation GameScene
 
 
-
-
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -186,7 +184,6 @@
         }else{
             buttonsYPos= screenSize.height-60;
         }
-        
 //#else
          }else {
               buttonsYPos= screenSize.height;
@@ -194,13 +191,23 @@
        
 //#endif        
         if (IS_IPAD()) {
-            backItem.position=ccp(0, buttonsYPos);
+            #ifdef ARABIC_VERSION
+                backItem.position=ccp(-70, buttonsYPos + 75);
+            #else
+                backItem.position=ccp(0, buttonsYPos);
+            #endif
+            
             grid_btnItem.position=ccp(screenSize.width, buttonsYPos);
+            
         }else{
-            backItem.position=ccp(-kXoffsetiPad*0.5, buttonsYPos+kYoffsetiPad*1.5);
+            #ifdef ARABIC_VERSION
+                backItem.position=ccp(-kXoffsetiPad*0.5 - 35, buttonsYPos+kYoffsetiPad*1.5 + 38);
+            #else
+                backItem.position=ccp(-kXoffsetiPad*0.5, buttonsYPos+kYoffsetiPad*1.5);
+            #endif
+            
             grid_btnItem.position=ccp(screenSize.width+kXoffsetiPad*0.5, buttonsYPos+kYoffsetiPad*1.5);
         }
-        
         
         CCMenu* menu=[CCMenu menuWithItems:backItem,grid_btnItem, nil];
         menu.anchorPoint=ccp(0, 0);
@@ -211,8 +218,6 @@
          scale=225.0f/256.0f;
  
         RightStagePiece=[[GamePiece alloc]init];
-
-        
         RightStagePiece.type=PiecesTypeStone;
         RightStagePiece.theme=selectedPiecesTheme;
         RightStagePiece.model=localPlayerPiecesModel;
@@ -225,8 +230,6 @@
         rightStage.scale=scale;
         
         [self addChild:rightStage z:5];
-        
-        
         
         //animate Right Stage:
         [rightStage stopAllActions];
@@ -244,15 +247,12 @@
             
         }
 
-        
         LeftStagePiece=[[GamePiece alloc]init];
-        
         LeftStagePiece.type=PiecesTypeStone;
         LeftStagePiece.theme=selectedPiecesTheme;
         LeftStagePiece.model=localPlayerPiecesModel;
         LeftStagePiece.animationName=PiecesAnimationNameStatic;
         LeftStagePiece.direction=PiecesDirectionRight;
-
         LeftStagePiece.model=opponentPiecesModel;
         
         leftStage=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:[gameController getPieceNameWithPiece:LeftStagePiece ]]];
@@ -267,13 +267,9 @@
         //Score Label:
 //        [self addScoreLabel];
         
-        
-      
-        
         [self newGame];
         
 //        [self addWhoStartFirstView];
-        
         
         [self addInstructionsAndTutorialsWithTutorialtype:TutorialA];
         if (![[Controller sharedController] isFeaturePurchased:kREMOVE_ADS_ID]&&
@@ -293,12 +289,12 @@
             
             AdBg.position=pos;
             [self addChild:AdBg z:2000];
-            
         }
          
     }
 	return self;
 }
+
 -(void)addInstructionsAndTutorialsWithTutorialtype:(TutorialTypes)tutoType{
     if (!isMultiplayer &&playerWinsBefore==0) {
         NSString* tutImageName;
@@ -321,25 +317,27 @@
         CCSprite* back=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"tuto_ok_btn.png"]];
         CCSprite* back_selected=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"tuto_ok_btn.png"]];
         back_selected.color=ccGRAY;
+        
         CCMenuItemSprite* backItem=[CCMenuItemSprite itemFromNormalSprite:back selectedSprite:back_selected target:self selector:@selector(removeTutorial:)];
         backItem.anchorPoint=ccp(0, 0);
         backItem.position=ADJUST_DOUBLE_XY(220, 5);
+        
         CCMenu* menu=[CCMenu menuWithItems:backItem, nil];
         menu.position=ccp(0, 0);
         menu.anchorPoint=ccp(0, 0);
-        [tutorialSprite addChild:menu];
+        [tutorialSprite addChild:menu z:1500];
+        
         tutorialSprite.tag=tutoType;
         
-        
 //        oldTouchEnabledState=self.isTouchEnabled;
-//        self.isTouchEnabled=NO;
 //        
-        
         [[CCDirector sharedDirector]pause];
-    }
-    
         
+        isTutorialShown = YES;
+    }
+
 }
+
 -(void)removeTutorial:(id)sender{
     [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
     if (tutorialSprite.tag==TutorialA) {
@@ -352,7 +350,6 @@
     
 //    self.isTouchEnabled=oldTouchEnabledState;
     
-
     [[CCDirector sharedDirector]resume];
     
 }
@@ -415,7 +412,6 @@
 
 -(void) addWaitingTimer{
     
-    
         waitingTimerLabel=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"00:%02d",30] fntFile:@"score_bitmapfont.fnt"];
         if (blackOverlaySprite) {
             waitingTimerLabel.position=ccp(blackOverlaySprite.contentSize.width*0.5,+ADJUST_DOUBLE(480) );
@@ -426,7 +422,6 @@
             [self addChild:waitingTimerLabel];
         }
 
-    
 //    if (!gameController.isLocalPlayerTurn&& !blackOverlaySprite) {
 //        myWaitingTime=0;
 //        waitingTime=myWaitingTime;
@@ -449,7 +444,6 @@
     [waitingTimerLabel setString:[NSString stringWithFormat:@"00:%0d",myWaitingTime]];
     [self schedule:@selector(decreaseWaitingTime:)];
     
- 
 }
 
 -(void)decreaseWaitingTime:(ccTime)delta{
@@ -514,22 +508,21 @@
         [self showOpponentStartPiece];
     }
     
-    
-
     [self performSelector:@selector(disableWhoFirstMenu) withObject:nil afterDelay:0.05];
     if (isMultiplayer) {
         
         [gameController multiplayerSendWhoStartPiece:gameController.lp_startPieceType];
     }
-   
+    
   //  [((CCMenu*)item.parent) set]
     
 }
+
 -(void)disableWhoFirstMenu{
     [whoFisrtMenu setIsTouchEnabled:NO];
     [whoFisrtMenu setOpacity:100];
-
 }
+
 -(void)showOpponentStartPiece{
     GamePiece*piece=[[GamePiece alloc]init];
     piece.type=gameController.opp_startPieceType;
@@ -738,10 +731,7 @@
             break;
         default:
             break;
-    }
-
-
-    
+    }  
     
 }
 
@@ -751,6 +741,7 @@
 //    [self setWhoPlay:PlayerTypeLocalPlayer];
 
 }
+
 -(void)setConstantArrays{
     Points=[[NSArray alloc]initWithObjects: [NSValue valueWithCGPoint: PT1 ],[NSValue valueWithCGPoint:PT2],[NSValue valueWithCGPoint:PT3],[NSValue valueWithCGPoint:PT4],[NSValue valueWithCGPoint:PT5],[NSValue valueWithCGPoint:PT6],[NSValue valueWithCGPoint:PT7],[NSValue valueWithCGPoint:PT8],[NSValue valueWithCGPoint:PT9], nil];
     Rects=[[NSArray alloc]initWithObjects:[NSValue valueWithCGRect:RECT1],[NSValue valueWithCGRect:RECT2],[NSValue valueWithCGRect:RECT3],[NSValue valueWithCGRect:RECT4],[NSValue valueWithCGRect:RECT5],[NSValue valueWithCGRect:RECT6],[NSValue valueWithCGRect:RECT7],[NSValue valueWithCGRect:RECT8],[NSValue valueWithCGRect:RECT9], nil];
@@ -1063,24 +1054,24 @@
     
     }
 }
+
 -(void)gridButtonTouched:(id)sender{
 
     [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
     grid.visible=!grid.visible;
 }
+
 #pragma Touches
 #pragma Tracking Touches
 -(void) registerWithTouchDispatcher{ 
     [[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:-1 swallowsTouches:YES];
-    
 }
+
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];         
 
     [self checkAddingPieceToBoardAtLocation:location];
-
-
     return YES;
 }
 
@@ -1088,7 +1079,9 @@
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];  
     CGPoint previousLocation= [[CCDirector sharedDirector] convertToGL:[touch previousLocationInView:[touch view]]];
+
     CGRect rightStageRect=CGRectMake(rightStage.position.x-(rightStage.contentSize.width*0.5), rightStage.position.y-(rightStage.contentSize.height*0.5), rightStage.contentSize.width, rightStage.contentSize.height); 
+
     if (CGRectContainsPoint(rightStageRect, location)) {
         
         CGPoint translation = ccpSub(location, previousLocation);    
@@ -1104,30 +1097,28 @@
     }else{
         isSwapping=NO;
     }
-        
+    
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint location = [touch locationInView:[touch view]]; 
-    location = [[CCDirector sharedDirector] convertToGL:location];   
+    location = [[CCDirector sharedDirector] convertToGL:location]; 
+    
     if (CGRectContainsPoint(RIGHT_STAGE_RECT, location) ) {
 //        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
         if (playerWinsBefore==0&&!isMultiplayer) {
              [rightStage stopActionByTag:GameSceneTagBlinkAction];
         }
        
-        
         do {
             RightStagePiece.type=(RightStagePiece.type+1)%PiecesTypesMAX;
             
         } while ([[lp_availablePiecesCounts objectAtIndex:RightStagePiece.type] intValue]==0);
         
-        
         [rightStage setDisplayFrame:[frameCache spriteFrameByName:[gameController getPieceNameWithPiece:RightStagePiece]]];
         //animate Right Stage:
         [rightStage stopAllActions];
         [gameController animateSprite:rightStage withPiece:RightStagePiece WithAnimationName:PiecesAnimationNameIdle andLoop:YES];
-        
         
         //stop board animation
         for (CCSprite* boardSprite in boardSpritesArray) {
@@ -1140,13 +1131,28 @@
         if (isMultiplayer) {
               [gameController multiplayerSendStagePiece:RightStagePiece ];
         }
-      
-    }else if (isSwapping) {
+    }
+    else if (isSwapping) {
         [self checkAddingPieceToBoardAtLocation:location ];
         isSwapping=NO;
     }
     
+//    else if (CGRectContainsPoint(tutoOkButton, location) ) {
+//        [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+//        if (tutorialSprite.tag==TutorialA) {
+//            whoFisrtMenu.isTouchEnabled=YES;
+//            self.isTouchEnabled=YES;
+//        }
+//        [tutorialSprite removeFromParentAndCleanup:YES];
+//        tutorialSprite=nil;
+//        
+//        [[CCDirector sharedDirector]resume]; 
+//        
+//        isTutorialShown = NO;
+//    }
+    
 }
+
 #pragma -
 -(void)checkAddingPieceToBoardAtLocation:(CGPoint)location{
 //    //stop board animation
@@ -1427,26 +1433,28 @@
 //            newGameAlertView=[[UIAlertView alloc]initWithTitle:@"" message:@"You Lose...Play Again?"  delegate:self cancelButtonTitle:@"BACK" otherButtonTitles:@"OK", nil];
 
             
-            switch (opponentPiecesModel) {
-                case PiecesModelGold:
-                    
-                    imageName=@"GUI_Menu_Lose_A_Golden.png";
-                    break;
-                case PiecesModelGood:
-                    
-                    imageName=@"GUI_Menu_Lose_A_Good.png";
-                    break;
-                    
-                case PiecesModelDevil:
-                     [frameCache addSpriteFramesWithFile:@"alerts2.plist"];
-                    imageName=@"GUI_Menu_Lose_A_Villain.png";
-                    break;
-                    
-                    
-                default:
-                    
-                    break;
-            }
+//            switch (opponentPiecesModel) {
+//                case PiecesModelGold:
+//                    
+//                    imageName=@"GUI_Menu_Lose_A_Golden.png";
+//                    break;
+//                case PiecesModelGood:
+//                    
+//                    imageName=@"GUI_Menu_Lose_A_Good.png";
+//                    break;
+//                    
+//                case PiecesModelDevil:
+//                     [frameCache addSpriteFramesWithFile:@"alerts2.plist"];
+//                    imageName=@"GUI_Menu_Lose_A_Villain.png";
+//                    break;
+//                    
+//                    
+//                default:
+//                    
+//                    break;
+//            }
+            
+            imageName=@"GUI_Menu_Lose_A.png";
             
             break;
             

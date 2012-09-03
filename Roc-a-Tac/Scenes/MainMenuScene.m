@@ -96,7 +96,7 @@
         
         [self rateApp];
         
-        [self registerForPushNotifications];
+//        [self registerForPushNotifications];
         
         if (![[Controller sharedController] isFeaturePurchased:kREMOVE_ADS_ID]&&
             [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
@@ -475,6 +475,7 @@
     [[CCDirector sharedDirector]pushScene:(CCScene*)[[[GameScene alloc]initWithBackgroundTheme:selectedBackGroundTheme andPieceModel:selectedPieceModel andIsMultiPlayer:NO andDifficulty:diff]autorelease]];
     
 }
+
 -(void)goToGameSceneBackgroundTheme:(BackgroundThemes)selectedTheme andPieceModel:(PiecesModels)selectedPieceModel{
     [Controller sharedController].bgTheme=selectedTheme;
     [Controller sharedController].pieceModel=selectedPieceModel;
