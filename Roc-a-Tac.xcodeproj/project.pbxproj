@@ -63,6 +63,10 @@
 		34778D3315DA50FC00856034 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 34778D0A15DA50FC00856034 /* OpenUDID.m */; };
 		34778D3415DA50FC00856034 /* UIWebView+MPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 34778D0D15DA50FC00856034 /* UIWebView+MPAdditions.m */; };
 		34778D3615DA50FC00856034 /* RevMobAds in Frameworks */ = {isa = PBXBuildFile; fileRef = 34778D1515DA50FC00856034 /* RevMobAds */; };
+		3477BDBE15F65BB900F40082 /* ingame_textures-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3477BDBA15F65BB900F40082 /* ingame_textures-hd.plist */; };
+		3477BDBF15F65BBA00F40082 /* ingame_textures-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 3477BDBB15F65BB900F40082 /* ingame_textures-hd.pvrtc.ccz */; };
+		3477BDC015F65BBA00F40082 /* ingame_textures.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3477BDBC15F65BB900F40082 /* ingame_textures.plist */; };
+		3477BDC115F65BBA00F40082 /* ingame_textures.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 3477BDBD15F65BB900F40082 /* ingame_textures.pvrtc.ccz */; };
 		347828D41519E47400D152AB /* jQueryInject.txt in Resources */ = {isa = PBXBuildFile; fileRef = 347828801519E47400D152AB /* jQueryInject.txt */; };
 		347828D51519E47400D152AB /* jQueryInject.txt in Resources */ = {isa = PBXBuildFile; fileRef = 347828801519E47400D152AB /* jQueryInject.txt */; };
 		347828D61519E47400D152AB /* jQueryInjectLandscape.txt in Resources */ = {isa = PBXBuildFile; fileRef = 347828811519E47400D152AB /* jQueryInjectLandscape.txt */; };
@@ -186,6 +190,10 @@
 		3479400015E628FA00D1307C /* share_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479400115E628FA00D1307C /* share_bg@2x.png */; };
 		3479401A15E658FA00D1307C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479401915E658FA00D1307C /* AboutScene.m */; };
 		3479401B15E658FA00D1307C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479401915E658FA00D1307C /* AboutScene.m */; };
+		347A794515F4AAF6003B1770 /* rate_app_paid-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347A794115F4AAF5003B1770 /* rate_app_paid-hd.plist */; };
+		347A794615F4AAF6003B1770 /* rate_app_paid-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 347A794215F4AAF5003B1770 /* rate_app_paid-hd.pvrtc.ccz */; };
+		347A794715F4AAF6003B1770 /* rate_app_paid.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347A794315F4AAF5003B1770 /* rate_app_paid.plist */; };
+		347A794815F4AAF6003B1770 /* rate_app_paid.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 347A794415F4AAF5003B1770 /* rate_app_paid.pvrtc.ccz */; };
 		347B95B115EA15AB00BED4F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 348AEE5514DA8A0A0087EFCB /* AppDelegate.m */; };
 		347B95B215EA15AB00BED4F8 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 348AEE5814DA8A0A0087EFCB /* GameKitHelper.m */; };
 		347B95B315EA15AB00BED4F8 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 348AEE5D14DA8A0A0087EFCB /* CCAction.m */; };
@@ -1927,10 +1935,6 @@
 		34B4496015EFB5DE009AED3F /* single_difficulty-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B4495C15EFB5DB009AED3F /* single_difficulty-hd.pvrtc.ccz */; };
 		34B4496115EFB5DE009AED3F /* single_difficulty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B4495D15EFB5DC009AED3F /* single_difficulty.plist */; };
 		34B4496215EFB5DE009AED3F /* single_difficulty.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B4495E15EFB5DD009AED3F /* single_difficulty.pvrtc.ccz */; };
-		34B4496515EFB775009AED3F /* rate_app_free-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B4496315EFB773009AED3F /* rate_app_free-hd.plist */; };
-		34B4496615EFB775009AED3F /* rate_app_free-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B4496415EFB774009AED3F /* rate_app_free-hd.pvrtc.ccz */; };
-		34B4496915EFB824009AED3F /* rate_app_free.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B4496715EFB822009AED3F /* rate_app_free.plist */; };
-		34B4496A15EFB824009AED3F /* rate_app_free.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B4496815EFB823009AED3F /* rate_app_free.pvrtc.ccz */; };
 		34B4497F15EFBF8C009AED3F /* options_scene_textures-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B4497B15EFBF86009AED3F /* options_scene_textures-hd.plist */; };
 		34B4498015EFBF8C009AED3F /* options_scene_textures-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B4497C15EFBF87009AED3F /* options_scene_textures-hd.pvrtc.ccz */; };
 		34B4498115EFBF8C009AED3F /* options_scene_textures.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B4497D15EFBF88009AED3F /* options_scene_textures.plist */; };
@@ -2171,12 +2175,8 @@
 		34FC59E915F34AE00081E720 /* rate_app_paid.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34B65E211510DDBE003723F6 /* rate_app_paid.pvrtc.ccz */; };
 		34FC5A0415F37C690081E720 /* ingame_textures-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0215F37C690081E720 /* ingame_textures-hd.plist */; };
 		34FC5A0515F37C690081E720 /* ingame_textures-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0315F37C690081E720 /* ingame_textures-hd.pvrtc.ccz */; };
-		34FC5A0815F37C810081E720 /* ingame_textures-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0615F37C810081E720 /* ingame_textures-hd.plist */; };
-		34FC5A0915F37C810081E720 /* ingame_textures.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0715F37C810081E720 /* ingame_textures.plist */; };
 		34FC5A0C15F37D050081E720 /* ingame_textures.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0A15F37D040081E720 /* ingame_textures.plist */; };
 		34FC5A0D15F37D050081E720 /* ingame_textures.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0B15F37D050081E720 /* ingame_textures.pvrtc.ccz */; };
-		34FC5A1015F37D4C0081E720 /* ingame_textures-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0E15F37D4C0081E720 /* ingame_textures-hd.pvrtc.ccz */; };
-		34FC5A1115F37D4C0081E720 /* ingame_textures.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A0F15F37D4C0081E720 /* ingame_textures.pvrtc.ccz */; };
 		34FC5A1615F37DE40081E720 /* alerts2-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A1215F37DE10081E720 /* alerts2-hd.plist */; };
 		34FC5A1715F37DE40081E720 /* alerts2-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A1315F37DE10081E720 /* alerts2-hd.pvrtc.ccz */; };
 		34FC5A1815F37DE40081E720 /* alerts2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FC5A1415F37DE20081E720 /* alerts2.plist */; };
@@ -2278,6 +2278,10 @@
 		34778D1115DA50FC00856034 /* RevMobAdsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevMobAdsDelegate.h; sourceTree = "<group>"; };
 		34778D1215DA50FC00856034 /* RevMobAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevMobAdvertiser.h; sourceTree = "<group>"; };
 		34778D1515DA50FC00856034 /* RevMobAds */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = RevMobAds; sourceTree = "<group>"; };
+		3477BDBA15F65BB900F40082 /* ingame_textures-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ingame_textures-hd.plist"; sourceTree = "<group>"; };
+		3477BDBB15F65BB900F40082 /* ingame_textures-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ingame_textures-hd.pvrtc.ccz"; sourceTree = "<group>"; };
+		3477BDBC15F65BB900F40082 /* ingame_textures.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ingame_textures.plist; sourceTree = "<group>"; };
+		3477BDBD15F65BB900F40082 /* ingame_textures.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = ingame_textures.pvrtc.ccz; sourceTree = "<group>"; };
 		347828801519E47400D152AB /* jQueryInject.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jQueryInject.txt; sourceTree = "<group>"; };
 		347828811519E47400D152AB /* jQueryInjectLandscape.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jQueryInjectLandscape.txt; sourceTree = "<group>"; };
 		347828821519E47400D152AB /* libOAuth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOAuth.a; sourceTree = "<group>"; };
@@ -2393,6 +2397,10 @@
 		3479400115E628FA00D1307C /* share_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_bg@2x.png"; sourceTree = "<group>"; };
 		3479401815E658F900D1307C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		3479401915E658FA00D1307C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
+		347A794115F4AAF5003B1770 /* rate_app_paid-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "rate_app_paid-hd.plist"; sourceTree = "<group>"; };
+		347A794215F4AAF5003B1770 /* rate_app_paid-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rate_app_paid-hd.pvrtc.ccz"; sourceTree = "<group>"; };
+		347A794315F4AAF5003B1770 /* rate_app_paid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rate_app_paid.plist; sourceTree = "<group>"; };
+		347A794415F4AAF5003B1770 /* rate_app_paid.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = rate_app_paid.pvrtc.ccz; sourceTree = "<group>"; };
 		347B98AC15EA15AB00BED4F8 /* Roc-a-Tac-Arabic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roc-a-Tac-Arabic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347B98AE15EA15AB00BED4F8 /* Roc-a-Tac-Arabic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Roc-a-Tac-Arabic-Info.plist"; path = "/Work/Xcode Projects/roc-s/Roc-a-Tac-Arabic-Info.plist"; sourceTree = "<absolute>"; };
 		347FD88715F3B740000903C1 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
@@ -3177,10 +3185,6 @@
 		34B4495C15EFB5DB009AED3F /* single_difficulty-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "single_difficulty-hd.pvrtc.ccz"; sourceTree = "<group>"; };
 		34B4495D15EFB5DC009AED3F /* single_difficulty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = single_difficulty.plist; sourceTree = "<group>"; };
 		34B4495E15EFB5DD009AED3F /* single_difficulty.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = single_difficulty.pvrtc.ccz; sourceTree = "<group>"; };
-		34B4496315EFB773009AED3F /* rate_app_free-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "rate_app_free-hd.plist"; sourceTree = "<group>"; };
-		34B4496415EFB774009AED3F /* rate_app_free-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rate_app_free-hd.pvrtc.ccz"; sourceTree = "<group>"; };
-		34B4496715EFB822009AED3F /* rate_app_free.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rate_app_free.plist; sourceTree = "<group>"; };
-		34B4496815EFB823009AED3F /* rate_app_free.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = rate_app_free.pvrtc.ccz; sourceTree = "<group>"; };
 		34B4497B15EFBF86009AED3F /* options_scene_textures-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "options_scene_textures-hd.plist"; sourceTree = "<group>"; };
 		34B4497C15EFBF87009AED3F /* options_scene_textures-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "options_scene_textures-hd.pvrtc.ccz"; sourceTree = "<group>"; };
 		34B4497D15EFBF88009AED3F /* options_scene_textures.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = options_scene_textures.plist; sourceTree = "<group>"; };
@@ -3247,12 +3251,8 @@
 		34F1500614DAA5D800A3D70E /* Roc-a-Tac-Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roc-a-Tac-Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FC5A0215F37C690081E720 /* ingame_textures-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ingame_textures-hd.plist"; sourceTree = "<group>"; };
 		34FC5A0315F37C690081E720 /* ingame_textures-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ingame_textures-hd.pvrtc.ccz"; sourceTree = "<group>"; };
-		34FC5A0615F37C810081E720 /* ingame_textures-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ingame_textures-hd.plist"; sourceTree = "<group>"; };
-		34FC5A0715F37C810081E720 /* ingame_textures.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ingame_textures.plist; sourceTree = "<group>"; };
 		34FC5A0A15F37D040081E720 /* ingame_textures.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ingame_textures.plist; sourceTree = "<group>"; };
 		34FC5A0B15F37D050081E720 /* ingame_textures.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = ingame_textures.pvrtc.ccz; sourceTree = "<group>"; };
-		34FC5A0E15F37D4C0081E720 /* ingame_textures-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ingame_textures-hd.pvrtc.ccz"; sourceTree = "<group>"; };
-		34FC5A0F15F37D4C0081E720 /* ingame_textures.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = ingame_textures.pvrtc.ccz; sourceTree = "<group>"; };
 		34FC5A1215F37DE10081E720 /* alerts2-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "alerts2-hd.plist"; sourceTree = "<group>"; };
 		34FC5A1315F37DE10081E720 /* alerts2-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alerts2-hd.pvrtc.ccz"; sourceTree = "<group>"; };
 		34FC5A1415F37DE20081E720 /* alerts2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = alerts2.plist; sourceTree = "<group>"; };
@@ -4485,10 +4485,10 @@
 		348B0E6015EA258200DB065D /* Arabic */ = {
 			isa = PBXGroup;
 			children = (
-				34B4496715EFB822009AED3F /* rate_app_free.plist */,
-				34B4496815EFB823009AED3F /* rate_app_free.pvrtc.ccz */,
-				34B4496315EFB773009AED3F /* rate_app_free-hd.plist */,
-				34B4496415EFB774009AED3F /* rate_app_free-hd.pvrtc.ccz */,
+				347A794115F4AAF5003B1770 /* rate_app_paid-hd.plist */,
+				347A794215F4AAF5003B1770 /* rate_app_paid-hd.pvrtc.ccz */,
+				347A794315F4AAF5003B1770 /* rate_app_paid.plist */,
+				347A794415F4AAF5003B1770 /* rate_app_paid.pvrtc.ccz */,
 				34B4495B15EFB5DA009AED3F /* single_difficulty-hd.plist */,
 				34B4495C15EFB5DB009AED3F /* single_difficulty-hd.pvrtc.ccz */,
 				34B4495D15EFB5DC009AED3F /* single_difficulty.plist */,
@@ -4846,6 +4846,10 @@
 		34B4498B15EFC40F009AED3F /* Arabic */ = {
 			isa = PBXGroup;
 			children = (
+				3477BDBA15F65BB900F40082 /* ingame_textures-hd.plist */,
+				3477BDBB15F65BB900F40082 /* ingame_textures-hd.pvrtc.ccz */,
+				3477BDBC15F65BB900F40082 /* ingame_textures.plist */,
+				3477BDBD15F65BB900F40082 /* ingame_textures.pvrtc.ccz */,
 				34FC5A2A15F390890081E720 /* alerts1-hd.plist */,
 				34FC5A2B15F390890081E720 /* alerts1-hd.pvrtc.ccz */,
 				34FC5A2C15F3908A0081E720 /* alerts1.plist */,
@@ -4854,10 +4858,6 @@
 				34FC5A1315F37DE10081E720 /* alerts2-hd.pvrtc.ccz */,
 				34FC5A1415F37DE20081E720 /* alerts2.plist */,
 				34FC5A1515F37DE30081E720 /* alerts2.pvrtc.ccz */,
-				34FC5A0E15F37D4C0081E720 /* ingame_textures-hd.pvrtc.ccz */,
-				34FC5A0F15F37D4C0081E720 /* ingame_textures.pvrtc.ccz */,
-				34FC5A0615F37C810081E720 /* ingame_textures-hd.plist */,
-				34FC5A0715F37C810081E720 /* ingame_textures.plist */,
 			);
 			path = Arabic;
 			sourceTree = "<group>";
@@ -5591,18 +5591,10 @@
 				34B4496015EFB5DE009AED3F /* single_difficulty-hd.pvrtc.ccz in Resources */,
 				34B4496115EFB5DE009AED3F /* single_difficulty.plist in Resources */,
 				34B4496215EFB5DE009AED3F /* single_difficulty.pvrtc.ccz in Resources */,
-				34B4496515EFB775009AED3F /* rate_app_free-hd.plist in Resources */,
-				34B4496615EFB775009AED3F /* rate_app_free-hd.pvrtc.ccz in Resources */,
-				34B4496915EFB824009AED3F /* rate_app_free.plist in Resources */,
-				34B4496A15EFB824009AED3F /* rate_app_free.pvrtc.ccz in Resources */,
 				34B4498715EFC104009AED3F /* options_scene_textures-hd.plist in Resources */,
 				34B4498815EFC104009AED3F /* options_scene_textures-hd.pvrtc.ccz in Resources */,
 				34B4498915EFC104009AED3F /* options_scene_textures.plist in Resources */,
 				34B4498A15EFC104009AED3F /* options_scene_textures.pvrtc.ccz in Resources */,
-				34FC5A0815F37C810081E720 /* ingame_textures-hd.plist in Resources */,
-				34FC5A0915F37C810081E720 /* ingame_textures.plist in Resources */,
-				34FC5A1015F37D4C0081E720 /* ingame_textures-hd.pvrtc.ccz in Resources */,
-				34FC5A1115F37D4C0081E720 /* ingame_textures.pvrtc.ccz in Resources */,
 				34FC5A1615F37DE40081E720 /* alerts2-hd.plist in Resources */,
 				34FC5A1715F37DE40081E720 /* alerts2-hd.pvrtc.ccz in Resources */,
 				34FC5A1815F37DE40081E720 /* alerts2.plist in Resources */,
@@ -5615,6 +5607,14 @@
 				347FD88B15F3B740000903C1 /* Default-Portrait.png in Resources */,
 				347FD88D15F3B740000903C1 /* Default.png in Resources */,
 				347FD88F15F3B740000903C1 /* Default@2x.png in Resources */,
+				347A794515F4AAF6003B1770 /* rate_app_paid-hd.plist in Resources */,
+				347A794615F4AAF6003B1770 /* rate_app_paid-hd.pvrtc.ccz in Resources */,
+				347A794715F4AAF6003B1770 /* rate_app_paid.plist in Resources */,
+				347A794815F4AAF6003B1770 /* rate_app_paid.pvrtc.ccz in Resources */,
+				3477BDBE15F65BB900F40082 /* ingame_textures-hd.plist in Resources */,
+				3477BDBF15F65BBA00F40082 /* ingame_textures-hd.pvrtc.ccz in Resources */,
+				3477BDC015F65BBA00F40082 /* ingame_textures.plist in Resources */,
+				3477BDC115F65BBA00F40082 /* ingame_textures.pvrtc.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
