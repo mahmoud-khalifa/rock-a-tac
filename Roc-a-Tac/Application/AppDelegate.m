@@ -409,7 +409,7 @@ void uncaughtExceptionHandler(NSException *exception) {
             NSDictionary* chartBoostDict=[dictServer objectForKey:@"Chartboost>"];
             bool chartEnabled=[[chartBoostDict objectForKey:@"Chartboost_Featured_App"] boolValue];
 
-            if(1/*featuredAppEnabled*/){
+            if(featuredAppEnabled){
                 
             [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:YES andCerebroNagScreenEnabled:NO];
                     
@@ -446,6 +446,7 @@ void uncaughtExceptionHandler(NSException *exception) {
             }
             
          //END OF FEATURED APP PART//
+            
                         
 //                    }else {
 ////                        [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:NO andCerebroNagScreenEnabled:NO];

@@ -325,7 +325,7 @@
         CCMenu* menu=[CCMenu menuWithItems:backItem, nil];
         menu.position=ccp(0, 0);
         menu.anchorPoint=ccp(0, 0);
-        [tutorialSprite addChild:menu z:1500];
+        [tutorialSprite addChild:menu];
         
         tutorialSprite.tag=tutoType;
         
@@ -333,7 +333,7 @@
 //        
         [[CCDirector sharedDirector]pause];
         
-        isTutorialShown = YES;
+        //isTutorialShown = YES;
     }
 
 }
@@ -343,7 +343,7 @@
     if (tutorialSprite.tag==TutorialA) {
 //        [self schedule:@selector(decreaseWaitingTime:)];
         whoFisrtMenu.isTouchEnabled=YES;
-        self.isTouchEnabled=YES;
+//        self.isTouchEnabled=YES;
     }
     [tutorialSprite removeFromParentAndCleanup:YES];
     tutorialSprite=nil;
@@ -1136,20 +1136,6 @@
         [self checkAddingPieceToBoardAtLocation:location ];
         isSwapping=NO;
     }
-    
-//    else if (CGRectContainsPoint(tutoOkButton, location) ) {
-//        [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
-//        if (tutorialSprite.tag==TutorialA) {
-//            whoFisrtMenu.isTouchEnabled=YES;
-//            self.isTouchEnabled=YES;
-//        }
-//        [tutorialSprite removeFromParentAndCleanup:YES];
-//        tutorialSprite=nil;
-//        
-//        [[CCDirector sharedDirector]resume]; 
-//        
-//        isTutorialShown = NO;
-//    }
     
 }
 
