@@ -404,11 +404,12 @@ void uncaughtExceptionHandler(NSException *exception) {
             featuredAdDisplayCount=[[customSetting objectForKey:@"featured_app_display_count"] intValue];
             
             NSDictionary* bcfAdsDict=[dictServer objectForKey:@"BCFads"];
-            bool revmobEnabled=[[bcfAdsDict objectForKey:@"BCFads_Nag_Enabled"] boolValue];
+            bool revmobEnabled=[[bcfAdsDict objectForKey:@"BCFads_Popup_Enabled"] boolValue];
             
             NSDictionary* chartBoostDict=[dictServer objectForKey:@"Chartboost>"];
             bool chartEnabled=[[chartBoostDict objectForKey:@"Chartboost_Featured_App"] boolValue];
-
+            
+            
             if(featuredAppEnabled){
                 
             [self showAd:maxFeaturePerHour maxDayAllowed:maxFeaturePerDay withTapjoyEnabled:YES andCerebroNagScreenEnabled:NO];

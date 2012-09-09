@@ -47,6 +47,8 @@
 
 #ifdef ARABIC_VERSION
 
+#define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac_arabic/settings.plist"
+
 #define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUYgqX7FAw"
 
 #define kREVMOB_ID @"5032d4050be3830800000028"
@@ -67,9 +69,12 @@
 
 #else
 
+#define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"
+//#define TAPJOY_PLIST_URL @"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatac/settings.plist"
 #define kMOPUB_ID @"agltb3B1Yi1pbmNyDQsSBFNpdGUY2cbHEgw"
 
 #define kREVMOB_ID @"4fd138459398a2000c000078"
+//#define kREVMOB_ID @"5032d4050be3830800000028"
 
 #define kTAPJOY_APP_ID @"21a0bcc9-58da-457b-a298-8e451a123fd6"
 #define kTAPJOY_APP_SECRET_KEY @"qmdo042RRQ8JGU0HOISV"
@@ -95,7 +100,7 @@
 
 //#define TAPJOY_PLIST_URL @"http://localhost:8888/rocatac_ServerList.plist"
 
-#define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"//@"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
+//#define TAPJOY_PLIST_URL @"http://www.stariosgames.com/resources/rockatac/settings.plist"//@"http://enderval.cerebr.info/ios/private/com.stariosgames.rockatacfree/settings.plist/"//@"http://www.stariosgames.com/resources/rockatac/GameControllerLite.plist"
 
 
 

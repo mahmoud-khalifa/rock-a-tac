@@ -522,7 +522,6 @@
         [[RootViewController sharedRootViewController] setAdViewFrameAtBottom:NO];
     }else{//hide
         [[RootViewController sharedRootViewController] hideAd];
-        
     }
 }
 //#endif

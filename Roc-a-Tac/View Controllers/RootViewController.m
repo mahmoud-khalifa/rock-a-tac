@@ -127,7 +127,6 @@ static RootViewController *instanceOfRootViewController;
     //CGRect frame=adView.frame;
 	adView.frame =adFrame;//= CGRectMake(0, 0, 320, 50);
     theAdView=adView;
-    
 }
 
 
