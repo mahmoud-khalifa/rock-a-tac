@@ -29,6 +29,10 @@
 
 #import "ChartBoost.h"
 
+#import "UAirship.h"
+#import "UAPush.h"
+
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -73,8 +77,12 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 
 
-- (void) applicationDidFinishLaunching:(UIApplication*)application
+//- (void) applicationDidFinishLaunching:(UIApplication*)application
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+//    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kAPP_RUN_BEFORE_KEY];
+//    [[NSUserDefaults standardUserDefaults] synchronize];       
     
     //In-App Purchase
     [MKStoreManager sharedManager];
@@ -181,7 +189,11 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     
 //    [self getTapJoySetting ];
-    _4mnowkey = @"enderval";
+
+    NSLog(@"Thread: Urban Airship");
+    NSMutableDictionary *takeOffOptions = [[NSMutableDictionary alloc] init];
+    [takeOffOptions setValue:launchOptions forKey:UAirshipTakeOffOptionsLaunchOptionsKey];
+    [UAirship takeOff:takeOffOptions];
     
 //    [[FourmnowSDK sharedFourmnowSDK]requestFourmnowInfoSettingsForDomain: _4mnowkey withDelegate:self];    
 //    [[FourmnowSDK sharedFourmnowSDK]allPush:@"0"];
@@ -197,6 +209,12 @@ void uncaughtExceptionHandler(NSException *exception) {
 //    [viewController.view addSubview:viewController.imageView];
 //    [viewController.view bringSubviewToFront:viewController.imageView];
     
+    NSLog(@"*Push Notification check");
+    NSDictionary *pushNotificationPayload = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (pushNotificationPayload) {
+        [self application:application didReceiveRemoteNotification:pushNotificationPayload];
+    }
+    return YES;
     
 }
 
@@ -259,6 +277,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 	[window release];
 	
 	[director end];	
+    
+    [UAirship land];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
@@ -545,40 +565,89 @@ void uncaughtExceptionHandler(NSException *exception) {
     adView.frame = frame;
 }
 
-#pragma Mark FourmnowSDK Delegate
-
-- (void)fourmnowSDKDidReceiveSettings:(NSDictionary*)settingDictionary forFourmnowSDK:(FourmnowSDK*)fourmnowsdk{   
-    CILog(@"4mnow settings plist: %@", settingDictionary);
-    // Register for notifications
-    [[FourmnowSDK sharedFourmnowSDK]enableFourmnowPush];
- 
-}
-
-- (void)fourmnowSDKDidFailedToReceiveSettings:(NSError*)error  forFourmnowSDK:(FourmnowSDK*)fourmnowsdk{
-    if (error){
-        CILog(@"4mnow Error: %@", [error description]);
-    }    
-}
-
+#pragma Mark PushNotifications
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    // Register the token on Remote Server (your provided domain)
-    [[FourmnowSDK sharedFourmnowSDK]registerDeviceToken:deviceToken];
-    
-     [delegate onDidRegisterForRemoteNotifications];
+    UALOG(@"APN device token: %@", deviceToken);
+    // Updates the device token and registers the token with UA
+    [delegate onDidRegisterForRemoteNotifications];
+    [[UAPush shared] registerDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
-
     [delegate onDidFailToRegisterForRemoteNotifications];
+    UALOG(@"Failed To Register For Remote Notifications With Error: %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
  	// Show the push notification alert message 
-    [[FourmnowSDK sharedFourmnowSDK]handlePush:userInfo];
+    UALOG(@"Received remote notification: %@", userInfo);
+    
+    // Get application state for iOS4.x+ devices, otherwise assume active
+    UIApplicationState appState = UIApplicationStateActive;
+    if ([application respondsToSelector:@selector(applicationState)]) {
+        appState = application.applicationState;
+    }
+    
+    [[UAPush shared] handleNotification:userInfo applicationState:appState];
+    [[UAPush shared] resetBadge];
+    
+    NSLog(@"userInfo: %@", userInfo);
+    if (userInfo) {
+        NSDictionary *notif = [userInfo objectForKey:@"aps"];
+        NSString *message = [notif objectForKey:@"alert"];
+        [self checkPushMessageForUrl:message];
+    }
+    NSString *appLink = [userInfo objectForKey:@"app_link"];
+    if (appLink != nil) {
+        [self checkPushMessageForUrl:appLink];
+    }
+    
+    
+//    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+//        NSLog(@"Application State = active");
+//        BlockAlertView *alert = [BlockAlertView alertWithTitle:nil message:[[userInfo objectForKey:@"aps"] objectForKey:@"alert"]  andLoadingviewEnabled:NO];
+//        [alert addButtonWithTitle:NSLocalizedString(@"Close", @"Close") block:nil];
+//        [alert addButtonWithTitle:NSLocalizedString(@"View", @"View") block:^{
+//            
+//        }];
+//        [alert show];
+//    } else {
+//    }
 }
 
 
+- (void)checkPushMessageForUrl:(NSString*)message {
+    NSArray *comp = [message componentsSeparatedByString:@"http:"];
+    if ([comp count] > 1) {
+        NSString *url = [NSString stringWithFormat:@"http:%@", [comp objectAtIndex:1]];
+        NSLog(@"opening URL: %@", url);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
+    
+}
+
+
+- (void)registerForRemoteNotifications {
+    
+//    //Init Airship launch options
+//    NSMutableDictionary *takeOffOptions = [[NSMutableDictionary alloc] init];
+//    [takeOffOptions setValue:appLaunchOptions forKey:UAirshipTakeOffOptionsLaunchOptionsKey];
+//    
+//    // Create Airship singleton that's used to talk to Urban Airhship servers.
+//    // Please populate AirshipConfig.plist with your info from http://go.urbanairship.com
+//    [UAirship takeOff:takeOffOptions];
+    
+    [[UAPush shared] resetBadge];//zero badge on startup
+    
+    [[UAPush shared] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                         UIRemoteNotificationTypeSound |
+                                                         UIRemoteNotificationTypeAlert)];
+}
+
+
+
+#pragma mark Ads
 - (void)prepareAdsStats
 {
     NSDate *lastAdDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastAdDate"];

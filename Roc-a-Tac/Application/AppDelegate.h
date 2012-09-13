@@ -60,7 +60,12 @@ RevMobAdsDelegate> {
 
 @property (nonatomic, retain) Facebook *facebook;
 
--(void)getTapJoySetting;
+
+
+- (void)registerForRemoteNotifications;
+- (void)checkPushMessageForUrl:(NSString*)message;
+
+- (void)getTapJoySetting;
 
 - (void)prepareAdsStats;
 - (void)showAd:(int)maxHourAllowed maxDayAllowed:(int)maxDayAllowed withTapjoyEnabled:(BOOL)tapjoyEnabled andCerebroNagScreenEnabled:(BOOL)cerebroEnabled;

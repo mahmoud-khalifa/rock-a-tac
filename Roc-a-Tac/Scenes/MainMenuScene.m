@@ -96,7 +96,7 @@
         
         [self rateApp];
         
-//        [self registerForPushNotifications];
+        [self registerForPushNotifications];
         
         if (![[Controller sharedController] isFeaturePurchased:kREMOVE_ADS_ID]&&
             [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
@@ -168,7 +168,8 @@
         }
         
     }else if([self getChildByTag:MainMenuSceneTagRegisterPushNotifications]){
-
+       
+        
     }else{
         
         if (CGRectContainsPoint(kSINGLE_PLAYER_BTN_RECT, location) ) {
@@ -274,7 +275,27 @@
         }
         
       
-    }else if([self getChildByTag:MainMenuSceneTagRateAppSprite]){
+    }
+    else if([self getChildByTag:MainMenuSceneTagRegisterPushNotifications]){
+        CGRect noThanksRect=CGRectMake(ADJUST_DOUBLE(52*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(264*SCREEN_SCALE) , ADJUST_DOUBLE(92*SCREEN_SCALE), ADJUST_DOUBLE(34*SCREEN_SCALE));
+        
+        CGRect okRect=CGRectMake(ADJUST_DOUBLE(200*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(258*SCREEN_SCALE)  , ADJUST_DOUBLE(130*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE));
+        
+        if (CGRectContainsPoint(noThanksRect, location)) {
+            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kAPP_RUN_BEFORE_KEY];
+            [[NSUserDefaults standardUserDefaults] synchronize];            
+            [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
+            
+        }else if(CGRectContainsPoint(okRect, location)){
+            AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            [appDelegate registerForRemoteNotifications];
+            //            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kAPP_RUN_BEFORE_KEY];
+            //            [[NSUserDefaults standardUserDefaults] synchronize];
+            //            [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
+        }
+    }
+    
+    else if([self getChildByTag:MainMenuSceneTagRateAppSprite]){
         CGRect doneRect=CGRectMake(ADJUST_DOUBLE(22*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(426*SCREEN_SCALE) , ADJUST_DOUBLE(57*SCREEN_SCALE), ADJUST_DOUBLE(31*SCREEN_SCALE));
         
         CGRect rateRect=CGRectMake(ADJUST_DOUBLE(76*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(309*SCREEN_SCALE)  , ADJUST_DOUBLE(240*SCREEN_SCALE), ADJUST_DOUBLE(43*SCREEN_SCALE));
@@ -313,26 +334,7 @@
         }
        
     }
-    else if([self getChildByTag:MainMenuSceneTagRegisterPushNotifications]){
-//        CGRect noThanksRect=CGRectMake(ADJUST_DOUBLE(52*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(264*SCREEN_SCALE) , ADJUST_DOUBLE(92*SCREEN_SCALE), ADJUST_DOUBLE(34*SCREEN_SCALE));
-//        
-//        CGRect okRect=CGRectMake(ADJUST_DOUBLE(200*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(258*SCREEN_SCALE)  , ADJUST_DOUBLE(130*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE));
-//        
-//        if (CGRectContainsPoint(noThanksRect, location)) {
-//            
-//            [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
-//            
-//        }else if(CGRectContainsPoint(okRect, location)){
-//        
-//            NSString*  _4mnowkey = @"enderval";
-//            [[FourmnowSDK sharedFourmnowSDK]requestFourmnowInfoSettingsForDomain: _4mnowkey withDelegate:kAPP_DELEGATE];    
-//            [[FourmnowSDK sharedFourmnowSDK]allPush:@"0"];
-//
-//            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kAPP_RUN_BEFORE_KEY];
-//            
-//              [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
-//        }
-    }
+    
     else{
         
         if (CGRectContainsPoint(kSINGLE_PLAYER_BTN_RECT, location) ) {
@@ -698,7 +700,7 @@
     if (appRunsBefore ==0  && [[Controller sharedController] connectedToWeb]) {
 //        [[UIApplication sharedApplication] unregisterForRemoteNotifications ];
         
-		CCSprite* blurSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Menu_Blur_A_001.jpg"]];
+		CCSprite *blurSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Menu_Blur_A_001.jpg"]];
         blurSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
         [self addChild:blurSprite z:0 tag:MainMenuSceneTagRegisterPushNotifications];
         
@@ -707,22 +709,20 @@
         pushNotificationsRequest.position=ccp(blurSprite.contentSize.width*0.5, blurSprite.contentSize.height*0.5);
         
         [blurSprite addChild:pushNotificationsRequest ];
-        
-        NSString*  _4mnowkey = @"enderval";
-        [[FourmnowSDK sharedFourmnowSDK]requestFourmnowInfoSettingsForDomain: _4mnowkey withDelegate:kAPP_DELEGATE];    
-        [[FourmnowSDK sharedFourmnowSDK]allPush:@"0"];
 	}
 }
 
-#pragma mark AppDelegateProtocol
+//#pragma mark AppDelegateProtocol
 -(void)onDidRegisterForRemoteNotifications{
 
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kAPP_RUN_BEFORE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
 }
 -(void)onDidFailToRegisterForRemoteNotifications{
 
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:kAPP_RUN_BEFORE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self removeChildByTag:MainMenuSceneTagRegisterPushNotifications cleanup:YES  ];
     
