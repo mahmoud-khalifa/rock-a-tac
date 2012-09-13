@@ -70,6 +70,16 @@
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue 
 {
     [[MKStoreManager sharedManager] restoreCompleted];
+    
+//    purchasedItemIDs = [[NSMutableArray alloc] init];
+//    
+//    NSLog(@"received restored transactions: %i", queue.transactions.count);
+//    for (SKPaymentTransaction *transaction in queue.transactions)
+//    {
+//        NSString *productID = transaction.payment.productIdentifier;
+//        [purchasedItemIDs addObject:productID];
+//    }
+
 }
 
 - (void) failedTransaction: (SKPaymentTransaction *)transaction

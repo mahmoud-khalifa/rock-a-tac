@@ -154,7 +154,8 @@
             
             btnSelector=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_RateApp_A_Selector_Blue.png"]];
             btnSelector.anchorPoint=ccp(0, 0);
-            btnSelector.position=ADJUST_DOUBLE_XY(55, 183);
+//            btnSelector.position=ADJUST_DOUBLE_XY(55, 183);
+            btnSelector.position=ADJUST_DOUBLE_XY(55, 290);
             [rateAppSprite addChild:btnSelector];
             
         }else if(CGRectContainsPoint(problemRect, location)){
@@ -162,7 +163,8 @@
             [btnSelector removeFromParentAndCleanup:YES];
             btnSelector=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_RateApp_A_Selector_Red.png"]];
             btnSelector.anchorPoint=ccp(0, 0);
-            btnSelector.position=ADJUST_DOUBLE_XY(55, 134);
+//            btnSelector.position=ADJUST_DOUBLE_XY(55, 134);
+            btnSelector.position=ADJUST_DOUBLE_XY(55, 240);
             [rateAppSprite addChild:btnSelector];
             
         }
@@ -215,7 +217,11 @@
     
     [self performSelector:@selector(disableSelectedButton) withObject:Nil afterDelay:5];
     
-    [btnSelector removeFromParentAndCleanup:YES];
+    if (btnSelector) {
+        [btnSelector removeFromParentAndCleanup:YES];
+        btnSelector = NULL;
+    }
+    
     CGPoint location = [touch locationInView:[touch view]]; 
     
     location = [[CCDirector sharedDirector] convertToGL:location]; 

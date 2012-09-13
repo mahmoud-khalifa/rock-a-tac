@@ -157,9 +157,9 @@
     if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ] &&
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
 //        removeAds=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_NoAds.png"]];
-//        removeAds.position=ADJUST_XY(21, 62);
-//        
-//        [self addChild:removeAds];
+        removeAds=[CCSprite spriteWithFile:@"noAdsBtn.png"];
+        removeAds.position=ADJUST_XY(21, 62);
+        [self addChild:removeAds];
     }
     
 //#endif
@@ -197,7 +197,8 @@
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {    
      CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
         if (CGRectContainsPoint (removeAdsRect, location)) {
-            buttonSelector.position=ADJUST_XY(21, 62);
+//            buttonSelector.position=ADJUST_XY(21, 62);
+            buttonSelector.position=removeAds.position;
             buttonSelector.visible=YES;
             //remove ads
         }

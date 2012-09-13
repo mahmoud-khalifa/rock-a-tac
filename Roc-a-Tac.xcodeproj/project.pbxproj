@@ -121,6 +121,10 @@
 		34793FFC15E628EF00D1307C /* share_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 34793FFE15E628EF00D1307C /* share_bg.png */; };
 		34793FFF15E628FA00D1307C /* share_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479400115E628FA00D1307C /* share_bg@2x.png */; };
 		3479401A15E658FA00D1307C /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3479401915E658FA00D1307C /* AboutScene.m */; };
+		3479D32C16022D2600503221 /* noAdsBtn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479D32A16022D2600503221 /* noAdsBtn-hd.png */; };
+		3479D32D16022D2600503221 /* noAdsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479D32B16022D2600503221 /* noAdsBtn.png */; };
+		3479D33016022D4000503221 /* noAdsBtn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479D32E16022D4000503221 /* noAdsBtn-hd.png */; };
+		3479D33116022D4000503221 /* noAdsBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3479D32F16022D4000503221 /* noAdsBtn.png */; };
 		347A794515F4AAF6003B1770 /* rate_app_paid-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347A794115F4AAF5003B1770 /* rate_app_paid-hd.plist */; };
 		347A794615F4AAF6003B1770 /* rate_app_paid-hd.pvrtc.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 347A794215F4AAF5003B1770 /* rate_app_paid-hd.pvrtc.ccz */; };
 		347A794715F4AAF6003B1770 /* rate_app_paid.plist in Resources */ = {isa = PBXBuildFile; fileRef = 347A794315F4AAF5003B1770 /* rate_app_paid.plist */; };
@@ -1790,6 +1794,10 @@
 		3479400115E628FA00D1307C /* share_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_bg@2x.png"; sourceTree = "<group>"; };
 		3479401815E658F900D1307C /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		3479401915E658FA00D1307C /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
+		3479D32A16022D2600503221 /* noAdsBtn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noAdsBtn-hd.png"; sourceTree = "<group>"; };
+		3479D32B16022D2600503221 /* noAdsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noAdsBtn.png; sourceTree = "<group>"; };
+		3479D32E16022D4000503221 /* noAdsBtn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noAdsBtn-hd.png"; sourceTree = "<group>"; };
+		3479D32F16022D4000503221 /* noAdsBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noAdsBtn.png; sourceTree = "<group>"; };
 		347A794115F4AAF5003B1770 /* rate_app_paid-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "rate_app_paid-hd.plist"; sourceTree = "<group>"; };
 		347A794215F4AAF5003B1770 /* rate_app_paid-hd.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rate_app_paid-hd.pvrtc.ccz"; sourceTree = "<group>"; };
 		347A794315F4AAF5003B1770 /* rate_app_paid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rate_app_paid.plist; sourceTree = "<group>"; };
@@ -4391,6 +4399,8 @@
 		34B4491815EF9061009AED3F /* Arabic */ = {
 			isa = PBXGroup;
 			children = (
+				3479D32E16022D4000503221 /* noAdsBtn-hd.png */,
+				3479D32F16022D4000503221 /* noAdsBtn.png */,
 				34B4498315EFC103009AED3F /* options_scene_textures-hd.plist */,
 				34B4498415EFC103009AED3F /* options_scene_textures-hd.pvrtc.ccz */,
 				34B4498515EFC103009AED3F /* options_scene_textures.plist */,
@@ -4516,6 +4526,8 @@
 			isa = PBXGroup;
 			children = (
 				34B4491815EF9061009AED3F /* Arabic */,
+				3479D32A16022D2600503221 /* noAdsBtn-hd.png */,
+				3479D32B16022D2600503221 /* noAdsBtn.png */,
 				34B4490715EF8C8D009AED3F /* GUI_MenuAbout_A-hd.jpg */,
 				34B4490815EF8C8D009AED3F /* GUI_MenuAbout_A.jpg */,
 				34B4490B15EF8D02009AED3F /* GUI_MenuOptions_A-hd.jpg */,
@@ -5156,6 +5168,8 @@
 				3477BDC015F65BBA00F40082 /* ingame_textures.plist in Resources */,
 				3477BDC115F65BBA00F40082 /* ingame_textures.pvrtc.ccz in Resources */,
 				1ECF1A6615FFA48B00CBFB4C /* AirshipConfig.plist in Resources */,
+				3479D33016022D4000503221 /* noAdsBtn-hd.png in Resources */,
+				3479D33116022D4000503221 /* noAdsBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5667,6 +5681,8 @@
 				347FD88C15F3B740000903C1 /* Default.png in Resources */,
 				347FD88E15F3B740000903C1 /* Default@2x.png in Resources */,
 				1ECF1A6315FFA48B00CBFB4C /* AirshipConfig.plist in Resources */,
+				3479D32C16022D2600503221 /* noAdsBtn-hd.png in Resources */,
+				3479D32D16022D2600503221 /* noAdsBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6159,6 +6175,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_CFLAGS = "-DARABIC_VERSION";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Roc-a-Tac-Arabic";
@@ -6198,6 +6215,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				"OTHER_CFLAGS[arch=*]" = "-DARABIC_VERSION";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Roc-a-Tac-Arabic";
@@ -6238,6 +6256,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				"OTHER_CFLAGS[arch=*]" = "-DARABIC_VERSION";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Roc-a-Tac-Arabic";
@@ -6265,6 +6284,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
@@ -6281,6 +6301,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -6314,6 +6335,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
 				PROVISIONING_PROFILE = "0CDC5C6E-ABF2-4780-980A-6F490033AF5D";
@@ -6351,6 +6373,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
 				PROVISIONING_PROFILE = "51D45935-D1D3-42AD-9E2A-0C3CF0B742EE";
@@ -6373,6 +6396,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -6406,6 +6430,7 @@
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Revmob\"",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/Airship\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
 				PROVISIONING_PROFILE = "0C9AB1FE-B3C9-48FC-851D-F84599CE5A80";

@@ -380,8 +380,7 @@ void uncaughtExceptionHandler(NSException *exception) {
             bool moPubBannerEnabled=[[moPubDict objectForKey:@"Mopub_Banners_Enabled"] boolValue];
             
             
-            [[NSUserDefaults standardUserDefaults]setBool:bannerAdEnabled forKey:kBANNER_AD_ENABLED_KEY];
-            [[NSUserDefaults standardUserDefaults]setBool:moPubBannerEnabled forKey:kBANNER_AD_ENABLED_KEY];
+            [[NSUserDefaults standardUserDefaults]setBool:(bannerAdEnabled|moPubBannerEnabled) forKey:kBANNER_AD_ENABLED_KEY];
             
             if (bannerAdEnabled) {// Get Tapjoy Display Ads Call
                     [TapjoyConnect getDisplayAdWithDelegate:viewController];
