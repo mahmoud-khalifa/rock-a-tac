@@ -60,7 +60,6 @@ typedef enum
 -(void)onStartNewMultiplayerGame;
 -(void)addOpponentNewPieceWithPieceType:(PiecesTypes)pieceType atIndex:(int)index;
 -(void)onPurchaseFeatureCompleted:(NSString*)featureId;
--(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue;
 @end
 @interface Controller : NSObject<GameKitHelperProtocol>{//,UIAlertViewDelegate> {
 

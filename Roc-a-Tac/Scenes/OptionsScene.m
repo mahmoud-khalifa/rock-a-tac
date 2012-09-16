@@ -540,14 +540,14 @@ self.isTouchEnabled=YES;
          [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kREMOVE_RESTORE_BUTTON];
          [[NSUserDefaults standardUserDefaults]synchronize];
          
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Complete" message:@"Restore have been completed succssefully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Restore Complete", @"Restore Complete")  message:NSLocalizedString(@"Restore have been completed succssefully", @"Restore have been completed succssefully") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
          [alert show];
          [alert release];
 
     }
      onError:^(NSError *error) {
          NSLog(@"Restore failed: %@", [error localizedDescription]);
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error Connecting to Itunes Store" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")  message:NSLocalizedString(@"Error Connecting to Itunes Store", @"Error Connecting to Itunes Store")  delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
          [alert show];
          [alert release];
          /* update views, etc. */
