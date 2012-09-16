@@ -143,6 +143,11 @@
     pieceTheme=[[settingDict objectForKey:kSETTING_PIECE_MODEL_KEY] intValue];
     
     int goldenTeamLocked=[[settingDict objectForKey:kSETTING_GOLDEN_TEAM_LOCKED] intValue];
+    if (goldenTeamLocked && [gameController isFeaturePurchased:kREMOVE_ADS_ID ]) {
+        [settingDict setObject:[NSNumber numberWithInt:0] forKey:kUNLOCK_GOLDEN_TEAM_ID];
+        [settingDict writeToFile:[self storageFilePath] atomically: YES];
+        goldenTeamLocked = 0;
+    }
     lockSprite.visible=goldenTeamLocked;
     
     [self getChildByTag:bgTheme].visible=YES;
@@ -168,6 +173,10 @@
 //    news.position=ADJUST_XY(21, 18);
 //    [self addChild:news];
     
+    restore = [CCSprite spriteWithFile:@"noAdsBtn.png"];
+    restore.position = ADJUST_XY(300, 62);
+    [self addChild:restore];
+    
     buttonSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage: @"GUI_Menu_Options_Selector_Small.png"]];
     [self addChild:buttonSelector];
     buttonSelector.visible=NO;
@@ -190,6 +199,7 @@
     
     CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
     
+    CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(300*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
 
 //#ifdef LITE_VERSION 
    
@@ -216,6 +226,13 @@
         buttonSelector.scale = 1.3;
         buttonSelector.scaleX = 1.5;
     }
+    
+    else if(CGRectContainsPoint (restoreRect, location)){
+        buttonSelector.position=ADJUST_XY(300, 62);
+        buttonSelector.visible=YES;
+        buttonSelector.scale = 1;
+    }
+    
     return YES;
 }
 
@@ -304,6 +321,7 @@ self.isTouchEnabled=YES;
         
         CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
         
+        CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(300*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
         
 //#ifdef LITE_VERSION 
         
@@ -317,13 +335,9 @@ self.isTouchEnabled=YES;
                 buttonSelector.visible=NO;
                 
                 //remove ads
-                
                 [gameController buyFeature:kREMOVE_ADS_ID];
-                
-                
-                //            NSURL* url=[NSURL URLWithString:kFULL_APP_LINK];
-                //            [[UIApplication sharedApplication] openURL:url];
-                
+                //NSURL* url=[NSURL URLWithString:kFULL_APP_LINK];
+                //[[UIApplication sharedApplication] openURL:url];
             }
 
         }
@@ -332,17 +346,12 @@ self.isTouchEnabled=YES;
         if(CGRectContainsPoint (newsRect, location)){
            [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             buttonSelector.visible=NO;
-            
             //news
-            
             NewsScreenViewController *newsScreen = [[NewsScreenViewController alloc] initWithNibName:nil bundle:nil];
             newsScreen.link =kNEWS_LINK; 
-            
-           
             newsScreen.view.frame = kAPP_DELEGATE.window.frame;
             [newsScreen.view layoutSubviews]; 
             [((UIViewController*)kAPP_DELEGATE.window.rootViewController) presentModalViewController:newsScreen animated:YES];
-            
         }
         
         else if(CGRectContainsPoint (aboutRect, location)){
@@ -350,7 +359,25 @@ self.isTouchEnabled=YES;
             buttonSelector.visible=NO;
             
             [[CCDirector sharedDirector]pushScene:[AboutScene scene]];
+        }
+        
+        else if (CGRectContainsPoint (restoreRect, location)) {
+            [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+            buttonSelector.visible=NO;
             
+            //test restore purchase
+            [self checkPurchasedItems];
+//            [self paymentQueueRestoreCompletedTransactionsFinished:[SKPaymentQueue defaultQueue]];
+            
+            for (NSObject* featureId in purchasedItemIDs) {
+                if (featureId==kUNLOCK_GOLDEN_TEAM_ID) {
+                    [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
+                    lockSprite.visible=NO;
+                    [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
+                }else if(featureId==kREMOVE_ADS_ID){
+                    removeAds.visible=NO;
+                }
+            }
         }
         
         if (CGRectContainsPoint(forestRect, location) ) {
@@ -412,7 +439,6 @@ self.isTouchEnabled=YES;
                 [blurBgSprite addChild:alertSprite];
                 
             } else{
-
                 heroTeamSprite.visible=NO;
                 villainTeamSprite.visible=NO;
                 goldenTeamSprite.visible=YES;
@@ -432,7 +458,6 @@ self.isTouchEnabled=YES;
             [self addChild:okBtnSelector];
             [self performSelector:@selector(exitSceneAndSave) withObject:nil afterDelay:0.6 ];
              
-            
         }
     }
 }
@@ -478,20 +503,52 @@ self.isTouchEnabled=YES;
 	[super dealloc];
 }
 //#ifndef LITE_VERSION
+
 #pragma Controller Delegate
 -(void)onPurchaseFeatureCompleted:(NSString*)featureId{
 
     if (featureId==kUNLOCK_GOLDEN_TEAM_ID) {
         [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
+        [settingDict writeToFile:[self storageFilePath] atomically: YES];
         lockSprite.visible=NO;
         [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
 
     }else if(featureId==kREMOVE_ADS_ID){
-    
         removeAds.visible=NO;
     }
     
 }
+
+- (void) checkPurchasedItems
+{
+//    [[MKStoreManager sharedManager] 
+//     restorePreviousTransactionsOnComplete:^(void) {
+//        NSLog(@"Restored.");
+//        /* update views, etc. */
+//    }
+//     onError:^(NSError *error) {
+//         NSLog(@"Restore failed: %@", [error localizedDescription]);
+//         /* update views, etc. */
+//     }];
+
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    
+}// Call This Function
+
+//Then this delegate Funtion Will be fired
+- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    purchasedItemIDs = [[NSMutableArray alloc] init];
+    
+    NSLog(@"received restored transactions: %i", queue.transactions.count);
+    for (SKPaymentTransaction *transaction in queue.transactions)
+    {
+        NSString *productID = transaction.payment.productIdentifier;
+        [purchasedItemIDs addObject:productID];
+    }
+    
+}
+
 //#endif
 
 @end

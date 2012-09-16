@@ -387,28 +387,25 @@ void uncaughtExceptionHandler(NSException *exception) {
                     [viewController.view addSubview:[TapjoyConnect getDisplayAdView]];
                 }
             else if(moPubBannerEnabled){
-                // Instantiate the MPAdView with your ad unit ID.
-                if(IS_IPAD()){
-                    adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPAD];
+                if (adView == NULL) {
+                    // Instantiate the MPAdView with your ad unit ID.
+                    if(IS_IPAD()){
+                        adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPAD];
+                    }
+                    else {
+                        adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPHONE];
+                    }
+                    // Register your view controller as the MPAdView's delegate.
+                    adView.delegate = self;
+                    // Set the ad view's frame (in our case, to occupy the top of the screen).
+                        CGRect frame = adView.frame;
+                        frame.origin.y = 0;
+                        adView.frame = frame;
+                    // Add the ad view to your controller's view hierarchy. 
+                    [viewController.view addSubview:adView];
+                    // Call for an ad.
+                    [adView loadAd];
                 }
-                else {
-                    adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE_IPHONE];
-                }
-//                adView = [[MPAdView alloc] initWithAdUnitId:kMOPUB_ID size:MOPUB_BANNER_SIZE];
-                
-                // Register your view controller as the MPAdView's delegate.
-                adView.delegate = self;
-                
-                // Set the ad view's frame (in our case, to occupy the bottom of the screen).
-                CGRect frame = adView.frame;
-                frame.origin.y = 0;
-                adView.frame = frame;
-                
-                // Add the ad view to your controller's view hierarchy. 
-                [viewController.view addSubview:adView];
-                
-                // Call for an ad.
-                [adView loadAd];
             }
 //#endif	
             //END OF BANNERS PART//
@@ -726,8 +723,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 //            [cb showInterstitial];
 
         }
-        
-        
        
     }
 }

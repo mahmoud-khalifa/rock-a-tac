@@ -22,7 +22,6 @@
     CCSprite* villainTeamSprite;
     CCSprite* goldenTeamSprite;
     
-    
     PiecesThemes pieceTheme;
     BackgroundThemes bgTheme;
     
@@ -37,10 +36,13 @@
     
     CCSprite* removeAds;
     CCSprite* news;
+    CCSprite* restore;
     
     CCSprite* buttonSelector;
     
     Controller* gameController;
+    
+    NSMutableArray* purchasedItemIDs;
 }
 +(CCScene *) scene;
 @end
