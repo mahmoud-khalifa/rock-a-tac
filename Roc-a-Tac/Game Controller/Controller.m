@@ -728,15 +728,17 @@ NSString * const PiecesAnimationNamesString[] = {
              
              [loadingView dismissWithClickedButtonIndex:-1 animated:NO];
              
-             //         UIAlertView* alert=[[UIAlertView alloc]initWithTitle:@"Success" message:@"Transaction was completed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-             //         [alert show];
-             //         [alert release];
-             
-             
-             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Success", @"Success mesaage") message: NSLocalizedString(@"Transaction was completed", @"Transaction was completed message") andLoadingviewEnabled:NO];
-             [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:nil];
-             
+             UIAlertView* alert=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Success", @"Success mesaage") message:NSLocalizedString(@"Transaction was completed", @"Transaction was completed message") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles: nil];
              [alert show];
+             [alert release];
+             
+             
+//             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Success", @"Success mesaage") message: NSLocalizedString(@"Transaction was completed", @"Transaction was completed message") andLoadingviewEnabled:NO];
+//             [alert setCancelButtonWithTitle: NSLocalizedString(@"OK", @"OK") block:^{
+//                 CCLOG(@"OK");
+//             }];
+//             
+//             [alert show];
              
              [delegate onPurchaseFeatureCompleted:featureId];
              
@@ -750,14 +752,16 @@ NSString * const PiecesAnimationNamesString[] = {
              [loadingView dismissWithClickedButtonIndex:-1 animated:NO];
              //         [delegate onPurchaseFeatureCompleted:featureId];
              
-             //         UIAlertView* alert=[[UIAlertView alloc]initWithTitle:@"Operation Cancelled" message:@"Transaction was cancelled" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles: nil];
-             //         [alert show];
-             //         [alert release];
-             
-             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Operation Cancelled", @"Operation cancelled message") message:@"" andLoadingviewEnabled:NO];
-             [alert setCancelButtonWithTitle:NSLocalizedString(@"Close", @"Close") block:nil];
-             
+             UIAlertView* alert=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Operation Cancelled", @"Operation cancelled message") message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"Close", @"Close") otherButtonTitles: nil];
              [alert show];
+             [alert release];
+             
+//             BlockAlertView* alert=[BlockAlertView alertWithTitle: NSLocalizedString(@"Operation Cancelled", @"Operation cancelled message") message:@"" andLoadingviewEnabled:NO];
+//             [alert setCancelButtonWithTitle:NSLocalizedString(@"Close", @"Close") block:^{
+//                 CCLOG(@"Close");
+//             }];
+//             
+//             [alert show];
              
              
          }];

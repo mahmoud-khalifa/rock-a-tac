@@ -335,3 +335,5 @@ ccp(__x__, __y__))
 #define kTAPJOY_MORE_SCREEN_ENABLED_KEY @"tapjoyMoreScreenEnabled"
 
 #define kCEREBRO_MORE_SCREEN_KEY @"cerebroMoreScreen"
+
+#define kREMOVE_RESTORE_BUTTON @"RestoreButton"

@@ -143,11 +143,6 @@
     pieceTheme=[[settingDict objectForKey:kSETTING_PIECE_MODEL_KEY] intValue];
     
     int goldenTeamLocked=[[settingDict objectForKey:kSETTING_GOLDEN_TEAM_LOCKED] intValue];
-    if (goldenTeamLocked && [gameController isFeaturePurchased:kREMOVE_ADS_ID ]) {
-        [settingDict setObject:[NSNumber numberWithInt:0] forKey:kUNLOCK_GOLDEN_TEAM_ID];
-        [settingDict writeToFile:[self storageFilePath] atomically: YES];
-        goldenTeamLocked = 0;
-    }
     lockSprite.visible=goldenTeamLocked;
     
     [self getChildByTag:bgTheme].visible=YES;
@@ -159,8 +154,9 @@
 //
 //#ifdef LITE_VERSION
     
-    if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ] &&
-        [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
+//    if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ] &&
+//        [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
 //        removeAds=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_NoAds.png"]];
         removeAds=[CCSprite spriteWithFile:@"noAdsBtn.png"];
         removeAds.position=ADJUST_XY(21, 62);
@@ -172,10 +168,11 @@
 //    news=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_News.png"]];
 //    news.position=ADJUST_XY(21, 18);
 //    [self addChild:news];
-    
-    restore = [CCSprite spriteWithFile:@"noAdsBtn.png"];
-    restore.position = ADJUST_XY(300, 62);
-    [self addChild:restore];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:kREMOVE_RESTORE_BUTTON]) {
+        restore = [CCSprite spriteWithFile:@"noAdsBtn.png"];
+        restore.position = ADJUST_XY(300, 62);
+        [self addChild:restore];
+    }
     
     buttonSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage: @"GUI_Menu_Options_Selector_Small.png"]];
     [self addChild:buttonSelector];
@@ -521,34 +518,43 @@ self.isTouchEnabled=YES;
 
 - (void) checkPurchasedItems
 {
-//    [[MKStoreManager sharedManager] 
-//     restorePreviousTransactionsOnComplete:^(void) {
-//        NSLog(@"Restored.");
-//        /* update views, etc. */
-//    }
-//     onError:^(NSError *error) {
-//         NSLog(@"Restore failed: %@", [error localizedDescription]);
-//         /* update views, etc. */
-//     }];
+    [[MKStoreManager sharedManager] 
+     restorePreviousTransactionsOnComplete:^(void) {
+         NSLog(@"Restored.");
+         NSLog(@"kREMOVE_ADS_ID:%d",[gameController isFeaturePurchased:kREMOVE_ADS_ID]);
+         NSLog(@"kUNLOCK_GOLDEN_TEAM_ID:%d",[gameController isFeaturePurchased:kUNLOCK_GOLDEN_TEAM_ID]);
+         
+         /* update views, etc. */
+         if ([gameController isFeaturePurchased:kUNLOCK_GOLDEN_TEAM_ID]) {
+             [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
+             [settingDict writeToFile:[self storageFilePath] atomically: YES];
+             lockSprite.visible=NO;
+         }
+         
+         if ([gameController isFeaturePurchased:kREMOVE_ADS_ID ]) {
+             [[NSUserDefaults standardUserDefaults]setBool:NO forKey:kBANNER_AD_ENABLED_KEY];
+             removeAds.visible=NO;
+         }
+         
+         restore.visible = NO;
+         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kREMOVE_RESTORE_BUTTON];
+         [[NSUserDefaults standardUserDefaults]synchronize];
+         
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Restore Complete" message:@"Restore have been completed succssefully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         [alert show];
+         [alert release];
 
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-    
-}// Call This Function
-
-//Then this delegate Funtion Will be fired
-- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
-{
-    purchasedItemIDs = [[NSMutableArray alloc] init];
-    
-    NSLog(@"received restored transactions: %i", queue.transactions.count);
-    for (SKPaymentTransaction *transaction in queue.transactions)
-    {
-        NSString *productID = transaction.payment.productIdentifier;
-        [purchasedItemIDs addObject:productID];
     }
+     onError:^(NSError *error) {
+         NSLog(@"Restore failed: %@", [error localizedDescription]);
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error Connecting to Itunes Store" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         [alert show];
+         [alert release];
+         /* update views, etc. */
+     }];
+
+//    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     
 }
-
-//#endif
 
 @end
