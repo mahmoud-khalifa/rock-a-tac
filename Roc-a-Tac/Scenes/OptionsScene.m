@@ -169,8 +169,8 @@
 //    news.position=ADJUST_XY(21, 18);
 //    [self addChild:news];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:kREMOVE_RESTORE_BUTTON]) {
-        restore = [CCSprite spriteWithFile:@"noAdsBtn.png"];
-        restore.position = ADJUST_XY(300, 62);
+        restore = [CCSprite spriteWithFile:@"Restore_Button.png"];
+        restore.position = ADJUST_XY(160, 62);
         [self addChild:restore];
     }
     
@@ -196,7 +196,7 @@
     
     CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
     
-    CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(300*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
+    CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(150*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE)) ;
 
 //#ifdef LITE_VERSION 
    
@@ -225,9 +225,10 @@
     }
     
     else if(CGRectContainsPoint (restoreRect, location)){
-        buttonSelector.position=ADJUST_XY(300, 62);
+        buttonSelector.position=ADJUST_XY(160, 62);
         buttonSelector.visible=YES;
-        buttonSelector.scale = 1;
+        buttonSelector.scale = 1.3;
+        buttonSelector.scaleX = 1.5;
     }
     
     return YES;
@@ -318,7 +319,7 @@ self.isTouchEnabled=YES;
         
         CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
         
-        CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(300*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
+        CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(150*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE)) ;
         
 //#ifdef LITE_VERSION 
         

@@ -837,6 +837,10 @@
 		347B989F15EA15AB00BED4F8 /* MPCloseButtonX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34778CE215DA50FC00856034 /* MPCloseButtonX@2x.png */; };
 		347B98A015EA15AB00BED4F8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 34778CF915DA50FC00856034 /* LICENSE */; };
 		347B98A115EA15AB00BED4F8 /* MRAID.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34778D0715DA50FC00856034 /* MRAID.bundle */; };
+		347E981516086A4E00F0EDB0 /* Restore_Button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 347E981416086A4D00F0EDB0 /* Restore_Button-hd.png */; };
+		347E981716086A6200F0EDB0 /* Restore_Button-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 347E981616086A6200F0EDB0 /* Restore_Button-hd.png */; };
+		347E981916086BA200F0EDB0 /* Restore_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 347E981816086BA200F0EDB0 /* Restore_Button.png */; };
+		347E981B16086BB400F0EDB0 /* Restore_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 347E981A16086BB400F0EDB0 /* Restore_Button.png */; };
 		347FD88A15F3B740000903C1 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 347FD88715F3B740000903C1 /* Default-Portrait.png */; };
 		347FD88B15F3B740000903C1 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 347FD88715F3B740000903C1 /* Default-Portrait.png */; };
 		347FD88C15F3B740000903C1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 347FD88815F3B740000903C1 /* Default.png */; };
@@ -1808,6 +1812,10 @@
 		347A794415F4AAF5003B1770 /* rate_app_paid.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = rate_app_paid.pvrtc.ccz; sourceTree = "<group>"; };
 		347B98AC15EA15AB00BED4F8 /* Roc-a-Tac-Arabic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roc-a-Tac-Arabic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347B98AE15EA15AB00BED4F8 /* Roc-a-Tac-Arabic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Roc-a-Tac-Arabic-Info.plist"; path = "/Work/Xcode Projects/roc-s/Roc-a-Tac-Arabic-Info.plist"; sourceTree = "<absolute>"; };
+		347E981416086A4D00F0EDB0 /* Restore_Button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Restore_Button-hd.png"; sourceTree = "<group>"; };
+		347E981616086A6200F0EDB0 /* Restore_Button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Restore_Button-hd.png"; sourceTree = "<group>"; };
+		347E981816086BA200F0EDB0 /* Restore_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore_Button.png; sourceTree = "<group>"; };
+		347E981A16086BB400F0EDB0 /* Restore_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore_Button.png; sourceTree = "<group>"; };
 		347FD88715F3B740000903C1 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		347FD88815F3B740000903C1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		347FD88915F3B740000903C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -4399,6 +4407,8 @@
 		34B4491815EF9061009AED3F /* Arabic */ = {
 			isa = PBXGroup;
 			children = (
+				347E981816086BA200F0EDB0 /* Restore_Button.png */,
+				347E981616086A6200F0EDB0 /* Restore_Button-hd.png */,
 				3479D32E16022D4000503221 /* noAdsBtn-hd.png */,
 				3479D32F16022D4000503221 /* noAdsBtn.png */,
 				34B4498315EFC103009AED3F /* options_scene_textures-hd.plist */,
@@ -4527,6 +4537,8 @@
 			children = (
 				34B4491815EF9061009AED3F /* Arabic */,
 				3479D32A16022D2600503221 /* noAdsBtn-hd.png */,
+				347E981416086A4D00F0EDB0 /* Restore_Button-hd.png */,
+				347E981A16086BB400F0EDB0 /* Restore_Button.png */,
 				3479D32B16022D2600503221 /* noAdsBtn.png */,
 				34B4490715EF8C8D009AED3F /* GUI_MenuAbout_A-hd.jpg */,
 				34B4490815EF8C8D009AED3F /* GUI_MenuAbout_A.jpg */,
@@ -5170,6 +5182,8 @@
 				1ECF1A6615FFA48B00CBFB4C /* AirshipConfig.plist in Resources */,
 				3479D33016022D4000503221 /* noAdsBtn-hd.png in Resources */,
 				3479D33116022D4000503221 /* noAdsBtn.png in Resources */,
+				347E981716086A6200F0EDB0 /* Restore_Button-hd.png in Resources */,
+				347E981916086BA200F0EDB0 /* Restore_Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5683,6 +5697,8 @@
 				3479B7911605CA1C00F4C0A9 /* alerts2-hd.pvrtc.ccz in Resources */,
 				3479B7921605CA1C00F4C0A9 /* alerts2.plist in Resources */,
 				3479B7931605CA1C00F4C0A9 /* alerts2.pvrtc.ccz in Resources */,
+				347E981516086A4E00F0EDB0 /* Restore_Button-hd.png in Resources */,
+				347E981B16086BB400F0EDB0 /* Restore_Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
