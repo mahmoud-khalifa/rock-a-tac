@@ -50,7 +50,7 @@ RevMobAdsDelegate> {
     Facebook *facebook;
     
 }
-
+@property (nonatomic, retain) RootViewController	*viewController;
 @property (nonatomic, retain) MPAdView *adView;
 @property (nonatomic, retain) UIWindow *window;
 @property int MultiplayerTimeout;

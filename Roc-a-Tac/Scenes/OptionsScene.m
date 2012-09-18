@@ -519,8 +519,13 @@ self.isTouchEnabled=YES;
 
 - (void) checkPurchasedItems
 {
+    [self activityIndicatorRun];
+    
     [[MKStoreManager sharedManager] 
      restorePreviousTransactionsOnComplete:^(void) {
+         
+         [self activityIndicatorStop];
+         
          NSLog(@"Restored.");
          NSLog(@"kREMOVE_ADS_ID:%d",[gameController isFeaturePurchased:kREMOVE_ADS_ID]);
          NSLog(@"kUNLOCK_GOLDEN_TEAM_ID:%d",[gameController isFeaturePurchased:kUNLOCK_GOLDEN_TEAM_ID]);
@@ -547,6 +552,9 @@ self.isTouchEnabled=YES;
 
     }
      onError:^(NSError *error) {
+         
+         [self activityIndicatorStop];
+         
          NSLog(@"Restore failed: %@", [error localizedDescription]);
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")  message:NSLocalizedString(@"Error Connecting to Itunes Store", @"Error Connecting to Itunes Store")  delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
          [alert show];
@@ -555,7 +563,23 @@ self.isTouchEnabled=YES;
      }];
 
 //    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-    
 }
+
+-(void)activityIndicatorRun {
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.color = [UIColor orangeColor];
+    spinner.hidesWhenStopped = YES;
+    
+    AppDelegate* delegate = [[AppDelegate alloc] init];
+    [delegate.viewController addSubview:spinner];
+//    [[CCDirector sharedDirector] addSubview:spinner];
+    [spinner startAnimating];
+//    [self schedule:@selector(activityIndicatorStop) interval:5.0f];
+}
+
+-(void)activityIndicatorStop {
+    [spinner stopAnimating];
+}
+
 
 @end

@@ -39,6 +39,7 @@
 @synthesize MultiplayerTimeout,delegate;
 @synthesize facebook;
 @synthesize adView;
+@synthesize viewController;
 
 - (void) removeStartupFlicker
 {

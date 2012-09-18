@@ -25,7 +25,7 @@
     PiecesThemes pieceTheme;
     BackgroundThemes bgTheme;
     
-    NSMutableDictionary * settingDict;
+    NSMutableDictionary* settingDict;
     
     CCSprite* lockSprite;
     
@@ -43,6 +43,11 @@
     Controller* gameController;
     
     NSMutableArray* purchasedItemIDs;
+    
+    UIActivityIndicatorView* spinner;
 }
 +(CCScene *) scene;
+-(void)activityIndicatorRun;
+-(void)activityIndicatorStop;
+
 @end
