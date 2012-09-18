@@ -567,17 +567,22 @@ self.isTouchEnabled=YES;
 
 -(void)activityIndicatorRun {
     spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    spinner.color = [UIColor orangeColor];
+//    spinner.color = [UIColor greenColor];
+    CGRect frame =  spinner.frame;
+    frame.origin = ccp(screenSize.width*0.5, screenSize.height*0.5);
+    spinner.frame = frame;
     spinner.hidesWhenStopped = YES;
     
-    AppDelegate* delegate = [[AppDelegate alloc] init];
-    [delegate.viewController addSubview:spinner];
-//    [[CCDirector sharedDirector] addSubview:spinner];
+//    AppDelegate* delegate = [[AppDelegate alloc] init];
+//    [delegate.viewController addSubview:spinner];
+    [[[CCDirector sharedDirector] openGLView] addSubview:spinner];
     [spinner startAnimating];
+    self.isTouchEnabled = NO;
 //    [self schedule:@selector(activityIndicatorStop) interval:5.0f];
 }
 
 -(void)activityIndicatorStop {
+    self.isTouchEnabled = YES;
     [spinner stopAnimating];
 }
 
