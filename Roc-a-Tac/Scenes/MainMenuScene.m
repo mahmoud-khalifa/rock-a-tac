@@ -24,7 +24,7 @@
 #import "SimpleAudioEngine.h"
 #import "BlockAlertView.h"
 
-#import "ChartBoost.h"
+#import "Chartboost.h"
 
 
 @interface MainMenuScene (PrivateMethods)
@@ -406,7 +406,7 @@
     if( [[NSUserDefaults standardUserDefaults]boolForKey:kTAPJOY_MORE_SCREEN_ENABLED_KEY]==YES){
     [TapjoyConnect showOffersWithViewController:(UIViewController*)(((AppDelegate*)[UIApplication sharedApplication ].delegate).window.rootViewController)];
     }else {
-        ChartBoost *cb=[ChartBoost sharedChartBoost];
+        Chartboost *cb=[Chartboost sharedChartboost];
         [cb showMoreApps];
     }
 //    [self performSelector:@selector(HideSelectedBtn) withObject:nil afterDelay:0.5];
