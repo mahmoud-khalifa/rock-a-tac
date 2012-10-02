@@ -27,7 +27,7 @@
 
 #import "MKStoreManager.h"
 
-#import "ChartBoost.h"
+#import "Chartboost.h"
 
 #import "UAirship.h"
 #import "UAPush.h"
@@ -228,12 +228,12 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     
     // Configure ChartBoost
-    ChartBoost *cb = [ChartBoost sharedChartBoost];
+    Chartboost *cb = [Chartboost sharedChartboost];
     cb.appId = kCHARTBOOST_APP_ID;
     cb.appSignature = kCHARTBOOST_APP_SIGNATURE;
     
     // Notify an install
-    [cb install];
+    [cb startSession];
     
 	[[CCDirector sharedDirector] resume];
 
@@ -345,17 +345,16 @@ void uncaughtExceptionHandler(NSException *exception) {
     CFPropertyListRef plist =  CFPropertyListCreateFromXMLData(kCFAllocatorDefault, (CFDataRef)tapjoy_data,
 															   kCFPropertyListImmutable,
 															   NULL);
-    if ([(id)plist isKindOfClass:[NSDictionary class]])
-	{
+    if ([(id)plist isKindOfClass:[NSDictionary class]]){
 		dictServer = [(NSDictionary *)plist autorelease];
 	}
-	else
-	{// clean up ref
+	else{// clean up ref
         if (plist) {
             CFRelease(plist);
         }
 		dictServer = nil;
 	}
+    
     if (dictServer) {
         NSLog(@"plist file: %@",dictServer);
         
@@ -456,10 +455,10 @@ void uncaughtExceptionHandler(NSException *exception) {
                 self.window.rootViewController = viewController;
                 [self.window makeKeyAndVisible];
             } else if (chartEnabled){
-                ChartBoost *cb = [ChartBoost sharedChartBoost];
+                Chartboost *cb = [Chartboost sharedChartboost];
                 cb.appId = kCHARTBOOST_APP_ID;
                 cb.appSignature = kCHARTBOOST_APP_SIGNATURE;
-                [cb install];
+                [cb startSession];
                 [cb showInterstitial];
             }
             
