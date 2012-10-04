@@ -6253,7 +6253,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ahmed abousamra (2W4M94693V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ahmed abousamra (2W4M94693V)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -6266,6 +6267,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PROVISIONING_PROFILE = "3C076B2A-94CC-4BA3-AECE-C931368E82F8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C076B2A-94CC-4BA3-AECE-C931368E82F8";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
@@ -6293,7 +6296,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rowdy Ratts (6Q7M89TX6R)";
 				COPY_PHASE_STRIP = NO;
@@ -6320,8 +6326,8 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
-				PROVISIONING_PROFILE = "0CDC5C6E-ABF2-4780-980A-6F490033AF5D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0CDC5C6E-ABF2-4780-980A-6F490033AF5D";
+				PROVISIONING_PROFILE = "F9AB5D83-D792-44B9-AC1A-7E5CD515E939";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F9AB5D83-D792-44B9-AC1A-7E5CD515E939";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = app;
@@ -6332,7 +6338,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Starios Games LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Starios Games LLC";
@@ -6359,8 +6368,8 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
-				PROVISIONING_PROFILE = "51D45935-D1D3-42AD-9E2A-0C3CF0B742EE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "51D45935-D1D3-42AD-9E2A-0C3CF0B742EE";
+				PROVISIONING_PROFILE = "EB200063-F3E8-48D4-943B-FF75AB0354E3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EB200063-F3E8-48D4-943B-FF75AB0354E3";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -6390,7 +6399,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Starios Games LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Starios Games LLC";
@@ -6417,8 +6429,8 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = RocaTac;
-				PROVISIONING_PROFILE = "0C9AB1FE-B3C9-48FC-851D-F84599CE5A80";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0C9AB1FE-B3C9-48FC-851D-F84599CE5A80";
+				PROVISIONING_PROFILE = "3B8235C0-00B1-4E8D-80F3-D7C8E743E5B3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B8235C0-00B1-4E8D-80F3-D7C8E743E5B3";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";

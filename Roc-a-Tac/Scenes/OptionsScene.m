@@ -54,60 +54,46 @@
         gameController.delegate=self;
         
         frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
-        
         [frameCache addSpriteFramesWithFile:@"options_scene_textures.plist"];
         
         self.scale=SCREEN_SCALE;
         self.isTouchEnabled=YES;
         
         CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuOptions_A.jpg"]];
-        
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
 //        bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.45);
-        
         [self addChild:bgSprite];
         
-        
         forestSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Level_A_ON.png"]];
-        
-        forestSprite.position=ADJUST_XY(60, 354);
         forestSprite.visible=NO;
         forestSprite.tag=BackgroundThemeForest;
         [self addChild:forestSprite];
         
         egyptSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Level_B_ON.png"]];
-        
-        egyptSprite.position=ADJUST_XY(160, 354);
         egyptSprite.visible=NO;
         egyptSprite.tag=BackgroundThemeEgypt;
         [self addChild:egyptSprite];
         
         kingdomSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Level_C_ON.png"]];
-        
-        kingdomSprite.position=ADJUST_XY(262, 354);
         kingdomSprite.visible=NO;
         kingdomSprite.tag=BackgroundThemeKingdom;
         [self addChild:kingdomSprite];
         
         
-        
         heroTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Hero_ON.png"]];
 //        heroTeamSprite.position=ADJUST_XY(86, 155);
-        heroTeamSprite.position=ADJUST_XY(50, 155);
         heroTeamSprite.visible=NO;
         heroTeamSprite.tag=PiecesThemeA+BackgroundThemeMAX;
         [self addChild:heroTeamSprite];
         
         villainTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Villain_ON.png"]];
 //        villainTeamSprite.position=ADJUST_XY(233, 155);
-        villainTeamSprite.position=ADJUST_XY(278, 155);
         villainTeamSprite.visible=NO;
         villainTeamSprite.tag=PiecesThemeB+BackgroundThemeMAX;
         [self addChild:villainTeamSprite];
         
         goldenTeamSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Button_Team_A_Golden_ON.png"]];
 //        goldenTeamSprite.position=ADJUST_XY(158, 52);
-        goldenTeamSprite.position=ADJUST_XY(163, 155);
         goldenTeamSprite.visible=NO;
         goldenTeamSprite.tag=PiecesThemeC+BackgroundThemeMAX;
         [self addChild:goldenTeamSprite];
@@ -115,19 +101,58 @@
         
         lockSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Lock_A.png"]];
 //        lockSprite.position=ADJUST_XY(158, 52);
-        lockSprite.position=ADJUST_XY(163, 155);
         [self addChild:lockSprite];
         [self setSelectedThemes];
         
+        if (IS_IPAD() && IS_RETINA()) {
+            bgSprite.scaleX = 2;
+            bgSprite.scaleY = 1.8;
+            
+            forestSprite.scaleX = 2;
+            forestSprite.scaleY = 1.8;
+            forestSprite.position=ADJUST_XY(60, 341);
+            
+            egyptSprite.scaleX = 2;
+            egyptSprite.scaleY = 1.8;
+            egyptSprite.position=ADJUST_XY(160, 341);
+            
+            kingdomSprite.scaleX = 2;
+            kingdomSprite.scaleY = 1.8;
+            kingdomSprite.position=ADJUST_XY(262, 341);
+            
+            heroTeamSprite.scaleX = 2;
+            heroTeamSprite.scaleY = 1.8;
+            heroTeamSprite.position=ADJUST_XY(50, 163);
+            
+            villainTeamSprite.scaleX = 2;
+            villainTeamSprite.scaleY = 1.8;
+            villainTeamSprite.position=ADJUST_XY(275, 163);
+            
+            goldenTeamSprite.scaleX = 2;
+            goldenTeamSprite.scaleY = 1.8;
+            goldenTeamSprite.position=ADJUST_XY(163, 163);
+            
+            lockSprite.scaleX = 2;
+            lockSprite.scaleY = 1.8;
+            lockSprite.position=ADJUST_XY(163, 163);
+        }else{
+            forestSprite.position=ADJUST_XY(60, 354);
+            egyptSprite.position=ADJUST_XY(160, 354);
+            kingdomSprite.position=ADJUST_XY(262, 354);
+            
+            heroTeamSprite.position=ADJUST_XY(50, 155);
+            villainTeamSprite.position=ADJUST_XY(278, 155);
+            goldenTeamSprite.position=ADJUST_XY(163, 155);
+            
+            lockSprite.position=ADJUST_XY(163, 155);
+        }
         
         [self addButtons];
-
     }
 	return self;
 }
 
 -(void)setSelectedThemes{
-
     NSFileManager* fileManager = [NSFileManager defaultManager];
 	NSString *settingFilePath;
 	if (![fileManager fileExistsAtPath: [self storageFilePath]])
@@ -147,22 +172,24 @@
     
     [self getChildByTag:bgTheme].visible=YES;
     [self getChildByTag:pieceTheme+BackgroundThemeMAX].visible=YES;
-    
 }
 
 -(void)addButtons{
-//
 //#ifdef LITE_VERSION
-    
 //    if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ] &&
 //        [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
     if ([[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
 //        removeAds=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_NoAds.png"]];
         removeAds=[CCSprite spriteWithFile:@"noAdsBtn.png"];
-        removeAds.position=ADJUST_XY(21, 62);
+        if(IS_IPAD() && IS_RETINA()){
+            removeAds.scaleX = 2;
+            removeAds.scaleY = 1.8;
+            removeAds.position=ADJUST_XY(21, 85);
+        }else{
+            removeAds.position=ADJUST_XY(21, 62);
+        }
         [self addChild:removeAds];
     }
-    
 //#endif
     
 //    news=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:@"GUI_Menu_Options_News.png"]];
@@ -170,67 +197,84 @@
 //    [self addChild:news];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:kREMOVE_RESTORE_BUTTON]) {
         restore = [CCSprite spriteWithFile:@"Restore_Button.png"];
-        restore.position = ADJUST_XY(160, 62);
+        
+        if(IS_IPAD() && IS_RETINA()){
+            restore.scaleX = 2;
+            restore.scaleY = 1.8;
+            restore.position=ADJUST_XY(160, 85);
+        }else{
+            restore.position = ADJUST_XY(160, 62);
+        }
         [self addChild:restore];
     }
     
     buttonSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage: @"GUI_Menu_Options_Selector_Small.png"]];
     [self addChild:buttonSelector];
     buttonSelector.visible=NO;
-    
 }
 
 #pragma Touches
 #pragma Tracking Touches
 -(void) registerWithTouchDispatcher{ 
     [[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:-1 swallowsTouches:YES];
-    
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
-
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    CGRect newsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(44*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
-    
-    CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
-    
-    CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(150*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE)) ;
 
 //#ifdef LITE_VERSION 
-   
     if (![gameController isFeaturePurchased:kREMOVE_ADS_ID ]&&
         [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {    
-     CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
-        if (CGRectContainsPoint (removeAdsRect, location)) {
+//     CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
+        if (CGRectContainsPoint (REMOVE_ADS_RECT, location)) {
 //            buttonSelector.position=ADJUST_XY(21, 62);
             buttonSelector.position=removeAds.position;
+            if (IS_IPAD() && IS_RETINA()) {
+                buttonSelector.scaleX = 2;
+                buttonSelector.scaleY = 1.8;
+            }
             buttonSelector.visible=YES;
             //remove ads
         }
     }
 //#endif  
-    if(CGRectContainsPoint (newsRect, location)){
-        buttonSelector.position=ADJUST_XY(21, 18);
+    if(CGRectContainsPoint (NEWS_RECT, location)){
+        if (IS_IPAD() && IS_RETINA()) {
+            buttonSelector.scaleX = 2;
+            buttonSelector.scaleY = 1.8;
+            buttonSelector.position=ADJUST_XY(21, 42);
+        }else{
+            buttonSelector.scale = 1;
+            buttonSelector.position=ADJUST_XY(21, 18);
+        }
         buttonSelector.visible=YES;
-        buttonSelector.scale = 1;
     }
-    
-    else if(CGRectContainsPoint (aboutRect, location)){
-        buttonSelector.position=ADJUST_XY(160, 18);
+    else if(CGRectContainsPoint (ABOUT_RECT, location)){
+        if (IS_IPAD() && IS_RETINA()) {
+            buttonSelector.scaleX = 2.8;
+            buttonSelector.scaleY = 2;
+            buttonSelector.position=ADJUST_XY(160, 42);
+        }else{
+            buttonSelector.scale = 1.3;
+            buttonSelector.scaleX = 1.5;
+            buttonSelector.position=ADJUST_XY(160, 18);
+        }
         buttonSelector.visible=YES;
-        buttonSelector.scale = 1.3;
-        buttonSelector.scaleX = 1.5;
     }
-    
-    else if(CGRectContainsPoint (restoreRect, location)){
-        buttonSelector.position=ADJUST_XY(160, 62);
+    else if(CGRectContainsPoint (RESTORE_RECT, location)){
+        if (IS_IPAD() && IS_RETINA()) {
+            buttonSelector.scaleX = 2.8;
+            buttonSelector.scaleY = 2;
+            buttonSelector.position=ADJUST_XY(160, 85);
+        }else{
+            buttonSelector.scale = 1.3;
+            buttonSelector.scaleX = 1.5;
+            buttonSelector.position=ADJUST_XY(160, 62);
+        }
         buttonSelector.visible=YES;
-        buttonSelector.scale = 1.3;
-        buttonSelector.scaleX = 1.5;
     }
-    
     return YES;
 }
 
@@ -254,7 +298,6 @@ self.isTouchEnabled=YES;
     //           
 #endif
     [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
-
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -277,7 +320,6 @@ self.isTouchEnabled=YES;
             
             [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
 //            self.isTouchEnabled=YES;
-
         }else if(CGRectContainsPoint(kALERT_UNLOCK_BUTTON_RECT, location) ){
             
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
@@ -294,79 +336,43 @@ self.isTouchEnabled=YES;
 //            [[UIApplication sharedApplication] openURL:url];
 //             [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
 //#else
-            
             [gameController buyFeature:kUNLOCK_GOLDEN_TEAM_ID];
-            
 //#endif
-
         }
     }else{
-    
-        CGRect forestRect=CGRectMake(forestSprite.position.x-forestSprite.contentSize.width*0.5,forestSprite.position.y-forestSprite.contentSize.height*0.5 , forestSprite.contentSize.width, forestSprite.contentSize.height);
-        
-        CGRect egyptRect=CGRectMake(egyptSprite.position.x-egyptSprite.contentSize.width*0.5,egyptSprite.position.y-egyptSprite.contentSize.height*0.5 , egyptSprite.contentSize.width, egyptSprite.contentSize.height);
-        
-        CGRect kingdomRect=CGRectMake(kingdomSprite.position.x-kingdomSprite.contentSize.width*0.5,kingdomSprite.position.y-kingdomSprite.contentSize.height*0.5 , kingdomSprite.contentSize.width, kingdomSprite.contentSize.height);
-        
-        CGRect heroTeamRect=CGRectMake(heroTeamSprite.position.x-heroTeamSprite.contentSize.width*0.5,heroTeamSprite.position.y-heroTeamSprite.contentSize.height*0.5 + 25, heroTeamSprite.contentSize.width, heroTeamSprite.contentSize.height);
-        
-        CGRect villainTeamRect=CGRectMake(villainTeamSprite.position.x-villainTeamSprite.contentSize.width*0.5,villainTeamSprite.position.y-villainTeamSprite.contentSize.height*0.5 + 25, villainTeamSprite.contentSize.width, villainTeamSprite.contentSize.height);
-        
-        CGRect goldenTeamRect=CGRectMake(goldenTeamSprite.position.x-goldenTeamSprite.contentSize.width*0.5,goldenTeamSprite.position.y-goldenTeamSprite.contentSize.height*0.5 + 25, goldenTeamSprite.contentSize.width, goldenTeamSprite.contentSize.height);
-        
-        
-        CGRect newsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(44*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
-        
-        CGRect aboutRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(44*SCREEN_SCALE));
-        
-        CGRect restoreRect=CGRectMake(ADJUST_DOUBLE(150*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE), ADJUST_DOUBLE(44*SCREEN_SCALE)) ;
-        
 //#ifdef LITE_VERSION 
-        
-        
         if (![gameController isFeaturePurchased:kREMOVE_ADS_ID]&&
             [[NSUserDefaults standardUserDefaults]boolForKey:kBANNER_AD_ENABLED_KEY]) {
-            CGRect removeAdsRect=CGRectMake(ADJUST_DOUBLE(12*SCREEN_SCALE), ADJUST_DOUBLE_WITH_IPAD_TRIMMING(90*SCREEN_SCALE), ADJUST_DOUBLE(84*SCREEN_SCALE), ADJUST_DOUBLE(42*SCREEN_SCALE)) ;
-            
-            if (CGRectContainsPoint (removeAdsRect, location)) {
-                [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];        
+            if (CGRectContainsPoint (REMOVE_ADS_RECT, location)) {
+                [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
                 buttonSelector.visible=NO;
-                
                 //remove ads
                 [gameController buyFeature:kREMOVE_ADS_ID];
                 //NSURL* url=[NSURL URLWithString:kFULL_APP_LINK];
                 //[[UIApplication sharedApplication] openURL:url];
             }
-
         }
-     
 //#endif  
-        if(CGRectContainsPoint (newsRect, location)){
+        if(CGRectContainsPoint (NEWS_RECT, location)){
            [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             buttonSelector.visible=NO;
-            //news
             NewsScreenViewController *newsScreen = [[NewsScreenViewController alloc] initWithNibName:nil bundle:nil];
             newsScreen.link =kNEWS_LINK; 
             newsScreen.view.frame = kAPP_DELEGATE.window.frame;
             [newsScreen.view layoutSubviews]; 
             [((UIViewController*)kAPP_DELEGATE.window.rootViewController) presentModalViewController:newsScreen animated:YES];
         }
-        
-        else if(CGRectContainsPoint (aboutRect, location)){
+        else if(CGRectContainsPoint (ABOUT_RECT, location)){
             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             buttonSelector.visible=NO;
-            
             [[CCDirector sharedDirector]pushScene:[AboutScene scene]];
         }
-        
-        else if (CGRectContainsPoint (restoreRect, location)) {
+        else if (CGRectContainsPoint (RESTORE_RECT, location)) {
             [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             buttonSelector.visible=NO;
-            
             //test restore purchase
             [self checkPurchasedItems];
 //            [self paymentQueueRestoreCompletedTransactionsFinished:[SKPaymentQueue defaultQueue]];
-            
             for (NSObject* featureId in purchasedItemIDs) {
                 if (featureId==kUNLOCK_GOLDEN_TEAM_ID) {
                     [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
@@ -378,50 +384,39 @@ self.isTouchEnabled=YES;
             }
         }
         
-        if (CGRectContainsPoint(forestRect, location) ) {
+        if (CGRectContainsPoint(FOREST_RECT, location) ) {
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             forestSprite.visible=YES;
             egyptSprite.visible=NO;
             kingdomSprite.visible=NO;
-            
             bgTheme=forestSprite.tag;
-        
-        }else if (CGRectContainsPoint(egyptRect, location) ){
+        }else if (CGRectContainsPoint(EGYPT_RECT, location) ){
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             forestSprite.visible=NO;
             egyptSprite.visible=YES;
             kingdomSprite.visible=NO;
-            
             bgTheme=egyptSprite.tag;
-            
-        }else if (CGRectContainsPoint(kingdomRect, location) ){
+        }else if (CGRectContainsPoint(KINGDOM_RECT, location) ){
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             forestSprite.visible=NO;
             egyptSprite.visible=NO;
             kingdomSprite.visible=YES;
-            
             bgTheme=kingdomSprite.tag;
-            
-        }else if (CGRectContainsPoint(heroTeamRect, location) ){
+        }else if (CGRectContainsPoint(HERO_TEAM_RECT, location) ){
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             heroTeamSprite.visible=YES;
             villainTeamSprite.visible=NO;
             goldenTeamSprite.visible=NO;
-            
             pieceTheme=heroTeamSprite.tag-BackgroundThemeMAX;
-            
-        }else if (CGRectContainsPoint(villainTeamRect, location) ){
+        }else if (CGRectContainsPoint(VILLAN_TEAM_RECT, location) ){
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             heroTeamSprite.visible=NO;
             villainTeamSprite.visible=YES;
             goldenTeamSprite.visible=NO;
-            
             pieceTheme=villainTeamSprite.tag-BackgroundThemeMAX;
-            
-        }else if (CGRectContainsPoint(goldenTeamRect, location) ){
+        }else if (CGRectContainsPoint(GOLDEN_TEAM_RECT, location) ){
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
             if (lockSprite.visible) {
-                
                 CCSprite* blurBgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Menu_Blur_A_001.jpg"]];
                 blurBgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
                 [self addChild:blurBgSprite z:0 tag:kBLUR_BACKGROUND_TAG];
@@ -435,27 +430,28 @@ self.isTouchEnabled=YES;
                 alertSprite=[CCSprite spriteWithSpriteFrame:[frameCache spriteFrameByName:alertImageName]];
                 alertSprite.position=ccp(blurBgSprite.contentSize.width*0.5, blurBgSprite.contentSize.height*0.5);
                 [blurBgSprite addChild:alertSprite];
-                
             } else{
                 heroTeamSprite.visible=NO;
                 villainTeamSprite.visible=NO;
                 goldenTeamSprite.visible=YES;
-            
                 pieceTheme=goldenTeamSprite.tag-BackgroundThemeMAX;
             }
         }else if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
-            
             //return to main menu
              [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
         
             CCSprite* okBtnSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Button_OK_Selector.png"]];
             okBtnSelector.anchorPoint=ccp(0, 1);
-            okBtnSelector.position=ADJUST_XY(248, 56);
-            
+            if (IS_IPAD() && IS_RETINA()) {
+                okBtnSelector.scaleX = 2;
+                okBtnSelector.scaleY = 1.8;
+                okBtnSelector.position=ADJUST_XY(248, 75);
+            }else{
+                okBtnSelector.position=ADJUST_XY(248, 56);
+            }
             self.isTouchEnabled=NO;
             [self addChild:okBtnSelector];
             [self performSelector:@selector(exitSceneAndSave) withObject:nil afterDelay:0.6 ];
-             
         }
     }
 }

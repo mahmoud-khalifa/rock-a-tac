@@ -45,16 +45,18 @@
         self.isTouchEnabled=YES;
         
         CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuAbout_A.jpg"]];
-        
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
         //        bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.45);
         
+        if (IS_IPAD() && IS_RETINA()) {
+            bgSprite.scaleX = 2;
+            bgSprite.scaleY = 1.8;
+        }
         [self addChild:bgSprite];
        
         buttonSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage: @"GUI_Menu_Options_Selector_Small.png"]];
         [self addChild:buttonSelector];
         buttonSelector.visible=NO;
-        
     }
 	return self;
 }
@@ -64,17 +66,20 @@
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
-    
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    CGRect cancelRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(50*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE)) ;
-      
-    if(CGRectContainsPoint (cancelRect, location)){
-        buttonSelector.position=ADJUST_XY(162, 34);
+    if(CGRectContainsPoint (CANCEL_RECT, location)){
+        if (IS_IPAD() && IS_RETINA()) {
+            buttonSelector.position=ADJUST_XY(162, 54);
+            buttonSelector.scaleX = 3.3;
+            buttonSelector.scaleY = 2;
+        }else{
+            buttonSelector.position=ADJUST_XY(162, 34);
+            buttonSelector.scale = 1.3;
+            buttonSelector.scaleX = 1.8;
+        }
         buttonSelector.visible=YES;
-        buttonSelector.scale = 1.3;
-        buttonSelector.scaleX = 1.8;
     }
     return YES;
 }
@@ -90,29 +95,23 @@
     NSURL* url=[NSURL URLWithString:kFULL_APP_LINK];
     [[UIApplication sharedApplication] openURL:url];
 #else
-    //            [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
-    //            lockSprite.visible=NO;
-    //           
+//            [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
+//            lockSprite.visible=NO;
+//           
 #endif
     [self removeChildByTag:kBLUR_BACKGROUND_TAG cleanup:YES];
-    
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    
     buttonSelector.visible=NO;
     CGPoint location = [touch locationInView:[touch view]]; 
-    
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    CGRect cancelRect=CGRectMake(ADJUST_DOUBLE (150*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(50*SCREEN_SCALE), ADJUST_DOUBLE(90*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE)) ;
-    
-    if(CGRectContainsPoint (cancelRect, location)){
+    if(CGRectContainsPoint (CANCEL_RECT, location)){
         [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
         self.isTouchEnabled=NO;
         [[CCDirector sharedDirector]popScene];
     }
-    
 }
 
 -(void)onExit{
@@ -120,8 +119,7 @@
     [super onExit];
 }
 
-- (void) dealloc
-{
+- (void) dealloc{
 	[super dealloc];
 }
 

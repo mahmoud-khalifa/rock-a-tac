@@ -103,24 +103,17 @@ NSString * const PiecesAnimationNamesString[] = {
 }
 
 -(void)resetBoardArray{
-
-    
     [boardArray removeAllObjects];
     BoardObject *obj=[[BoardObject alloc]init];
     [boardArray addObjectsFromArray:[NSArray arrayWithObjects:obj,obj,obj,obj,obj,obj,obj,obj,obj, nil]];
     [obj autorelease];
     
     boardFull=NO;
-    
     [winningPlaces removeAllObjects];
-    
-  
 }
 
 -(NSString*)getPieceNameWithPiece:(GamePiece*)piece{
     CCSpriteFrameCache*frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
-    
-    
     [frameCache  addSpriteFramesWithFile:[NSString stringWithFormat:@"CH_%@_%@_%@_%@.plist",PiecesTypesString[piece.type],PiecesThemesString[piece.theme],PiecesModelsString[piece.model],PiecesAnimationNamesString[piece.animationName]]];
     
     piece.imageName=[NSString stringWithFormat:@"CH_%@_%@_%@_%@_%d.00.png",PiecesTypesString[piece.type],PiecesThemesString[piece.theme],PiecesModelsString[piece.model],PiecesAnimationNamesString[piece.animationName],piece.direction];
@@ -129,7 +122,6 @@ NSString * const PiecesAnimationNamesString[] = {
 }
 
 -(PlayerTypes)addPiece:(GamePiece*)piece atBoardIndex:(int)index withPlayer:(PlayerTypes)player{
-    
     BoardObject *obj=[[BoardObject alloc]init];
     obj.pieceType=piece.type;
     obj.playerType=player;
@@ -137,7 +129,6 @@ NSString * const PiecesAnimationNamesString[] = {
     PlayerTypes whoWins=[self checkWinnerForPlayer:player];
 
     return whoWins;
-
 }
 
 -(PlaceStates)checkIfPlaceAvailableWithBoardObject:(BoardObject*)boardObject atIndex:(int)index{
@@ -170,7 +161,6 @@ NSString * const PiecesAnimationNamesString[] = {
 }
 
 -(PlayerTypes)checkWhoBeatsWithNewBoardObject:(BoardObject*)newObject andCurrentBoardObject:(BoardObject*)currentObject{
-
     int deference=newObject.pieceType-currentObject.pieceType;
     if (deference==-1 || deference==2) {
         return newObject.playerType;

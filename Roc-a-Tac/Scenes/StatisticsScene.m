@@ -19,9 +19,9 @@
 -(void)facebookItemTouched:(id)sender;
 -(void)twitterItemTouched:(id)sender;
 @end
+
 @implementation StatisticsScene
-+(CCScene *) scene
-{
++(CCScene *) scene{
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -36,8 +36,7 @@
 }
 
 // on "init" you need to initialize your instance
--(id) init
-{
+-(id) init{
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
@@ -46,53 +45,51 @@
         self.isTouchEnabled=YES;
         
         CCSprite* bgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_MenuStatistics_A.png"]];
-        
         bgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
-        
+        if (IS_IPAD() && IS_RETINA()) {
+            bgSprite.scaleX = 2;
+            bgSprite.scaleY = 1.8;
+        }
         [self addChild:bgSprite];
+        
         //add labels
         NSUserDefaults*defaults=[NSUserDefaults standardUserDefaults];
-        
         //multiplayer:
         int mp_total=[defaults integerForKey:kSTATS_MULTIPLAYER_TOTAL];
         int mp_wins=[defaults integerForKey:kSTATS_MULTIPLAYER_WIN];
         int mp_loses=[defaults integerForKey:kSTATS_MULTIPLAYER_LOSE];
-        
         
         CCLabelBMFont* multiplayerTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",mp_total] fntFile:@"stats_bitmapfont.fnt"];
         multiplayerTotal.anchorPoint=ccp(0, 0.5);
 //        multiplayerTotal.position=ADJUST_XY(184, 373);
         [self addChild:multiplayerTotal];
 
-        
+        CCLabelBMFont* multiplayerWinLose;
         #ifdef ARABIC_VERSION
-            CCLabelBMFont* multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_loses, mp_wins] fntFile:@"stats_bitmapfont.fnt"];
+           multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_loses, mp_wins] fntFile:@"stats_bitmapfont.fnt"];
         #else
-            CCLabelBMFont* multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_wins, mp_loses] fntFile:@"stats_bitmapfont.fnt"];
+            multiplayerWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", mp_wins, mp_loses] fntFile:@"stats_bitmapfont.fnt"];
         #endif
-        
         multiplayerWinLose.anchorPoint=ccp(0, 0.5);
 //        multiplayerWinLose.position=ADJUST_XY(184, 355);
         [self addChild:multiplayerWinLose];
-        
         
         //single Player Easy
         int easy_total=[defaults integerForKey:kSTATS_SINGLE_EASY_TOTAL];
         int easy_wins=[defaults integerForKey:kSTATS_SINGLE_EASY_WIN];
         int easy_loses=[defaults integerForKey:kSTATS_SINGLE_EASY_LOSE];
         
-        
         CCLabelBMFont* easyTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",easy_total] fntFile:@"stats_bitmapfont.fnt"];
         easyTotal.anchorPoint=ccp(0, 0.5);
 //        easyTotal.position=ADJUST_XY(184, 284);
         [self addChild:easyTotal];
         
+        CCLabelBMFont* easyWinLose;
         #ifdef ARABIC_VERSION
-            CCLabelBMFont* easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", easy_loses, easy_wins] fntFile:@"stats_bitmapfont.fnt"];
+            easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", easy_loses, easy_wins] fntFile:@"stats_bitmapfont.fnt"];
         #else
-            CCLabelBMFont* easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",easy_wins,easy_loses] fntFile:@"stats_bitmapfont.fnt"];
+            easyWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",easy_wins,easy_loses] fntFile:@"stats_bitmapfont.fnt"];
         #endif
-        
         easyWinLose.anchorPoint=ccp(0, 0.5);
 //        easyWinLose.position=ADJUST_XY(184, 266);
         [self addChild:easyWinLose];
@@ -102,20 +99,17 @@
         int medium_wins=[defaults integerForKey:kSTATS_SINGLE_MEDIUM_WIN];
         int medium_loses=[defaults integerForKey:kSTATS_SINGLE_MEDIUM_LOSE];
         
-        
         CCLabelBMFont* mediumTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",medium_total] fntFile:@"stats_bitmapfont.fnt"];
         mediumTotal.anchorPoint=ccp(0, 0.5);
 //        mediumTotal.position=ADJUST_XY(184, 194);
         [self addChild:mediumTotal];
         
-        
+        CCLabelBMFont* mediumWinLose;
         #ifdef ARABIC_VERSION
-            CCLabelBMFont* mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", medium_loses, medium_wins] fntFile:@"stats_bitmapfont.fnt"];
+            mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", medium_loses, medium_wins] fntFile:@"stats_bitmapfont.fnt"];
         #else
-            CCLabelBMFont* mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",medium_wins,medium_loses] fntFile:@"stats_bitmapfont.fnt"];
+            mediumWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",medium_wins,medium_loses] fntFile:@"stats_bitmapfont.fnt"];
         #endif
-        
-        
         mediumWinLose.anchorPoint=ccp(0, 0.5);
 //        mediumWinLose.position=ADJUST_XY(184, 176);
         [self addChild:mediumWinLose];
@@ -125,52 +119,77 @@
         int hard_wins=[defaults integerForKey:kSTATS_SINGLE_HARD_WIN];
         int hard_loses=[defaults integerForKey:kSTATS_SINGLE_HARD_LOSE];
         
-        
         CCLabelBMFont* hardTotal=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",hard_total] fntFile:@"stats_bitmapfont.fnt"];
         hardTotal.anchorPoint=ccp(0, 0.5);
 //        hardTotal.position=ADJUST_XY(184, 103);
         [self addChild:hardTotal];
         
-        
+        CCLabelBMFont* hardWinLose;
         #ifdef ARABIC_VERSION
-            CCLabelBMFont* hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", hard_loses, hard_wins] fntFile:@"stats_bitmapfont.fnt"];
+            hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d", hard_loses, hard_wins] fntFile:@"stats_bitmapfont.fnt"];
         #else
-            CCLabelBMFont* hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",hard_wins,hard_loses] fntFile:@"stats_bitmapfont.fnt"];
+            hardWinLose=[CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d/%d",hard_wins,hard_loses] fntFile:@"stats_bitmapfont.fnt"];
         #endif
-        
         hardWinLose.anchorPoint=ccp(0, 0.5);
 //        hardWinLose.position=ADJUST_XY(184, 85);
         [self addChild:hardWinLose];
         
         
-        
         #ifdef ARABIC_VERSION
         
-            multiplayerTotal.position=ADJUST_XY(130, 373);
-            multiplayerWinLose.position=ADJUST_XY(118, 355);
-            
-            easyTotal.position=ADJUST_XY(130, 284);
-            easyWinLose.position=ADJUST_XY(118, 266);
-            
-            mediumTotal.position=ADJUST_XY(130, 194);
-            mediumWinLose.position=ADJUST_XY(118, 176);
-            
-            hardTotal.position=ADJUST_XY(130, 103);
-            hardWinLose.position=ADJUST_XY(118, 85);
+            if (IS_IPAD() && IS_RETINA()) {
+                multiplayerTotal.position=ADJUST_XY(130, 361);
+                multiplayerWinLose.position=ADJUST_XY(122, 344);
+                
+                easyTotal.position=ADJUST_XY(130, 281);
+                easyWinLose.position=ADJUST_XY(122, 265);
+                
+                mediumTotal.position=ADJUST_XY(130, 200);
+                mediumWinLose.position=ADJUST_XY(122, 183);
+                
+                hardTotal.position=ADJUST_XY(130, 118);
+                hardWinLose.position=ADJUST_XY(122, 102);
+            }else{
+                multiplayerTotal.position=ADJUST_XY(130, 373);
+                multiplayerWinLose.position=ADJUST_XY(118, 355);
+                
+                easyTotal.position=ADJUST_XY(130, 284);
+                easyWinLose.position=ADJUST_XY(118, 266);
+                
+                mediumTotal.position=ADJUST_XY(130, 194);
+                mediumWinLose.position=ADJUST_XY(118, 176);
+                
+                hardTotal.position=ADJUST_XY(130, 103);
+                hardWinLose.position=ADJUST_XY(118, 85);
+            }
         
         #else
         
-            multiplayerTotal.position=ADJUST_XY(184, 373);
-            multiplayerWinLose.position=ADJUST_XY(184, 355);
-            
-            easyTotal.position=ADJUST_XY(184, 284);
-            easyWinLose.position=ADJUST_XY(184, 266);
-            
-            mediumTotal.position=ADJUST_XY(184, 194);
-            mediumWinLose.position=ADJUST_XY(184, 176);
-            
-            hardTotal.position=ADJUST_XY(184, 103);
-            hardWinLose.position=ADJUST_XY(184, 85);
+            if (IS_IPAD() && IS_RETINA()) {
+                multiplayerTotal.position=ADJUST_XY(184, 361);
+                multiplayerWinLose.position=ADJUST_XY(184, 344);
+                
+                easyTotal.position=ADJUST_XY(184, 281);
+                easyWinLose.position=ADJUST_XY(184, 265);
+                
+                mediumTotal.position=ADJUST_XY(184, 200);
+                mediumWinLose.position=ADJUST_XY(184, 182);
+                
+                hardTotal.position=ADJUST_XY(184, 120);
+                hardWinLose.position=ADJUST_XY(184, 100);
+            }else{
+                multiplayerTotal.position=ADJUST_XY(184, 373);
+                multiplayerWinLose.position=ADJUST_XY(184, 355);
+                
+                easyTotal.position=ADJUST_XY(184, 284);
+                easyWinLose.position=ADJUST_XY(184, 266);
+                
+                mediumTotal.position=ADJUST_XY(184, 194);
+                mediumWinLose.position=ADJUST_XY(184, 176);
+                
+                hardTotal.position=ADJUST_XY(184, 103);
+                hardWinLose.position=ADJUST_XY(184, 85);
+            }
         
         #endif
         
@@ -229,10 +248,15 @@
         
         okBtnSelector=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Button_OK_Selector.png"]];
         okBtnSelector.anchorPoint=ccp(0, 1);
-         okBtnSelector.position=ADJUST_XY(248, 56);
+        if (IS_IPAD() && IS_RETINA()) {
+            okBtnSelector.scaleX = 2;
+            okBtnSelector.scaleY = 1.8;
+            okBtnSelector.position=ADJUST_XY(248, 75);
+        }else{
+            okBtnSelector.position=ADJUST_XY(248, 56);
+        }
         [self addChild:okBtnSelector];
         okBtnSelector.visible=NO;
-          
     }
 	return self;
 }
@@ -240,17 +264,17 @@
 -(void)gameCenterItemTouched:(id)sender{
     [[Controller sharedController]showLeaderBoardWithCategory:leaderboardCategory];
 }
+
 -(void)facebookItemTouched:(id)sender{
     [ShareClass shareOnFacebook];
 }
 
 -(void)twitterItemTouched:(id)sender{
     [ShareClass tweet];
-    
 }
 
 -(void)backButtonTouched:(id)sender{
-     [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
+    [[SimpleAudioEngine sharedEngine]playEffect:@"click.mp3"];
     [[CCDirector sharedDirector]popScene];
 }
 
@@ -260,19 +284,18 @@
     [[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:-1 swallowsTouches:YES];
     
 }
+
 -(BOOL) ccTouchBegan:(UITouch *)touch  withEvent:(UIEvent *)event{
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
-        
         okBtnSelector.visible=YES;
     }
     return YES;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-    
     
 }
 
@@ -282,15 +305,10 @@
     CGPoint location = [touch locationInView:[touch view]]; 
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    CGRect faceBookRect=CGRectMake(ADJUST_DOUBLE (170*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(30*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE));
-    
-    CGRect twitterRect=CGRectMake(ADJUST_DOUBLE (200*SCREEN_SCALE),ADJUST_DOUBLE_WITH_IPAD_TRIMMING(45*SCREEN_SCALE), ADJUST_DOUBLE(30*SCREEN_SCALE),ADJUST_DOUBLE(40*SCREEN_SCALE));
-
     if(CGRectContainsPoint(kOPTIONS_SCENE_OK_BUTTON_RECT, location)){
         //self.isTouchEnabled=NO;
         [self backButtonTouched:nil];
 //        [self performSelector:@selector(backButtonTouched:) withObject:nil afterDelay:0.6 ];
-        
         float adHeight;
         if (IS_IPAD()) {
             adHeight = 90;
@@ -298,24 +316,21 @@
         }else{
             adHeight = 50;
         }
-        
         CGRect adFrame = CGRectMake(0, adHeight, screenSize.width, adHeight);
         adFrame.origin.y = 0;
-        
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate adView].frame = adFrame;
     }
-    else if(CGRectContainsPoint(faceBookRect, location)){
+    else if(CGRectContainsPoint(FACEBOOK_RECT, location)){
         [ShareClass shareOnFacebook];
     }
-    else if(CGRectContainsPoint(twitterRect, location)){
+    else if(CGRectContainsPoint(TWITTER_RECT, location)){
         [ShareClass tweet];
     }
 }
 
 // on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
+- (void) dealloc{
 	// don't forget to call "super dealloc"
 	[super dealloc];
     [leaderboardCategory release];
