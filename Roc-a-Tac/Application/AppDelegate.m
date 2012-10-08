@@ -227,7 +227,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
-    
+    [[UAPush shared] resetBadge];
     // Configure ChartBoost
     Chartboost *cb = [Chartboost sharedChartboost];
     cb.appId = kCHARTBOOST_APP_ID;

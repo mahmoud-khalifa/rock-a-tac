@@ -4252,7 +4252,6 @@
 		348C7A8014D7DEA80048F2A0 = {
 			isa = PBXGroup;
 			children = (
-				3476216C1619D08F00A254AC /* AdSupport.framework */,
 				348AEE5214DA8A0A0087EFCB /* Roc-a-Tac */,
 				348C7A8E14D7DEA80048F2A0 /* Frameworks */,
 				348C7A8C14D7DEA80048F2A0 /* Products */,
@@ -4271,6 +4270,7 @@
 		348C7A8E14D7DEA80048F2A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3476216C1619D08F00A254AC /* AdSupport.framework */,
 				1ECF1A6C15FFADA600CBFB4C /* libz.dylib */,
 				1ECF1A6A15FFAD9300CBFB4C /* MobileCoreServices.framework */,
 				34788DF115D923A3003C0890 /* iAd.framework */,
@@ -6140,7 +6140,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
@@ -6182,7 +6182,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
@@ -6225,7 +6225,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
@@ -6311,7 +6311,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
@@ -6353,7 +6353,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
@@ -6414,7 +6414,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Roc-a-Tac/libs/4mnowmain\"",
