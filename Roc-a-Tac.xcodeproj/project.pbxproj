@@ -17,6 +17,22 @@
 		340BC34F15178FB300BC1FCC /* ad_bg_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 340BC34C15178FB300BC1FCC /* ad_bg_ipad.png */; };
 		340BC35115178FB300BC1FCC /* ad_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 340BC34D15178FB300BC1FCC /* ad_bg.png */; };
 		340BC35315178FB300BC1FCC /* ad_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 340BC34E15178FB300BC1FCC /* ad_bg-hd.png */; };
+		3420E2D4162EDA7000545A73 /* NSData+Base64_StoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2C8162EDA7000545A73 /* NSData+Base64_StoreKit.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2D5162EDA7000545A73 /* NSData+Base64_StoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2C8162EDA7000545A73 /* NSData+Base64_StoreKit.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2D6162EDA7000545A73 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CA162EDA7000545A73 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2D7162EDA7000545A73 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CA162EDA7000545A73 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2D8162EDA7000545A73 /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CC162EDA7000545A73 /* MKSKProduct.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2D9162EDA7000545A73 /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CC162EDA7000545A73 /* MKSKProduct.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DA162EDA7000545A73 /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CE162EDA7000545A73 /* MKSKSubscriptionProduct.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DB162EDA7000545A73 /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2CE162EDA7000545A73 /* MKSKSubscriptionProduct.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DC162EDA7000545A73 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2D1162EDA7000545A73 /* MKStoreManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DD162EDA7000545A73 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2D1162EDA7000545A73 /* MKStoreManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DE162EDA7000545A73 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2D3162EDA7000545A73 /* VerificationController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2DF162EDA7000545A73 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2D3162EDA7000545A73 /* VerificationController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3420E2E3162EDC2800545A73 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2E2162EDC2800545A73 /* JSONKit.m */; };
+		3420E2E4162EDC2800545A73 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3420E2E2162EDC2800545A73 /* JSONKit.m */; };
+		3420E2E7162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3420E2E6162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist */; };
+		3420E2E8162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3420E2E6162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist */; };
 		34761F681619C57300A254AC /* libMain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34761CD81619C57200A254AC /* libMain.a */; };
 		34761F691619C57300A254AC /* libMain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34761CD81619C57200A254AC /* libMain.a */; };
 		34761F6A1619C57300A254AC /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34761CDA1619C57200A254AC /* AirshipConfig.plist */; };
@@ -507,13 +523,6 @@
 		347B963A15EA15AB00BED4F8 /* BoardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 349164A914ED0F6F007DDFA4 /* BoardObject.m */; };
 		347B963B15EA15AB00BED4F8 /* computerplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 348D920C14FFA60D003B5377 /* computerplayer.m */; };
 		347B963C15EA15AB00BED4F8 /* CCAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 348E0CB41503A53400FDC811 /* CCAnimationHelper.m */; };
-		347B963D15EA15AB00BED4F8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603511507D174009FB404 /* JSONKit.m */; };
-		347B963E15EA15AB00BED4F8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603531507D174009FB404 /* NSData+Base64.m */; };
-		347B963F15EA15AB00BED4F8 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603551507D174009FB404 /* SFHFKeychainUtils.m */; };
-		347B964015EA15AB00BED4F8 /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603571507D174009FB404 /* MKSKProduct.m */; };
-		347B964115EA15AB00BED4F8 /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603591507D174009FB404 /* MKSKSubscriptionProduct.m */; };
-		347B964215EA15AB00BED4F8 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3496035D1507D174009FB404 /* MKStoreManager.m */; };
-		347B964315EA15AB00BED4F8 /* MKStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3496035F1507D174009FB404 /* MKStoreObserver.m */; };
 		347B964515EA15AB00BED4F8 /* BlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348EFCDB150E3CDF00754BDA /* BlockAlertView.m */; };
 		347B964615EA15AB00BED4F8 /* BlockBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 348EFCDD150E3CDF00754BDA /* BlockBackground.m */; };
 		347B964715EA15AB00BED4F8 /* NewsScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BC8CC315123F3000EF98D3 /* NewsScreenViewController.m */; };
@@ -1381,14 +1390,7 @@
 		3495614F14E028FE009F3DB7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3495614E14E028FE009F3DB7 /* libsqlite3.dylib */; };
 		3495615114E02913009F3DB7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3495615014E02913009F3DB7 /* CoreTelephony.framework */; };
 		3495615314E02929009F3DB7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3495615214E02929009F3DB7 /* MediaPlayer.framework */; };
-		349603601507D174009FB404 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603511507D174009FB404 /* JSONKit.m */; };
-		349603611507D174009FB404 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603531507D174009FB404 /* NSData+Base64.m */; };
-		349603621507D174009FB404 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603551507D174009FB404 /* SFHFKeychainUtils.m */; };
-		349603631507D174009FB404 /* MKSKProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603571507D174009FB404 /* MKSKProduct.m */; };
-		349603641507D174009FB404 /* MKSKSubscriptionProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 349603591507D174009FB404 /* MKSKSubscriptionProduct.m */; };
 		349603651507D174009FB404 /* MKStoreKitConfigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3496035B1507D174009FB404 /* MKStoreKitConfigs.plist */; };
-		349603661507D174009FB404 /* MKStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3496035D1507D174009FB404 /* MKStoreManager.m */; };
-		349603671507D174009FB404 /* MKStoreObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3496035F1507D174009FB404 /* MKStoreObserver.m */; };
 		349603691507D1CE009FB404 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 349603681507D1CA009FB404 /* StoreKit.framework */; };
 		3496036B1507D1DE009FB404 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3496036A1507D1DA009FB404 /* Security.framework */; };
 		349AE30F14EA6E51002F4775 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 349AE30E14EA6E51002F4775 /* Controller.m */; };
@@ -1506,15 +1508,31 @@
 /* Begin PBXFileReference section */
 		1ECF1A6A15FFAD9300CBFB4C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1ECF1A6C15FFADA600CBFB4C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		31484A4B14E1C3EF006332EC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31484A4B14E1C3EF006332EC /* Roc-a-Tac-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Roc-a-Tac-Info.plist"; sourceTree = "<group>"; };
 		31484A4C14E1C3EF006332EC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		31484A4D14E1C3EF006332EC /* Roc-a-Tac-Lite-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Roc-a-Tac-Lite-Info.plist"; sourceTree = "<group>"; };
 		31484A5014E1C49C006332EC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = SOURCE_ROOT; };
 		340BC32D151741FA00BC1FCC /* gamecenter_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamecenter_icon.png; sourceTree = "<group>"; };
 		340BC32E151741FA00BC1FCC /* gamecenter_icon-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gamecenter_icon-hd.png"; sourceTree = "<group>"; };
 		340BC34C15178FB300BC1FCC /* ad_bg_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad_bg_ipad.png; sourceTree = "<group>"; };
 		340BC34D15178FB300BC1FCC /* ad_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ad_bg.png; sourceTree = "<group>"; };
 		340BC34E15178FB300BC1FCC /* ad_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad_bg-hd.png"; sourceTree = "<group>"; };
+		3420E2C7162EDA7000545A73 /* NSData+Base64_StoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64_StoreKit.h"; sourceTree = "<group>"; };
+		3420E2C8162EDA7000545A73 /* NSData+Base64_StoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64_StoreKit.m"; sourceTree = "<group>"; };
+		3420E2C9162EDA7000545A73 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		3420E2CA162EDA7000545A73 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		3420E2CB162EDA7000545A73 /* MKSKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKProduct.h; sourceTree = "<group>"; };
+		3420E2CC162EDA7000545A73 /* MKSKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKProduct.m; sourceTree = "<group>"; };
+		3420E2CD162EDA7000545A73 /* MKSKSubscriptionProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKSubscriptionProduct.h; sourceTree = "<group>"; };
+		3420E2CE162EDA7000545A73 /* MKSKSubscriptionProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKSubscriptionProduct.m; sourceTree = "<group>"; };
+		3420E2CF162EDA7000545A73 /* MKStoreKitConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKitConfigs.h; sourceTree = "<group>"; };
+		3420E2D0162EDA7000545A73 /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
+		3420E2D1162EDA7000545A73 /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
+		3420E2D2162EDA7000545A73 /* VerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationController.h; sourceTree = "<group>"; };
+		3420E2D3162EDA7000545A73 /* VerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationController.m; sourceTree = "<group>"; };
+		3420E2E1162EDC2800545A73 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		3420E2E2162EDC2800545A73 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		3420E2E5162EE10F00545A73 /* RocaTac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RocaTac.entitlements; sourceTree = "<group>"; };
+		3420E2E6162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Roc-a-Tac-Arabic-Info.plist"; sourceTree = "<group>"; };
 		34761CD71619C57200A254AC /* FourmnowSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourmnowSDK.h; sourceTree = "<group>"; };
 		34761CD81619C57200A254AC /* libMain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMain.a; sourceTree = "<group>"; };
 		34761CDA1619C57200A254AC /* AirshipConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = AirshipConfig.plist; sourceTree = "<group>"; };
@@ -2092,7 +2110,6 @@
 		347A794315F4AAF5003B1770 /* rate_app_paid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rate_app_paid.plist; sourceTree = "<group>"; };
 		347A794415F4AAF5003B1770 /* rate_app_paid.pvrtc.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = rate_app_paid.pvrtc.ccz; sourceTree = "<group>"; };
 		347B98AC15EA15AB00BED4F8 /* Roc-a-Tac-Arabic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roc-a-Tac-Arabic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		347B98AE15EA15AB00BED4F8 /* Roc-a-Tac-Arabic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Roc-a-Tac-Arabic-Info.plist"; path = "/Work/Xcode Projects/roc-s/Roc-a-Tac-Arabic-Info.plist"; sourceTree = "<absolute>"; };
 		347E981416086A4D00F0EDB0 /* Restore_Button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Restore_Button-hd.png"; sourceTree = "<group>"; };
 		347E981616086A6200F0EDB0 /* Restore_Button-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Restore_Button-hd.png"; sourceTree = "<group>"; };
 		347E981816086BA200F0EDB0 /* Restore_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Restore_Button.png; sourceTree = "<group>"; };
@@ -2518,22 +2535,7 @@
 		3495614E14E028FE009F3DB7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3495615014E02913009F3DB7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		3495615214E02929009F3DB7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		349603501507D174009FB404 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		349603511507D174009FB404 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		349603521507D174009FB404 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		349603531507D174009FB404 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		349603541507D174009FB404 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		349603551507D174009FB404 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
-		349603561507D174009FB404 /* MKSKProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKProduct.h; sourceTree = "<group>"; };
-		349603571507D174009FB404 /* MKSKProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKProduct.m; sourceTree = "<group>"; };
-		349603581507D174009FB404 /* MKSKSubscriptionProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSKSubscriptionProduct.h; sourceTree = "<group>"; };
-		349603591507D174009FB404 /* MKSKSubscriptionProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSKSubscriptionProduct.m; sourceTree = "<group>"; };
-		3496035A1507D174009FB404 /* MKStoreKitConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKitConfigs.h; sourceTree = "<group>"; };
 		3496035B1507D174009FB404 /* MKStoreKitConfigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MKStoreKitConfigs.plist; sourceTree = "<group>"; };
-		3496035C1507D174009FB404 /* MKStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreManager.h; sourceTree = "<group>"; };
-		3496035D1507D174009FB404 /* MKStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreManager.m; sourceTree = "<group>"; };
-		3496035E1507D174009FB404 /* MKStoreObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreObserver.h; sourceTree = "<group>"; };
-		3496035F1507D174009FB404 /* MKStoreObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreObserver.m; sourceTree = "<group>"; };
 		349603681507D1CA009FB404 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3496036A1507D1DA009FB404 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		349AE30D14EA6E51002F4775 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
@@ -2731,18 +2733,38 @@
 		31484A4A14E1C3EF006332EC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				347B98AE15EA15AB00BED4F8 /* Roc-a-Tac-Arabic-Info.plist */,
+				3420E2E6162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist */,
 				31484A5014E1C49C006332EC /* Entitlements.plist */,
-				31484A4B14E1C3EF006332EC /* Info.plist */,
+				31484A4B14E1C3EF006332EC /* Roc-a-Tac-Info.plist */,
 				31484A4C14E1C3EF006332EC /* Prefix.pch */,
-				31484A4D14E1C3EF006332EC /* Roc-a-Tac-Lite-Info.plist */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		3420E2C6162EDA7000545A73 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				3420E2C7162EDA7000545A73 /* NSData+Base64_StoreKit.h */,
+				3420E2C8162EDA7000545A73 /* NSData+Base64_StoreKit.m */,
+				3420E2C9162EDA7000545A73 /* SFHFKeychainUtils.h */,
+				3420E2CA162EDA7000545A73 /* SFHFKeychainUtils.m */,
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
+		3420E2E0162EDC2800545A73 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				3420E2E1162EDC2800545A73 /* JSONKit.h */,
+				3420E2E2162EDC2800545A73 /* JSONKit.m */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 		34761CD51619C57200A254AC /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				3420E2E0162EDC2800545A73 /* JSONKit */,
 				34761CD61619C57200A254AC /* 4mnowmain */,
 				34761CD91619C57200A254AC /* Airship */,
 				34761D301619C57200A254AC /* Chartboost */,
@@ -4153,6 +4175,7 @@
 		348AEE5214DA8A0A0087EFCB /* Roc-a-Tac */ = {
 			isa = PBXGroup;
 			children = (
+				3420E2E5162EE10F00545A73 /* RocaTac.entitlements */,
 				34761CD51619C57200A254AC /* libs */,
 				34B65CE61510DDBC003723F6 /* Resources */,
 				348EFCD0150E3CDF00754BDA /* Custom AlertView */,
@@ -4341,32 +4364,19 @@
 			isa = PBXGroup;
 			children = (
 				34FC5A3215F3AAC80081E720 /* Arabic */,
-				3496034F1507D174009FB404 /* Externals */,
-				349603561507D174009FB404 /* MKSKProduct.h */,
-				349603571507D174009FB404 /* MKSKProduct.m */,
-				349603581507D174009FB404 /* MKSKSubscriptionProduct.h */,
-				349603591507D174009FB404 /* MKSKSubscriptionProduct.m */,
-				3496035A1507D174009FB404 /* MKStoreKitConfigs.h */,
+				3420E2C6162EDA7000545A73 /* Externals */,
+				3420E2CB162EDA7000545A73 /* MKSKProduct.h */,
+				3420E2CC162EDA7000545A73 /* MKSKProduct.m */,
+				3420E2CD162EDA7000545A73 /* MKSKSubscriptionProduct.h */,
+				3420E2CE162EDA7000545A73 /* MKSKSubscriptionProduct.m */,
+				3420E2CF162EDA7000545A73 /* MKStoreKitConfigs.h */,
+				3420E2D0162EDA7000545A73 /* MKStoreManager.h */,
+				3420E2D1162EDA7000545A73 /* MKStoreManager.m */,
+				3420E2D2162EDA7000545A73 /* VerificationController.h */,
+				3420E2D3162EDA7000545A73 /* VerificationController.m */,
 				3496035B1507D174009FB404 /* MKStoreKitConfigs.plist */,
-				3496035C1507D174009FB404 /* MKStoreManager.h */,
-				3496035D1507D174009FB404 /* MKStoreManager.m */,
-				3496035E1507D174009FB404 /* MKStoreObserver.h */,
-				3496035F1507D174009FB404 /* MKStoreObserver.m */,
 			);
 			path = MKStoreKit;
-			sourceTree = "<group>";
-		};
-		3496034F1507D174009FB404 /* Externals */ = {
-			isa = PBXGroup;
-			children = (
-				349603501507D174009FB404 /* JSONKit.h */,
-				349603511507D174009FB404 /* JSONKit.m */,
-				349603521507D174009FB404 /* NSData+Base64.h */,
-				349603531507D174009FB404 /* NSData+Base64.m */,
-				349603541507D174009FB404 /* SFHFKeychainUtils.h */,
-				349603551507D174009FB404 /* SFHFKeychainUtils.m */,
-			);
-			path = Externals;
 			sourceTree = "<group>";
 		};
 		349AE30C14EA6E51002F4775 /* Game Controller */ = {
@@ -5164,6 +5174,7 @@
 				347621571619C57400A254AC /* twitter_load.png in Resources */,
 				3476215B1619C57400A254AC /* TwitterRushViewController.xib in Resources */,
 				3476215D1619C57400A254AC /* TwitterRushViewController_iPad.xib in Resources */,
+				3420E2E8162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5676,6 +5687,7 @@
 				347621561619C57400A254AC /* twitter_load.png in Resources */,
 				3476215A1619C57400A254AC /* TwitterRushViewController.xib in Resources */,
 				3476215C1619C57400A254AC /* TwitterRushViewController_iPad.xib in Resources */,
+				3420E2E7162EED5A00545A73 /* Roc-a-Tac-Arabic-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5700,13 +5712,6 @@
 				347B963A15EA15AB00BED4F8 /* BoardObject.m in Sources */,
 				347B963B15EA15AB00BED4F8 /* computerplayer.m in Sources */,
 				347B963C15EA15AB00BED4F8 /* CCAnimationHelper.m in Sources */,
-				347B963D15EA15AB00BED4F8 /* JSONKit.m in Sources */,
-				347B963E15EA15AB00BED4F8 /* NSData+Base64.m in Sources */,
-				347B963F15EA15AB00BED4F8 /* SFHFKeychainUtils.m in Sources */,
-				347B964015EA15AB00BED4F8 /* MKSKProduct.m in Sources */,
-				347B964115EA15AB00BED4F8 /* MKSKSubscriptionProduct.m in Sources */,
-				347B964215EA15AB00BED4F8 /* MKStoreManager.m in Sources */,
-				347B964315EA15AB00BED4F8 /* MKStoreObserver.m in Sources */,
 				347B964515EA15AB00BED4F8 /* BlockAlertView.m in Sources */,
 				347B964615EA15AB00BED4F8 /* BlockBackground.m in Sources */,
 				347B964715EA15AB00BED4F8 /* NewsScreenViewController.m in Sources */,
@@ -5897,6 +5902,13 @@
 				347621551619C57400A254AC /* SA_OAuthTwitterEngine.m in Sources */,
 				347621591619C57400A254AC /* TwitterRushViewController.m in Sources */,
 				347621671619C7AF00A254AC /* StatisticsCollector.m in Sources */,
+				3420E2D5162EDA7000545A73 /* NSData+Base64_StoreKit.m in Sources */,
+				3420E2D7162EDA7000545A73 /* SFHFKeychainUtils.m in Sources */,
+				3420E2D9162EDA7000545A73 /* MKSKProduct.m in Sources */,
+				3420E2DB162EDA7000545A73 /* MKSKSubscriptionProduct.m in Sources */,
+				3420E2DD162EDA7000545A73 /* MKStoreManager.m in Sources */,
+				3420E2DF162EDA7000545A73 /* VerificationController.m in Sources */,
+				3420E2E4162EDC2800545A73 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5918,13 +5930,6 @@
 				349164AA14ED0F6F007DDFA4 /* BoardObject.m in Sources */,
 				348D920D14FFA60D003B5377 /* computerplayer.m in Sources */,
 				348E0CB51503A53400FDC811 /* CCAnimationHelper.m in Sources */,
-				349603601507D174009FB404 /* JSONKit.m in Sources */,
-				349603611507D174009FB404 /* NSData+Base64.m in Sources */,
-				349603621507D174009FB404 /* SFHFKeychainUtils.m in Sources */,
-				349603631507D174009FB404 /* MKSKProduct.m in Sources */,
-				349603641507D174009FB404 /* MKSKSubscriptionProduct.m in Sources */,
-				349603661507D174009FB404 /* MKStoreManager.m in Sources */,
-				349603671507D174009FB404 /* MKStoreObserver.m in Sources */,
 				348EFCE6150E3CDF00754BDA /* BlockAlertView.m in Sources */,
 				348EFCE7150E3CDF00754BDA /* BlockBackground.m in Sources */,
 				34BC8CC515123F3000EF98D3 /* NewsScreenViewController.m in Sources */,
@@ -6115,6 +6120,13 @@
 				347621541619C57400A254AC /* SA_OAuthTwitterEngine.m in Sources */,
 				347621581619C57400A254AC /* TwitterRushViewController.m in Sources */,
 				347621661619C7AF00A254AC /* StatisticsCollector.m in Sources */,
+				3420E2D4162EDA7000545A73 /* NSData+Base64_StoreKit.m in Sources */,
+				3420E2D6162EDA7000545A73 /* SFHFKeychainUtils.m in Sources */,
+				3420E2D8162EDA7000545A73 /* MKSKProduct.m in Sources */,
+				3420E2DA162EDA7000545A73 /* MKSKSubscriptionProduct.m in Sources */,
+				3420E2DC162EDA7000545A73 /* MKStoreManager.m in Sources */,
+				3420E2DE162EDA7000545A73 /* VerificationController.m in Sources */,
+				3420E2E3162EDC2800545A73 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6139,7 +6151,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Arabic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6181,7 +6193,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Arabic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6224,7 +6236,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac-Arabic-Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Arabic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6310,7 +6322,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6342,7 +6354,6 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Starios Games LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Starios Games LLC";
 				COPY_PHASE_STRIP = YES;
@@ -6352,7 +6363,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6403,7 +6414,6 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Starios Games LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Starios Games LLC";
 				COPY_PHASE_STRIP = YES;
@@ -6413,7 +6423,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Info.plist";
+				INFOPLIST_FILE = "Roc-a-Tac/Support Files/Roc-a-Tac-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

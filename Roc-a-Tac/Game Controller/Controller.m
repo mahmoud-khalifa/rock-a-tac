@@ -712,7 +712,7 @@ NSString * const PiecesAnimationNamesString[] = {
 -(void)buyFeature:(NSString*)featureId{
     if ([self connectedToWeb]) {
         [[MKStoreManager sharedManager] buyFeature:featureId 
-                                        onComplete:^(NSString* purchasedFeature)
+                                        onComplete:^(NSString* purchasedFeature, NSData*purchasedReceipt, NSArray* availableDownloads)
          {
              CCLOG(@"Purchased: %@", purchasedFeature);
              

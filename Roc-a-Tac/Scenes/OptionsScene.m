@@ -302,7 +302,7 @@ self.isTouchEnabled=YES;
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     
-     buttonSelector.visible=NO;
+    buttonSelector.visible=NO;
     CGPoint location = [touch locationInView:[touch view]]; 
     
     location = [[CCDirector sharedDirector] convertToGL:location];
@@ -419,6 +419,10 @@ self.isTouchEnabled=YES;
             if (lockSprite.visible) {
                 CCSprite* blurBgSprite=[CCSprite spriteWithTexture:[[CCTextureCache sharedTextureCache]addImage:@"GUI_Menu_Blur_A_001.jpg"]];
                 blurBgSprite.position=ccp(screenSize.width*0.5, screenSize.height*0.5);
+                if (IS_IPAD() && IS_RETINA()) {
+                    blurBgSprite.scaleX = 2;
+                    blurBgSprite.scaleY = 1.8;
+                }
                 [self addChild:blurBgSprite z:0 tag:kBLUR_BACKGROUND_TAG];
                 NSString* alertImageName;
 //#ifdef LITE_VERSION
@@ -457,7 +461,6 @@ self.isTouchEnabled=YES;
 }
 
 -(void)exitSceneAndSave{
-  
     [settingDict setObject:[NSNumber numberWithInt:bgTheme] forKey:kSETTING_BACKGROUND_THEME_KEY];
     [settingDict setObject:[NSNumber numberWithInt:pieceTheme] forKey:kSETTING_PIECE_MODEL_KEY];
   
@@ -480,8 +483,7 @@ self.isTouchEnabled=YES;
     [appDelegate adView].frame = adFrame ;
 }
 
-- (NSString*) storageFilePath
-{
+- (NSString*) storageFilePath{
 	return [NSString stringWithFormat: @"%@/Documents/%@.plist", NSHomeDirectory(),kSETTING_PLIST_FILE_NAME];
 }
 
@@ -490,8 +492,7 @@ self.isTouchEnabled=YES;
     [super onExit];
 }
 // on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
+- (void) dealloc{
     [settingDict release];
 	// don't forget to call "super dealloc"
 	[super dealloc];
@@ -500,7 +501,6 @@ self.isTouchEnabled=YES;
 
 #pragma Controller Delegate
 -(void)onPurchaseFeatureCompleted:(NSString*)featureId{
-
     if (featureId==kUNLOCK_GOLDEN_TEAM_ID) {
         [settingDict setObject:[NSNumber numberWithInt:0] forKey:kSETTING_GOLDEN_TEAM_LOCKED];
         [settingDict writeToFile:[self storageFilePath] atomically: YES];
@@ -510,11 +510,9 @@ self.isTouchEnabled=YES;
     }else if(featureId==kREMOVE_ADS_ID){
         removeAds.visible=NO;
     }
-    
 }
 
-- (void) checkPurchasedItems
-{
+- (void) checkPurchasedItems{
     [self activityIndicatorRun];
     
     [[MKStoreManager sharedManager] 
